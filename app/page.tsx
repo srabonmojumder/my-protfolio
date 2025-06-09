@@ -1,6 +1,9 @@
 "use client"
 import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare } from "react-icons/fa";
+import { SiTailwindcss, SiNextdotjs, SiJquery } from "react-icons/si";
+import { Code, Layout, Grid, LayoutGrid } from "lucide-react";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import ProjectCard from "./components/ProjectCard";
@@ -14,7 +17,7 @@ const projects = [
     description: "A modern e-commerce platform built with Next.js and Stripe integration",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
     imageUrl: "/project1.jpg",
-    githubUrl: "#",
+    githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "#"
   },
   {
@@ -22,7 +25,7 @@ const projects = [
     description: "A real-time social media application with chat and notifications",
     technologies: ["React", "Firebase", "Material UI"],
     imageUrl: "/project2.jpg",
-    githubUrl: "#",
+    githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "#"
   },
   {
@@ -30,7 +33,7 @@ const projects = [
     description: "A responsive portfolio website showcasing my work and skills",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     imageUrl: "/project3.jpg",
-    githubUrl: "#",
+    githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "#"
   }
 ];
@@ -47,6 +50,49 @@ const testimonials = [
     name: "Jane Smith",
     role: "Product Manager",
     company: "Design Agency"
+  }
+];
+
+const skills = [
+  {
+    name: 'HTML5',
+    icon: FaHtml5,
+    level: 'Expert'
+  },
+  {
+    name: 'CSS3',
+    icon: FaCss3Alt,
+    level: 'Expert'
+  },
+  {
+    name: 'Bootstrap',
+    icon: FaBootstrap,
+    level: 'Advanced'
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: SiTailwindcss,
+    level: 'Advanced'
+  },
+  {
+    name: 'Next.js',
+    icon: SiNextdotjs,
+    level: 'Advanced'
+  },
+  {
+    name: 'React.js',
+    icon: FaReact,
+    level: 'Advanced'
+  },
+  {
+    name: 'jQuery',
+    icon: SiJquery,
+    level: 'Advanced'
+  },
+  {
+    name: 'JavaScript',
+    icon: FaJsSquare,
+    level: 'Expert'
   }
 ];
 
@@ -74,7 +120,7 @@ export default function Home() {
           className="text-center max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Hi, I'm [Your Name]
+            Hi, I'm Srabon Mozumder
           </h1>
           <p className="text-xl md:text-2xl mb-8">
             Frontend Developer & UI/UX Designer
@@ -93,14 +139,13 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
+          <h2 className="text-3xl font-bold mb-12 ">
             About Me
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-lg mb-6">
-                I'm a passionate frontend developer with a keen eye for design and user experience. 
-                I love creating beautiful, responsive websites that solve real problems.
+                I'm currently pursuing a Diploma in Computer Science and Engineering (CSE). I'm passionate about web development and creating user-friendly interfaces.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -125,7 +170,7 @@ export default function Home() {
             </div>
             <div className="md:text-right">
               <Image
-                src="/profile.jpg"
+                src="/images/profile.png"
                 alt="Profile"
                 width={400}
                 height={400}
@@ -136,10 +181,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section id="skills" className="py-20 ">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8">Skills</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="skill-card fade-in"
+              >
+                <div className="icon">
+                  <skill.icon className="text-2xl" />
+                </div>
+                <h3>{skill.name}</h3>
+                <p className="text-sm">{skill.level}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
+          <h2 className="text-3xl font-bold mb-12 ">
             My Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -151,9 +220,9 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gray-800">
+      <section id="testimonials" className="py-20 ">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
+          <h2 className="text-3xl font-bold mb-12 ">
             What Clients Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -167,7 +236,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
+          <h2 className="text-3xl font-bold mb-12 ">
             Get in Touch
           </h2>
           <div className="max-w-2xl mx-auto">
