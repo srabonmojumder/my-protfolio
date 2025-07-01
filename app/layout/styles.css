@@ -166,6 +166,26 @@ a:hover::after {
 }
 
 /* Cards */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .card {
   background: var(--card-bg);
   border-radius: 15px;
@@ -173,11 +193,91 @@ a:hover::after {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border-left: 4px solid var(--accent-color);
+  animation: slideIn 0.8s ease-out forwards;
 }
 
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-left-width: 6px;
+}
+
+/* Hero Section Animation */
+.hero-text {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Skills Animation */
+.skill-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.skill-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.skill-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Projects Animation */
+.project-card {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Contact Form Animation */
+.contact-form {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Gradient Background */
+.gradient-bg {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+}
+
+/* Hover Effects */
+.card {
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-left-width: 6px;
+  }
+}
+
+/* Button Hover Effect */
+.button {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Section Headers */
+.section-header {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--accent-color);
 }
 
 /* Education Section */
