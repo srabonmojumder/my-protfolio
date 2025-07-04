@@ -319,7 +319,7 @@ export default function Home() {
                 </div>
               </motion.div>
               
-              {/* Web Development Certification */}
+              {/* HSC */}
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -332,8 +332,56 @@ export default function Home() {
                 </div>
                 
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 transition-all">
-                  <div className="flex flex-col sm:flex-row justify-between mb-2">
-                    <h3 className="text-xl font-bold text-white">Frontend Web Development Certification</h3>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+                    <h3 className="text-xl font-bold text-white break-words">Higher Secondary Certificate (HSC)</h3>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400">
+                      2019
+                    </span>
+                  </div>
+                  <p className="text-lg text-cyan-400">Mohammadpur Govt. College | Commerce Group</p>
+                  <p className="mt-3 text-gray-300">Focused on business studies, accounting, economics, and commercial mathematics. Achieved GPA 4.33/5.00. Participated in college business club activities and organized commerce-related events.</p>
+                </div>
+              </motion.div>
+              
+              {/* SSC */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mb-12 sm:ml-12 relative"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-[-33px] top-0 w-7 h-7 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full hidden sm:flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 transition-all">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+                    <h3 className="text-xl font-bold text-white break-words">Secondary School Certificate (SSC)</h3>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400">
+                      2017
+                    </span>
+                  </div>
+                  <p className="text-lg text-cyan-400">Mohammadpur Model School & College | Commerce Group</p>
+                  <p className="mt-3 text-gray-300">Studied commerce subjects including business entrepreneurship, accounting, and finance. Achieved GPA 4.56/5.00. Active member of the school debate club and participated in inter-school business competitions.</p>
+                </div>
+              </motion.div>
+              
+              {/* Web Development Certification */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mb-12 sm:ml-12 relative"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-[-33px] top-0 w-7 h-7 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full hidden sm:flex items-center justify-center">
+                  <div className="w-3 h-3 bg-white rounded-full"></div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 transition-all">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-2">
+                    <h3 className="text-xl font-bold text-white break-words">Frontend Web Development Certification</h3>
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400">
                       2022
                     </span>
