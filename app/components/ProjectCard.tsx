@@ -1,15 +1,16 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
-import { CgWebsite } from "react-icons/cg";
+"use client"
+
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
 
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl: string;
-  githubUrl: string;
-  liveUrl: string;
+  title: string
+  description: string
+  technologies: string[]
+  imageUrl: string
+  githubUrl: string
+  liveUrl: string
 }
 
 export default function ProjectCard({
@@ -18,61 +19,94 @@ export default function ProjectCard({
   technologies,
   imageUrl,
   githubUrl,
-  liveUrl
+  liveUrl,
 }: ProjectCardProps) {
   return (
-    <motion.div 
-      whileHover={{ scale: 1.02 }}
-      className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-cyan-500/10 border border-gray-700/30 hover:border-cyan-500/30 transition-all h-full flex flex-col"
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/30 backdrop-blur-sm hover:border-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/10 transition-all group"
     >
-      <div className="relative h-48 w-full overflow-hidden group">
+      {/* Project Image */}
+      <div className="relative overflow-hidden">
         <Image
-          src={imageUrl}
+          src={imageUrl || "/placeholder.svg"}
           alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, 600px"
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          width={400}
+          height={300}
+          className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Overlay Links */}
+        <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <motion.a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-gray-900/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-cyan-500/80 transition-colors"
+            aria-label="View on GitHub"
+          >
+            <FaGithub className="w-5 h-5" />
+          </motion.a>
+          <motion.a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-10 h-10 bg-gray-900/80 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-cyan-500/80 transition-colors"
+            aria-label="View Live Demo"
+          >
+            <FaExternalLinkAlt className="w-4 h-4" />
+          </motion.a>
+        </div>
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">{title}</h3>
-        <p className="text-gray-400 mb-4 line-clamp-3 flex-grow">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-5">
+
+      {/* Project Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">{title}</h3>
+        <p className="text-gray-400 text-sm leading-relaxed mb-4">{description}</p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <span 
+            <span
               key={index}
-              className="px-3 py-1 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 text-cyan-400 rounded-full text-xs font-medium"
+              className="px-3 py-1 text-xs font-medium bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20"
             >
               {tech}
             </span>
           ))}
         </div>
-        <div className="flex space-x-3 mt-auto">
-          <motion.a 
+
+        {/* Action Links */}
+        <div className="flex space-x-4">
+          <motion.a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white rounded-lg transition-all group flex-1"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors text-sm"
           >
-            <FaGithub className="mr-2 text-lg group-hover:scale-110 transition-transform" />
-            GitHub
+            <FaGithub className="w-4 h-4" />
+            <span>Code</span>
           </motion.a>
-          <motion.a 
+          <motion.a
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white rounded-lg transition-all group flex-1"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors text-sm"
           >
-            <CgWebsite className="mr-2 text-lg group-hover:scale-110 transition-transform" />
-            Live Demo
+            <FaExternalLinkAlt className="w-4 h-4" />
+            <span>Live Demo</span>
           </motion.a>
         </div>
       </div>
     </motion.div>
-  );
+  )
 }
