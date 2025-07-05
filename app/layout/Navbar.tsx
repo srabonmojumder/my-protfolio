@@ -46,7 +46,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 header-menu">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
@@ -74,7 +74,7 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden bg-gray-900/95 backdrop-blur-md rounded-lg mt-2"
         >
-          <div className="px-4 py-4 space-y-3">
+          <div className="px-4 py-4 space-y-3 header-menu">
             {navItems.map((item) => (
               <a
                 key={item.name}
