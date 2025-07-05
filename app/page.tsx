@@ -313,7 +313,7 @@ export default function Home() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 hidden sm:block"></div>
+            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 hidden sm:block"></div>
 
             <div className="space-y-8 sm:space-y-12">
               {/* Education items */}
@@ -517,6 +517,35 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Achievement Section */}
+      <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              { number: "10+", label: "Projects Completed" },
+              { number: "2+", label: "Years Experience" },
+              { number: "8+", label: "Satisfied Clients" },
+              { number: "3+", label: "Tech Certifications" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 sm:p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 text-center"
+              >
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm sm:text-base text-gray-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gray-800/50 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
@@ -540,9 +569,9 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-6">Contact Info</h3>
               <div className="space-y-4">
                 {[
-                  { icon: "✉️", text: "srabon.mojumder@gmail.com" },
+                  { icon: "✉️", text: "srabonmozumder29@gmail.com" },
                   { icon: "📍", text: "Dhaka, Bangladesh" },
-                  { icon: "📞", text: "+880 1234-567890" },
+                  { icon: "📞", text: "+880 1827-621312" },
                 ].map((item, index) => (
                   <div
                     key={index}
@@ -594,33 +623,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Achievement Section */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { number: "10+", label: "Projects Completed" },
-              { number: "2+", label: "Years Experience" },
-              { number: "8+", label: "Satisfied Clients" },
-              { number: "3+", label: "Tech Certifications" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 sm:p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 text-center"
-              >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm sm:text-base text-gray-300">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
