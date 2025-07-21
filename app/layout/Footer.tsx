@@ -66,7 +66,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto ">
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left Side - Brand & Description */}
