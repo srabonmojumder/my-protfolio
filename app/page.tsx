@@ -5,13 +5,13 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare } from "react-icons/fa"
 import { SiTailwindcss, SiNextdotjs, SiJquery } from "react-icons/si"
 import { motion, useAnimation } from "framer-motion"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "./layout/Navbar"
 import Footer from "./layout/Footer"
 import ProjectCard from "./components/ProjectCard"
 import Testimonial from "./components/Testimonial"
-import { useState } from "react"
 import { Mail, MapPin, Phone, Send, MessageCircle, Sparkles, ArrowRight, CheckCircle, Award, Code, Heart, Users } from "lucide-react"
+import emailjs from '@emailjs/browser'
 
 const projects = [
   {
@@ -123,11 +123,52 @@ export default function Home() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [formError, setFormError] = useState('')
+  
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    // You'll need to sign up on https://www.emailjs.com/ and get your public key
+    emailjs.init("YOUR_PUBLIC_KEY") // Replace with your actual EmailJS public key
+  }, [])
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulate form submission
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
+    setIsLoading(true)
+    setFormError('')
+    
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }
+      )
+      
+      console.log('Email sent successfully:', result.text)
+      
+      // Show success message
+      setIsSubmitted(true)
+      
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      })
+      
+      // Hide success message after 3 seconds
+      setTimeout(() => setIsSubmitted(false), 3000)
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setFormError('Failed to send message. Please try again later.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -890,12 +931,18 @@ export default function Home() {
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-focus-within:from-cyan-500/10 group-focus-within:to-blue-500/10 transition-all pointer-events-none" />
                   </div>
 
+                  {formError && (
+                    <div className="text-red-400 text-sm mb-4 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
+                      {formError}
+                    </div>
+                  )}
+                  
                   <motion.button
                     type="submit"
                     className="relative w-full group overflow-hidden"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    disabled={isSubmitted}
+                    whileHover={{ scale: isLoading ? 1 : 1.02 }}
+                    whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                    disabled={isLoading || isSubmitted}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl" />
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -904,6 +951,14 @@ export default function Home() {
                         <>
                           <CheckCircle className="w-5 h-5" />
                           Message Sent!
+                        </>
+                      ) : isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
                         </>
                       ) : (
                         <>
