@@ -11,22 +11,22 @@ import Footer from "./layout/Footer"
 import ProjectCard from "./components/ProjectCard"
 import Testimonial from "./components/Testimonial"
 import { useState } from "react"
-import { Mail, MapPin, Phone, Send, MessageCircle, Sparkles, ArrowRight, CheckCircle } from "lucide-react"
+import { Mail, MapPin, Phone, Send, MessageCircle, Sparkles, ArrowRight, CheckCircle, Award, Code, Heart, Users } from "lucide-react"
 
 const projects = [
   {
-    title: "E-commerce Website",
-    description: "A modern e-commerce platform built with Next.js and Stripe integration",
+    title: "Travel Agency Website",
+    description: "ExploreEase is a travel site built with Next.js, Tailwind CSS, and Stripe for fast.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "/images/travell-agency.png",
     githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "#",
+    liveUrl: "https://travel-agency-bc91e.web.app/",
   },
   {
     title: "Social Media App",
     description: "A real-time social media application with chat and notifications",
     technologies: ["React", "Firebase", "Material UI"],
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "/images/social-meadia-app.jpg",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "#",
   },
@@ -34,9 +34,9 @@ const projects = [
     title: "Portfolio Website",
     description: "A responsive portfolio website showcasing my work and skills",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    imageUrl: "/placeholder.svg?height=300&width=400",
+    imageUrl: "/images/portfolio.png",
     githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "#",
+    liveUrl: "https://my-protfolio-c19df.web.app/",
   },
 ]
 
@@ -54,6 +54,37 @@ const testimonials = [
     name: "Jane Smith",
     role: "Product Manager",
     company: "Design Agency",
+  },
+]
+
+const stats = [
+  {
+    number: "10+",
+    label: "Projects Completed",
+    icon: Code,
+    color: "from-purple-400 to-pink-400",
+    bgColor: "bg-purple-500/10",
+  },
+  {
+    number: "2+",
+    label: "Years Experience",
+    icon: Award,
+    color: "from-emerald-400 to-teal-400",
+    bgColor: "bg-emerald-500/10",
+  },
+  {
+    number: "8+",
+    label: "Satisfied Clients",
+    icon: Heart,
+    color: "from-rose-400 to-orange-400",
+    bgColor: "bg-rose-500/10",
+  },
+  {
+    number: "3+",
+    label: "Tech Certifications",
+    icon: Users,
+    color: "from-blue-400 to-cyan-400",
+    bgColor: "bg-blue-500/10",
   },
 ]
 
@@ -240,7 +271,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold mb-3 text-cyan-400">Experience</h3>
                   <ul className="space-y-2 text-sm text-gray-300">
                     <li>• Frontend Developer at Luminous Labs</li>
-                    <li>• Freelance Web Developer</li>
+                    {/* <li>• Freelance Web Developer</li> */}
                     <li>• 2+ Years in Web Development</li>
                   </ul>
                 </div>
@@ -266,7 +297,7 @@ export default function Home() {
               <div className="relative mx-auto max-w-md">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-2xl blur-2xl opacity-20"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/images/srabon.png"
                   alt="Profile"
                   width={400}
                   height={400}
@@ -365,31 +396,32 @@ export default function Home() {
                 {
                   title: "Diploma in Computer Science and Engineering",
                   institution: "Desh Polytechnic College",
-                  period: "2020 - Present",
+                  period: "2022 - Present",
                   description:
                     "Focusing on practical applications of web technologies, database management, and software engineering principles.",
                 },
                 {
+                  title: "Frontend Web Development ",
+                  institution: "Luminous Labs",
+                  period: "2022",
+                  description:
+                    "Intensive training in modern frontend frameworks including React, Next.js, and state management libraries.",
+                },
+                {
                   title: "Higher Secondary Certificate (HSC)",
                   institution: "Mohammadpur Govt. College | Commerce Group",
-                  period: "2019",
+                  period: "2021",
                   description:
                     "Focused on business studies, accounting, economics, and commercial mathematics. Achieved GPA 4.33/5.00.",
                 },
                 {
                   title: "Secondary School Certificate (SSC)",
-                  institution: "Mohammadpur Model School & College | Commerce Group",
-                  period: "2017",
+                  institution: "Boxganj High School & College | Commerce Group",
+                  period: "2019",
                   description:
                     "Studied commerce subjects including business entrepreneurship, accounting, and finance. Achieved GPA 4.56/5.00.",
                 },
-                {
-                  title: "Frontend Web Development Certification",
-                  institution: "Online Bootcamp",
-                  period: "2022",
-                  description:
-                    "Intensive training in modern frontend frameworks including React, Next.js, and state management libraries.",
-                },
+                
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -563,32 +595,150 @@ export default function Home() {
 
 
       {/* Achievement Section */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { number: "10+", label: "Projects Completed" },
-              { number: "2+", label: "Years Experience" },
-              { number: "8+", label: "Satisfied Clients" },
-              { number: "3+", label: "Tech Certifications" },
-            ].map((stat, index) => (
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
+            Achievements in Numbers
+          </h2>
+          {/* <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div> */}
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => {
+            const IconComponent = stat.icon
+            return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
+                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100,
+                }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 sm:p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 text-center"
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { duration: 0.3 },
+                }}
+                className="relative group"
               >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
-                  {stat.number}
+                {/* Card */}
+                <div
+                  className={`${stat.bgColor} backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center relative overflow-hidden transition-all duration-300 group-hover:border-white/20`}
+                >
+                  {/* Floating icon background */}
+                  <div className="absolute -top-4 -right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                    <IconComponent className="w-24 h-24" />
+                  </div>
+
+                  {/* Icon */}
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r ${stat.color} p-0.5`}
+                  >
+                    <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                  </motion.div>
+
+                  {/* Number with counter animation */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1 + 0.3,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                    viewport={{ once: true }}
+                    className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}
+                  >
+                    {stat.number}
+                  </motion.div>
+
+                  {/* Label */}
+                  <p className="text-gray-300 text-lg font-medium leading-tight">{stat.label}</p>
+
+                  {/* Hover effect line */}
+                  <div
+                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${stat.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                  ></div>
                 </div>
-                <div className="text-sm sm:text-base text-gray-300">{stat.label}</div>
+
+                {/* Floating particles effect */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className={`absolute w-2 h-2 bg-gradient-to-r ${stat.color} rounded-full opacity-0 group-hover:opacity-100`}
+                      style={{
+                        top: `${20 + i * 20}%`,
+                        left: `${10 + i * 30}%`,
+                      }}
+                      animate={{
+                        y: [-10, -20, -10],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Number.POSITIVE_INFINITY,
+                        delay: i * 0.3,
+                      }}
+                    />
+                  ))}
+                </div>
               </motion.div>
+            )
+          })}
+        </div>
+
+        {/* Bottom decorative element */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-16 flex justify-center"
+        >
+          <div className="flex space-x-2">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="w-3 h-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  delay: i * 0.2,
+                }}
+              />
             ))}
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </div>
+    </section>
 
       {/* Contact Section */}
    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-hidden">
@@ -645,7 +795,7 @@ export default function Home() {
                   vision. Don't hesitate to reach out!
                 </p>
 
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                   {contactInfo.map((item, index) => (
                     <motion.div
                       key={index}
@@ -653,16 +803,16 @@ export default function Home() {
                       whileHover={{ x: 10 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 sm:gap-4">
                         <div
-                          className={`relative p-3 rounded-xl bg-gradient-to-r ${item.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}
+                          className={`relative p-2 sm:p-3 rounded-xl bg-gradient-to-r ${item.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}
                         >
-                          <item.icon className="w-5 h-5 text-white" />
+                          <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                           <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
-                        <div>
-                          <p className="text-gray-400 text-sm font-medium">{item.label}</p>
-                          <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors">
+                        <div className="flex-1 min-w-0"> {/* Added flex-1 and min-w-0 to prevent overflow */}
+                          <p className="text-gray-400 text-xs sm:text-sm font-medium">{item.label}</p>
+                          <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors text-wrap break-words text-sm sm:text-base">
                             {item.value}
                           </p>
                         </div>
