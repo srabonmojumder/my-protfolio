@@ -1,7 +1,6 @@
 {
   "projects": {
-    "     ": "my-protfolio-c19df",
-    "y": "my-protfolio-c19df"
+    "default": "my-protfolio-c19df"
   },
   "targets": {},
   "etags": {}
