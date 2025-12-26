@@ -344,7 +344,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -362,12 +362,32 @@ export default function Home() {
 
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-transparent border-2 border-emerald-500 px-8 py-4 rounded-xl text-lg font-semibold transition-colors hover:bg-emerald-500/10 min-w-[200px]"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
             >
-              <Send className="mr-2 h-5 w-5" />
-              Let's Work Together
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              <span className="relative flex items-center gap-2">
+                <Send className="h-5 w-5" />
+                Let's Work Together
+              </span>
+            </motion.a>
+
+            {/* Download CV Button */}
+            <motion.a
+              href="/cv/SrabonMozumderResume (1).pdf"
+              download="Srabon_Mozumder_CV.pdf"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              <span className="relative flex items-center gap-2">
+                <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download CV
+              </span>
             </motion.a>
           </motion.div>
         </motion.div>
@@ -1003,12 +1023,15 @@ export default function Home() {
               href="https://github.com/srabonmojumder"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-lg font-semibold border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 transition-all group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              whileTap={{ scale: 0.95 }}
             >
-              View More Projects
-              <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              <span className="relative flex items-center gap-2">
+                View More Projects
+                <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </motion.a>
           </div>
         </div>
@@ -1469,8 +1492,8 @@ export default function Home() {
                     whileTap={{ scale: isLoading ? 1 : 0.98 }}
                     disabled={isLoading || isSubmitted}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-600 rounded-xl" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="relative flex items-center justify-center gap-3 py-4 px-6 text-white font-semibold">
                       {isSubmitted ? (
                         <>
