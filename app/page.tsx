@@ -365,7 +365,7 @@ export default function Home() {
 
             {/* Download CV Button */}
             <motion.a
-              href="/cv/SrabonMozumderResume (1).pdf"
+              href="/cv/Srabon Mozumder_last.pdf"
               download="Srabon_Mozumder_CV.pdf"
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
               whileTap={{ scale: 0.95 }}
