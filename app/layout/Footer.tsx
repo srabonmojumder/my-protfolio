@@ -8,10 +8,10 @@ export default function Footer() {
     { icon: Github, href: "https://github.com/srabonmojumder", label: "GitHub", color: "hover:text-purple-400" },
     { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-400" },
     { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-sky-400" },
-    { icon: Mail, href: "mailto:srabon.mojumder@gmail.com", label: "Email", color: "hover:text-emerald-400" },
+    { icon: Mail, href: "mailto:srabonmozumder29@gmail.com", label: "Email", color: "hover:text-emerald-400" },
   ]
 
-  const quickLinks = ["About", "Skills", "Projects", "Services", "Contact"]
+  const quickLinks = ["About", "Skills", "Experience", "Projects", "Services", "Contact"]
 
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-hidden">

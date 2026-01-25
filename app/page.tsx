@@ -15,12 +15,28 @@ import emailjs from '@emailjs/browser'
 
 const projects = [
   {
+    title: "Beige",
+    description: "Built a sophisticated, responsive frontend for a creative marketplace platform connecting clients with professional videographers and photographers. Developed complex booking interfaces with real-time availability, interactive project management dashboards, and seamless backend API integration. Implemented advanced filtering, search functionality, and optimized image galleries with lazy loading for superior performance.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
+    imageUrl: "/images/beige.png",
+    githubUrl: "https://github.com/srabonmojumder",
+    liveUrl: "https://beige.app/",
+  },
+  {
     title: "AI Avatar",
     description: "Developed a responsive, user-friendly frontend for an AI-driven workflow automation platform. Built interactive UI components for subscription management, content generation, and product analysis with Gemini AI integration. Implemented real-time data updates, dynamic form validation, and optimized component rendering for seamless user experience across all devices.",
     technologies: ["React", "Next.js", "Tailwind CSS", "Gemini AI", "API Integration"],
     imageUrl: "/images/ai-avatar.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://avatarplayground.luminousdemo.com",
+  },
+  {
+    title: "Text CRM",
+    description: "Designed and implemented intuitive, data-rich interfaces for a comprehensive CRM platform. Built complex dashboard components with real-time analytics visualization, responsive chat interfaces with typing indicators and read receipts, and a dynamic product catalog with advanced filtering capabilities. Focused on accessibility standards (WCAG 2.1) and created a cohesive design system using Material UI components with custom theming for brand consistency.",
+    technologies: ["React", "TypeScript", "CSS", "Material UI", "REST API"],
+    imageUrl: "/images/text-crm.png",
+    githubUrl: "https://github.com/srabonmojumder",
+    liveUrl: "https://textcrm.chat/",
   },
   {
     title: "Meridian Africa",
@@ -31,12 +47,20 @@ const projects = [
     liveUrl: "https://meridianafrica.io/",
   },
   {
-    title: "Beige",
-    description: "Built a sophisticated, responsive frontend for a creative marketplace platform connecting clients with professional videographers and photographers. Developed complex booking interfaces with real-time availability, interactive project management dashboards, and seamless backend API integration. Implemented advanced filtering, search functionality, and optimized image galleries with lazy loading for superior performance.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
-    imageUrl: "/images/beige.png",
+    title: "Keos LLC",
+    description: "Contributed to multiple high-impact projects as a Frontend Developer, building scalable responsive interfaces and feature-rich interactive dashboards. Developed reusable component libraries, collaborated closely with backend teams to design and integrate RESTful APIs, and maintained strict adherence to UI/UX specifications. Implemented state management patterns, optimized bundle sizes, and ensured consistent design language across multiple applications.",
+    technologies: ["React", "JavaScript", "Bootstrap", "API Integration"],
+    imageUrl: "/images/keos-llc.png",
     githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://beige.app/",
+    liveUrl: "https://keos.co/",
+  },
+  {
+    title: "Carpentier Agency",
+    description: "Transformed a creative Figma design into a visually stunning, responsive landing page for a premier photography agency. Developed high-performance interactive galleries with optimized image loading strategies, smooth page transitions, and hover effects that highlight the agency's portfolio. Implemented advanced lazy loading, WebP format support, and responsive image srcsets for optimal performance across all devices and network conditions.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "Image Optimization"],
+    imageUrl: "/images/carpentier-agency.png",
+    githubUrl: "https://github.com/srabonmojumder",
+    liveUrl: "https://www.carpentieragency.com/",
   },
   {
     title: "AlertComm",
@@ -45,38 +69,6 @@ const projects = [
     imageUrl: "/images/alertcomm.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://alertcomm1.com/",
-  },
-  {
-    title: "Carpentier Agency Website",
-    description: "Transformed a creative Figma design into a visually stunning, responsive landing page for a premier photography agency. Developed high-performance interactive galleries with optimized image loading strategies, smooth page transitions, and hover effects that highlight the agency's portfolio. Implemented advanced lazy loading, WebP format support, and responsive image srcsets for optimal performance across all devices and network conditions.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Image Optimization"],
-    imageUrl: "/images/carpentier-agency.png",
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://www.carpentieragency.com/",
-  },
-  {
-    title: "Text CRM",
-    description: "Designed and implemented intuitive, data-rich interfaces for a comprehensive CRM platform. Built complex dashboard components with real-time analytics visualization, responsive chat interfaces with typing indicators and read receipts, and a dynamic product catalog with advanced filtering capabilities. Focused on accessibility standards (WCAG 2.1) and created a cohesive design system using Material UI components with custom theming for brand consistency.",
-    technologies: ["React", "TypeScript", "CSS", "Material UI"],
-    imageUrl: "/images/text-crm.png",
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://textcrm.chat/",
-  },
-  {
-    title: "Keos LLC Project",
-    description: "Contributed to multiple high-impact projects as a Frontend Developer, building scalable responsive interfaces and feature-rich interactive dashboards. Developed reusable component libraries, collaborated closely with backend teams to design and integrate RESTful APIs, and maintained strict adherence to UI/UX specifications. Implemented state management patterns, optimized bundle sizes, and ensured consistent design language across multiple applications.",
-    technologies: ["React", "JavaScript", "Bootstrap", "API Integration"],
-    imageUrl: "/images/keos-llc.png",
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://keos.co/",
-  },
-  {
-    title: "Travelta Travel Agency",
-    description: "Built a comprehensive travel booking platform featuring destination browsing, tour package selection, and interactive booking functionality. Implemented search functionality with date pickers, location filters, and dynamic package displays with pricing. Created responsive layouts showcasing popular destinations, promotional deals, testimonials, and integrated Instagram feed. Developed user-friendly navigation with multi-level dropdowns and optimized performance across all devices.",
-    technologies: ["HTML5", "Tailwind CSS", "JavaScript", "Responsive Design"],
-    imageUrl: "/images/travelta.png",
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://travel-agency-bc91e.web.app/",
   },
 ]
 
@@ -298,15 +290,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-200 leading-relaxed">
-              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 2+ Years Transforming Designs into Code
+              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years Transforming Designs into Code
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I transform <span className="text-pink-400 font-semibold">Figma & Adobe XD designs</span> into
-              <span className="text-cyan-400 font-semibold"> pixel-perfect, production-ready</span> React & Next.js applications.
-              No design guesswork—just <span className="text-emerald-400 font-semibold">precise implementation</span> that matches your vision exactly.
+              Frontend Developer with nearly 3 years of experience in building <span className="text-emerald-400 font-semibold">responsive, high-performance web applications</span>. Strong in React, Next.js, Tailwind CSS, modern JavaScript (ES6+), API integration, and <span className="text-cyan-400 font-semibold">pixel-perfect UI implementation</span>.
             </p>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-              Specializing in <span className="text-emerald-400">responsive web applications</span>, <span className="text-cyan-400">modern UI frameworks</span>, and <span className="text-purple-400">seamless API integrations</span>. Every project delivered with clean, maintainable code, comprehensive documentation, and attention to performance optimization.
+              Specializing in transforming <span className="text-pink-400">Figma & Adobe XD designs</span> into production-ready code, creating <span className="text-emerald-400">reusable React components</span>, integrating <span className="text-cyan-400">REST APIs</span>, and delivering <span className="text-purple-400">cross-device responsive solutions</span>. Every project delivered with clean, maintainable code and attention to performance optimization.
             </p>
           </motion.div>
 
@@ -430,7 +420,7 @@ export default function Home() {
                   I don't create Figma mockups from scratch. I'm a <span className="text-emerald-400 font-semibold">design implementation specialist</span> who bridges the gap between design and development. I transform existing design files into production-ready code that your team can actually work with.
                 </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-                  Currently a Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> and pursuing a Diploma in Computer Science. Over the past 2+ years, I've specialized in one thing: taking beautiful designs and building them <span className="text-cyan-400 font-semibold">pixel-by-pixel</span> in code with precision and efficiency.
+                  Currently a Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> with nearly 3 years of professional experience and pursuing a Diploma in Computer Technology. I specialize in taking beautiful designs and building them <span className="text-cyan-400 font-semibold">pixel-by-pixel</span> in code with precision and efficiency.
                 </p>
                 <p className="text-base text-gray-400 leading-relaxed">
                   My approach combines technical expertise with a deep understanding of design systems, ensuring that every component is not just visually accurate but also performant, accessible, and maintainable.
@@ -519,7 +509,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold mb-3 text-emerald-400">Experience</h3>
                   <ul className="space-y-2 text-sm text-gray-300">
                     <li>• Frontend Developer at Luminous Labs</li>
-                    <li>• 2+ Years Implementation Specialist</li>
+                    <li>• 3 Years Professional Experience</li>
                     <li>• 50+ Designs Transformed</li>
                   </ul>
                 </div>
@@ -872,8 +862,8 @@ export default function Home() {
             className="mt-12 flex flex-wrap justify-center gap-4"
           >
             {[
-              { label: "Years Experience", value: "2+", icon: Award },
-              { label: "Technologies", value: "8+", icon: Code },
+              { label: "Years Experience", value: "3", icon: Award },
+              { label: "Technologies", value: "10+", icon: Code },
               { label: "Projects Built", value: "50+", icon: Rocket }
             ].map((stat, index) => {
               const IconComponent = stat.icon
@@ -888,6 +878,130 @@ export default function Home() {
               )
             })}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Work Experience Section */}
+      <section id="experience" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute left-1/4 top-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+                Work Experience
+              </span>
+            </motion.h2>
+            <p className="text-base sm:text-lg text-gray-400 mt-4">
+              Building exceptional web experiences at leading companies
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-400 via-cyan-500 to-blue-600 hidden sm:block"></div>
+
+            <div className="space-y-8 sm:space-y-12">
+              {/* Work Experience items */}
+              {[
+                {
+                  title: "Frontend Developer",
+                  company: "Luminous Labs",
+                  period: "Sep 2023 – Present",
+                  location: "Dhaka, Bangladesh",
+                  type: "Full-time",
+                  description: "Leading frontend development initiatives for diverse client projects across multiple industries.",
+                  responsibilities: [
+                    "Build responsive, cross-device user interfaces using React, Next.js, and Tailwind CSS",
+                    "Convert Figma and Adobe XD designs into pixel-perfect, production-ready code",
+                    "Develop reusable React components and maintain component libraries",
+                    "Integrate RESTful APIs and manage application state effectively",
+                    "Collaborate with backend developers, QA teams, and designers in agile workflows",
+                    "Optimize web applications for maximum performance and accessibility",
+                  ],
+                  color: "from-emerald-500 to-cyan-500",
+                },
+                {
+                  title: "Frontend Developer Intern",
+                  company: "Luminous Labs",
+                  period: "Mar 2022 – Sep 2023",
+                  location: "Dhaka, Bangladesh",
+                  type: "Internship",
+                  description: "Gained hands-on experience in modern web development practices and professional workflows.",
+                  responsibilities: [
+                    "Worked on responsive layouts and UI implementation from design mockups",
+                    "Learned and applied React, Next.js, and modern CSS frameworks",
+                    "Participated in code reviews and team collaboration sessions",
+                    "Followed production workflow from design handoff to deployment",
+                    "Contributed to real client projects under senior developer mentorship",
+                  ],
+                  color: "from-blue-500 to-purple-500",
+                },
+              ].map((job, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="sm:ml-16 relative"
+                >
+                  {/* Timeline dot */}
+                  <div className={`absolute left-[-49px] sm:left-[-65px] top-0 w-7 h-7 bg-gradient-to-r ${job.color} rounded-full hidden sm:flex items-center justify-center shadow-lg`}>
+                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 sm:p-8 rounded-2xl border border-gray-700/30 hover:border-emerald-500/30 transition-all group">
+                    {/* Header */}
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                          {job.title}
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-2 text-emerald-400 mb-2">
+                          <span className="text-lg font-semibold">{job.company}</span>
+                          <span className="text-gray-400">•</span>
+                          <span className="text-sm text-gray-400">{job.location}</span>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-start sm:items-end gap-2">
+                        <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 whitespace-nowrap">
+                          {job.period}
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                          {job.type}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-base text-gray-300 mb-4 leading-relaxed">{job.description}</p>
+
+                    {/* Responsibilities */}
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-3">Key Responsibilities:</h4>
+                      <ul className="space-y-2">
+                        {job.responsibilities.map((responsibility, idx) => (
+                          <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
+                            <span className="text-emerald-400 mt-1 flex-shrink-0">▹</span>
+                            <span className="leading-relaxed">{responsibility}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -916,34 +1030,34 @@ export default function Home() {
               {/* Education items */}
               {[
                 {
-                  title: "Diploma in Computer Science and Engineering",
-                  institution: "Desh Polytechnic College",
-                  period: "2022 - Present",
+                  title: "Diploma in Computer Technology",
+                  institution: "Dash Polytechnic Institute",
+                  period: "2023 - Present",
                   description:
-                    "Focusing on practical applications of web technologies, database management, and software engineering principles.",
+                    "Focusing on practical applications of web technologies, software development, database management, and modern programming principles.",
                 },
                 {
-                  title: "Frontend Web Development ",
+                  title: "Frontend Web Development Training",
                   institution: "Luminous Labs",
                   period: "2022",
                   description:
-                    "Intensive training in modern frontend frameworks including React, Next.js, and state management libraries.",
+                    "Intensive hands-on training in modern frontend frameworks including React, Next.js, Tailwind CSS, responsive design, and API integration.",
                 },
                 {
                   title: "Higher Secondary Certificate (HSC)",
-                  institution: "Mohammadpur Govt. College | Commerce Group",
+                  institution: "Commerce Group",
                   period: "2021",
                   description:
-                    "Focused on business studies, accounting, economics, and commercial mathematics. Achieved GPA 4.33/5.00.",
+                    "Completed higher secondary education with focus on business studies, accounting, and economics.",
                 },
                 {
                   title: "Secondary School Certificate (SSC)",
-                  institution: "Boxganj High School & College | Commerce Group",
+                  institution: "Commerce Group",
                   period: "2019",
                   description:
-                    "Studied commerce subjects including business entrepreneurship, accounting, and finance. Achieved GPA 4.56/5.00.",
+                    "Completed secondary education with specialization in commerce subjects.",
                 },
-                
+
               ].map((item, index) => (
                 <motion.div
                   key={index}
