@@ -13,6 +13,12 @@ import {
   User,
   Layers,
   ExternalLink,
+  Calendar,
+  Clock,
+  Users,
+  Tag,
+  Zap,
+  Lightbulb,
 } from "lucide-react"
 import { useState, useCallback, useEffect, useRef } from "react"
 import { projects, type Project } from "../../data/projects"
@@ -190,6 +196,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <span className="px-3 py-1 text-xs font-medium text-[#64ffda] bg-[#64ffda]/10 border border-[#64ffda]/20 rounded-full">
+                  {project.category}
+                </span>
+                <span className="px-3 py-1 text-xs font-medium text-[#38bdf8] bg-[#38bdf8]/10 border border-[#38bdf8]/20 rounded-full">
+                  {project.completedDate}
+                </span>
+              </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e0e0e0] tracking-tight">
                 {project.title}
               </h1>
@@ -227,6 +241,84 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 ))}
               </div>
             </motion.div>
+
+            {/* Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="space-y-5"
+            >
+              <div className="flex items-center gap-2">
+                <Zap className="w-5 h-5 text-[#38bdf8]" />
+                <h2 className="text-lg font-semibold text-[#a0aec0] uppercase tracking-wider">
+                  Features Built
+                </h2>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {project.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.25 + index * 0.05 }}
+                    className="flex items-start gap-3 bg-[#112240] p-4 rounded-xl border border-[#64ffda]/10 hover:border-[#64ffda]/20 transition-colors"
+                  >
+                    <div className="mt-0.5 w-1.5 h-1.5 rounded-full bg-[#38bdf8] flex-shrink-0" />
+                    <span className="text-sm text-[#a0aec0]/80">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Challenges & Solutions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="space-y-5"
+            >
+              <div className="flex items-center gap-2">
+                <Lightbulb className="w-5 h-5 text-[#64ffda]" />
+                <h2 className="text-lg font-semibold text-[#a0aec0] uppercase tracking-wider">
+                  Challenges & Solutions
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {project.challenges.map((challenge, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.35 + index * 0.1 }}
+                    className="bg-[#112240] rounded-2xl border border-[#64ffda]/10 overflow-hidden"
+                  >
+                    <div className="p-5 border-b border-[#64ffda]/10">
+                      <div className="flex items-start gap-3">
+                        <div className="mt-1 w-6 h-6 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
+                          <span className="text-red-400 text-xs font-bold">!</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-red-400/70 uppercase tracking-wider mb-1">Challenge</p>
+                          <p className="text-[#a0aec0]/90 text-sm leading-relaxed">{challenge.problem}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-5 bg-[#64ffda]/[0.02]">
+                      <div className="flex items-start gap-3">
+                        <div className="mt-1 w-6 h-6 rounded-lg bg-[#64ffda]/10 border border-[#64ffda]/20 flex items-center justify-center flex-shrink-0">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#64ffda]" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-[#64ffda]/70 uppercase tracking-wider mb-1">Solution</p>
+                          <p className="text-[#a0aec0]/90 text-sm leading-relaxed">{challenge.solution}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
           {/* Sidebar */}
@@ -245,6 +337,50 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   <span>Role</span>
                 </div>
                 <p className="text-[#e0e0e0] font-medium">{project.role}</p>
+              </div>
+
+              <div className="h-px bg-[#64ffda]/10" />
+
+              {/* Category */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
+                  <Tag className="w-3.5 h-3.5" />
+                  <span>Category</span>
+                </div>
+                <p className="text-[#e0e0e0] font-medium">{project.category}</p>
+              </div>
+
+              <div className="h-px bg-[#64ffda]/10" />
+
+              {/* Duration */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>Duration</span>
+                </div>
+                <p className="text-[#e0e0e0] font-medium">{project.duration}</p>
+              </div>
+
+              <div className="h-px bg-[#64ffda]/10" />
+
+              {/* Team Size */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
+                  <Users className="w-3.5 h-3.5" />
+                  <span>Team Size</span>
+                </div>
+                <p className="text-[#e0e0e0] font-medium">{project.teamSize}</p>
+              </div>
+
+              <div className="h-px bg-[#64ffda]/10" />
+
+              {/* Completed */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Completed</span>
+                </div>
+                <p className="text-[#e0e0e0] font-medium">{project.completedDate}</p>
               </div>
 
               <div className="h-px bg-[#64ffda]/10" />
