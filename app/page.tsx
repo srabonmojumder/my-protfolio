@@ -15,10 +15,18 @@ import emailjs from '@emailjs/browser'
 
 const projects = [
   {
+    title: "Agrovue Overwatch",
+    description: "Led frontend development of a satellite-powered agricultural monitoring platform as Frontend Lead. Architected and implemented complex data visualization dashboards, authentication flows, and real-time analytics interfaces that transform Google Earth Engine satellite data and AI-generated insights into actionable intelligence for agricultural stakeholders. Directed a team of 2 frontend developers while collaborating with backend teams to integrate REST APIs handling large-scale geospatial and AI-processed datasets.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST API", "Data Visualization"],
+    imageUrl: "/images/overwatch.png",
+    githubUrl: "https://github.com/srabonmojumder",
+    liveUrl: "https://overwatch.agrovue.io/Auth/Login",
+  },
+  {
     title: "Beige",
     description: "Built a sophisticated, responsive frontend for a creative marketplace platform connecting clients with professional videographers and photographers. Developed complex booking interfaces with real-time availability, interactive project management dashboards, and seamless backend API integration. Implemented advanced filtering, search functionality, and optimized image galleries with lazy loading for superior performance.",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
-    imageUrl: "/images/beige.png",
+    imageUrl: "/images/beige2.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://beige.app/",
   },
