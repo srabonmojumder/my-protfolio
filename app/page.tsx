@@ -12,73 +12,8 @@ import ProjectCard from "./components/ProjectCard"
 import Testimonial from "./components/Testimonial"
 import { Mail, MapPin, Phone, Send, MessageCircle, Sparkles, ArrowRight, CheckCircle, Award, Code, Heart, Users, FileText, Search, Zap, Rocket } from "lucide-react"
 import emailjs from '@emailjs/browser'
+import { projects } from "./data/projects"
 
-const projects = [
-  {
-    title: "Agrovue Overwatch",
-    description: "Led the frontend for an agricultural monitoring platform. Built data visualization dashboards, authentication flows, and analytics interfaces. Integrated REST APIs for satellite and AI-processed data. Managed a team of 2 frontend developers.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST API"],
-    images: ["/images/overwatch.png", "/images/overwatch2.png", "/images/overwatch3.png", "/images/overwatch4.png", "/images/overwatch5.png", "/images/over6.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://overwatch.agrovue.io/Auth/Login",
-  },
-  {
-    title: "Beige",
-    description: "Built the frontend for a creative marketplace connecting clients with videographers and photographers. Developed booking interfaces, project dashboards, search filtering, and optimized image galleries with API integration.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
-    images: ["/images/beige2.png", "/images/beige.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://beige.app/",
-  },
-  {
-    title: "AI Avatar",
-    description: "Developed the frontend for an AI-powered workflow platform. Built UI components for subscription management, content generation, and product analysis. Handled real-time data updates and form validation across all devices.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "API Integration"],
-    images: ["/images/ai-avatar.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://avatarplayground.luminousdemo.com",
-  },
-  {
-    title: "Text CRM",
-    description: "Built dashboard interfaces for a CRM platform including analytics views, a real-time chat UI, and a product catalog with filtering. Styled with Material UI and followed accessibility best practices.",
-    technologies: ["React", "TypeScript", "CSS", "Material UI", "REST API"],
-    images: ["/images/text-crm.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://textcrm.chat/",
-  },
-  {
-    title: "Meridian Africa",
-    description: "Converted a Figma design into a fully responsive landing page. Implemented smooth scroll animations with Framer Motion and optimized assets for fast load times across all screen sizes.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-    images: ["/images/agrovue.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://meridianafrica.io/",
-  },
-  {
-    title: "Keos LLC",
-    description: "Worked on multiple client projects building responsive interfaces and interactive dashboards. Created reusable component libraries and integrated RESTful APIs in collaboration with backend teams.",
-    technologies: ["React", "JavaScript", "Bootstrap", "API Integration"],
-    images: ["/images/keos-llc.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://keos.co/",
-  },
-  {
-    title: "Carpentier Agency",
-    description: "Converted a Figma design into a responsive landing page for a photography agency. Built interactive image galleries with optimized loading, smooth transitions, and hover effects.",
-    technologies: ["React", "Next.js", "Tailwind CSS"],
-    images: ["/images/carpentier-agency.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://www.carpentieragency.com/",
-  },
-  {
-    title: "AlertComm",
-    description: "Developed a responsive frontend for a communication platform. Built interactive pages, integrated REST APIs for real-time data, and tested across desktop, tablet, and mobile devices.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "REST API"],
-    images: ["/images/alertcomm.png"],
-    githubUrl: "https://github.com/srabonmojumder",
-    liveUrl: "https://alertcomm1.com/",
-  },
-]
 
 const testimonials = [
   {
