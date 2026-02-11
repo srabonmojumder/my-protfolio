@@ -37,29 +37,29 @@ const stats = [
     number: "3",
     label: "Years Experience",
     icon: Award,
-    color: "from-emerald-400 to-cyan-400",
-    bgColor: "bg-emerald-500/10",
+    color: "from-[#64ffda] to-[#38bdf8]",
+    bgColor: "bg-[#64ffda]/10",
   },
   {
     number: "50+",
     label: "Projects Delivered",
     icon: Code,
-    color: "from-blue-400 to-purple-400",
-    bgColor: "bg-blue-500/10",
+    color: "from-[#38bdf8] to-[#64ffda]",
+    bgColor: "bg-[#38bdf8]/10",
   },
   {
     number: "8+",
     label: "Happy Clients",
     icon: Users,
-    color: "from-pink-400 to-orange-400",
-    bgColor: "bg-pink-500/10",
+    color: "from-[#64ffda] to-[#38bdf8]",
+    bgColor: "bg-[#64ffda]/10",
   },
   {
     number: "100%",
     label: "Responsive Builds",
     icon: Heart,
-    color: "from-cyan-400 to-blue-400",
-    bgColor: "bg-cyan-500/10",
+    color: "from-[#38bdf8] to-[#64ffda]",
+    bgColor: "bg-[#64ffda]/10",
   },
 ]
 
@@ -157,19 +157,19 @@ export default function Home() {
       icon: Mail,
       label: "Email",
       value: "srabonmozumder29@gmail.com",
-      color: "from-pink-500 to-rose-500",
+      color: "from-[#64ffda] to-[#38bdf8]",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Dhaka, Bangladesh",
-      color: "from-green-500 to-emerald-500",
+      color: "from-[#38bdf8] to-[#64ffda]",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+880 1827-621312",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-[#64ffda] to-[#38bdf8]",
     },
   ]
 
@@ -178,16 +178,16 @@ export default function Home() {
   }, [controls])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a192f] text-[#e0e0e0] overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section - Design to Code Specialist */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
         {/* Animated background with code theme */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-          <div className="absolute top-3/4 left-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#64ffda]/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#38bdf8]/15 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+          <div className="absolute top-3/4 left-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-[#38bdf8]/10 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
 
           {/* Code-like grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
@@ -204,10 +204,10 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full px-5 py-2 mb-8"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-5 py-2 mb-8"
           >
-            <Code className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-medium">Frontend Developer</span>
+            <Code className="w-4 h-4 text-[#64ffda]" />
+            <span className="text-[#64ffda] text-sm font-medium">Frontend Developer</span>
           </motion.div>
 
           <motion.h1
@@ -216,11 +216,11 @@ export default function Home() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-200 to-emerald-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e0e0e0] via-[#64ffda]/80 to-[#64ffda]">
               I Build What
             </span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#38bdf8] via-[#64ffda] to-[#64ffda]">
               You Design.
             </span>
           </motion.h1>
@@ -231,11 +231,11 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-200 leading-relaxed">
-              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years of Experience
+            <p className="text-lg sm:text-xl md:text-2xl mb-4 text-[#e0e0e0] leading-relaxed">
+              Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3 Years of Experience
             </p>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              I turn <span className="text-emerald-400 font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-cyan-400 font-semibold">React, Next.js, and Tailwind CSS</span>. Clean code, pixel-perfect results, and smooth performance across every device.
+            <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
+              I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, and Tailwind CSS</span>. Clean code, pixel-perfect results, and smooth performance across every device.
             </p>
           </motion.div>
 
@@ -244,26 +244,26 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-xl border border-emerald-500/30 rounded-2xl p-6 mb-10 max-w-2xl mx-auto"
+            className="bg-[#112240] backdrop-blur-xl border border-[#64ffda]/20 rounded-2xl p-6 mb-10 max-w-2xl mx-auto"
           >
             <div className="flex items-center gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-              <span className="ml-auto text-xs text-gray-400 font-mono">implementation.tsx</span>
+              <div className="w-3 h-3 rounded-full bg-[#64ffda]"></div>
+              <span className="ml-auto text-xs text-[#a0aec0] font-mono">implementation.tsx</span>
             </div>
             <code className="text-left block text-sm sm:text-base font-mono">
               <span className="text-purple-400">const</span>{" "}
-              <span className="text-blue-400">transform</span> ={" "}
+              <span className="text-[#38bdf8]">transform</span> ={" "}
               <span className="text-yellow-400">(</span>
-              <span className="text-pink-400">figmaDesign</span>
+              <span className="text-[#64ffda]">figmaDesign</span>
               <span className="text-yellow-400">)</span>{" "}
               <span className="text-purple-400">=&gt;</span> {"{"}
               <br />
-              <span className="ml-4 text-gray-400">// Pixel-perfect implementation</span>
+              <span className="ml-4 text-[#a0aec0]">// Pixel-perfect implementation</span>
               <br />
               <span className="ml-4"><span className="text-purple-400">return</span>{" "}
-              <span className="text-emerald-400">productionReady</span>
+              <span className="text-[#64ffda]">productionReady</span>
               <span className="text-yellow-400">(</span>
               <span className="text-orange-400">'React'</span>
               <span className="text-yellow-400">)</span>;</span>
@@ -280,23 +280,21 @@ export default function Home() {
           >
             <motion.a
               href="#projects"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.35)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
+              className="inline-flex items-center justify-center bg-[#64ffda]/10 text-[#64ffda] border-2 border-[#64ffda]/40 px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] hover:bg-[#64ffda]/20 hover:border-[#64ffda]/60"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative">View Projects</span>
-              <ArrowRightIcon className="ml-2 h-5 w-5 relative group-hover:translate-x-1 transition-transform" />
+              <span>View Projects</span>
+              <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
+              className="inline-flex items-center justify-center border-2 border-[#64ffda]/50 text-[#64ffda] bg-[#64ffda]/5 px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] hover:bg-[#64ffda]/10 hover:border-[#64ffda]"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 <Send className="h-5 w-5" />
                 Let's Work Together
               </span>
@@ -306,12 +304,11 @@ export default function Home() {
             <motion.a
               href="/cv/Srabon Mozumder_last.pdf"
               download="Srabon_Mozumder_CV.pdf"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
+              className="inline-flex items-center justify-center border-2 border-[#64ffda]/50 text-[#64ffda] bg-[#64ffda]/5 px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] hover:bg-[#64ffda]/10 hover:border-[#64ffda]"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -325,8 +322,8 @@ export default function Home() {
       {/* About Section - Honest Implementation Focus */}
       <section id="about" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute left-0 top-1/2 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute right-0 bottom-1/3 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute left-0 top-1/2 w-72 h-72 bg-[#64ffda]/10 rounded-full blur-3xl"></div>
+        <div className="absolute right-0 bottom-1/3 w-72 h-72 bg-[#38bdf8]/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto relative z-10">
           <motion.div
@@ -337,11 +334,11 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 About Me
               </span>
             </h2>
-            <p className="text-lg text-gray-400">Frontend Developer. Design to Code. Detail-Oriented.</p>
+            <p className="text-lg text-[#a0aec0]">Frontend Developer. Design to Code. Detail-Oriented.</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -353,71 +350,71 @@ export default function Home() {
               viewport={{ once: true }}
             >
               {/* Main Message */}
-              <div className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 p-8 rounded-2xl border border-emerald-500/30 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold mb-4 text-emerald-400">Who I Am</h3>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-                  I'm a <span className="text-emerald-400 font-semibold">Frontend Developer</span> at Luminous Labs with 3 years of experience building responsive web applications. I take Figma and Adobe XD designs and turn them into <span className="text-cyan-400 font-semibold">clean, production-ready code</span> using React, Next.js, Tailwind CSS, and Bootstrap.
+              <div className="bg-[#112240] p-8 rounded-2xl border border-[#64ffda]/20 backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-4 text-[#64ffda]">Who I Am</h3>
+                <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed mb-4">
+                  I'm a <span className="text-[#64ffda] font-semibold">Frontend Developer</span> at Luminous Labs with 3 years of experience building responsive web applications. I take Figma and Adobe XD designs and turn them into <span className="text-[#38bdf8] font-semibold">clean, production-ready code</span> using React, Next.js, Tailwind CSS, and Bootstrap.
                 </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
                   I focus on writing maintainable components, integrating APIs, and making sure every layout works smoothly across all screen sizes. If you have a design ready, I can build it.
                 </p>
               </div>
 
               {/* What I DO */}
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-emerald-500/20">
-                <h3 className="text-lg font-semibold mb-4 text-emerald-400 flex items-center gap-2">
+              <div className="bg-[#112240] p-6 rounded-xl border border-[#64ffda]/15">
+                <h3 className="text-lg font-semibold mb-4 text-[#64ffda] flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   What I Do
                 </h3>
-                <ul className="space-y-3 text-sm sm:text-base text-gray-300">
+                <ul className="space-y-3 text-sm sm:text-base text-[#a0aec0]">
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Convert Figma and Adobe XD designs into pixel-perfect React/Next.js code</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Build responsive layouts that work on every screen size</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Create reusable components with React and Next.js</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Integrate REST APIs and display data on the frontend</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Style with Tailwind CSS, Bootstrap, or pure CSS</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span className="text-[#64ffda] mt-1">✓</span>
                     <span>Deliver clean, maintainable, production-ready code</span>
                   </li>
                 </ul>
               </div>
 
               {/* My Approach */}
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-blue-500/20">
-                <h3 className="text-lg font-semibold mb-4 text-blue-400 flex items-center gap-2">
+              <div className="bg-[#112240] p-6 rounded-xl border border-[#38bdf8]/15">
+                <h3 className="text-lg font-semibold mb-4 text-[#38bdf8] flex items-center gap-2">
                   <Zap className="w-5 h-5" />
                   My Approach
                 </h3>
-                <ul className="space-y-3 text-sm sm:text-base text-gray-300">
+                <ul className="space-y-3 text-sm sm:text-base text-[#a0aec0]">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-[#38bdf8] mt-1">→</span>
                     <span>Review the design file and understand every detail before writing code</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-[#38bdf8] mt-1">→</span>
                     <span>Build mobile-first, then scale up for tablets and desktops</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-[#38bdf8] mt-1">→</span>
                     <span>Write reusable React components that your team can build on</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-400 mt-1">→</span>
+                    <span className="text-[#38bdf8] mt-1">→</span>
                     <span>Test across real devices and browsers before delivery</span>
                   </li>
                 </ul>
@@ -432,31 +429,31 @@ export default function Home() {
               viewport={{ once: true }}
             >
               {/* Profile Image */}
-              <div className="relative mx-auto max-w-md">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-600 rounded-2xl blur-2xl opacity-20"></div>
+              <div className="relative mx-auto ">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-2xl blur-2xl opacity-20"></div>
                 <Image
                   src="/images/srabon.png"
                   alt="Srabon Mojumder - Design to Code Specialist"
                   width={400}
                   height={400}
-                  className="relative rounded-2xl shadow-2xl w-full h-auto border border-emerald-500/30"
+                  className="relative rounded-2xl shadow-2xl w-full h-auto border border-[#64ffda]/20"
                 />
               </div>
 
               {/* Experience & Certifications */}
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-emerald-500/20">
-                  <h3 className="text-lg font-semibold mb-3 text-emerald-400">Experience</h3>
-                  <ul className="space-y-2 text-sm text-gray-300">
+                <div className="bg-[#112240] p-6 rounded-xl border border-[#64ffda]/15">
+                  <h3 className="text-lg font-semibold mb-3 text-[#64ffda]">Experience</h3>
+                  <ul className="space-y-2 text-sm text-[#a0aec0]">
                     <li>• Frontend Developer at Luminous Labs</li>
                     <li>• 3 Years Professional Experience</li>
                     <li>• 50+ Projects Delivered</li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-blue-500/20">
-                  <h3 className="text-lg font-semibold mb-3 text-blue-400">Core Focus</h3>
-                  <ul className="space-y-2 text-sm text-gray-300">
+                <div className="bg-[#112240] p-6 rounded-xl border border-[#38bdf8]/15">
+                  <h3 className="text-lg font-semibold mb-3 text-[#38bdf8]">Core Focus</h3>
+                  <ul className="space-y-2 text-sm text-[#a0aec0]">
                     <li>• React & Next.js Development</li>
                     <li>• CSS Grid & Flexbox Masterclass</li>
                     <li>• Figma/XD to Code Conversion</li>
@@ -466,10 +463,10 @@ export default function Home() {
               </div>
 
               {/* My Sweet Spot */}
-              <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 p-6 rounded-xl border border-blue-500/30">
-                <h3 className="text-lg font-semibold mb-3 text-blue-400">Best Fit</h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                  Give me a Figma or XD file with clear specs, and I'll deliver <span className="text-emerald-400 font-semibold">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
+              <div className="bg-[#112240] p-6 rounded-xl border border-[#38bdf8]/20">
+                <h3 className="text-lg font-semibold mb-3 text-[#38bdf8]">Best Fit</h3>
+                <p className="text-sm sm:text-base text-[#a0aec0] leading-relaxed">
+                  Give me a Figma or XD file with clear specs, and I'll deliver <span className="text-[#64ffda] font-semibold">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
                 </p>
               </div>
             </motion.div>
@@ -478,7 +475,7 @@ export default function Home() {
       </section>
 
       {/* Process Section - How I Work */}
-      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/50 to-transparent">
+      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8 bg-[#0a192f]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
         <div className="container mx-auto relative z-10">
@@ -490,11 +487,11 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 How I Work
               </span>
             </h2>
-            <p className="text-lg text-gray-400">From design handoff to production-ready code</p>
+            <p className="text-lg text-[#a0aec0]">From design handoff to production-ready code</p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -506,35 +503,35 @@ export default function Home() {
                   title: "Receive Design",
                   description: "You provide Figma/XD files with design specs",
                   icon: FileText,
-                  color: "from-pink-500 to-rose-500"
+                  color: "from-[#64ffda] to-[#38bdf8]"
                 },
                 {
                   step: "02",
                   title: "Analysis",
                   description: "I analyze components, breakpoints, interactions",
                   icon: Search,
-                  color: "from-purple-500 to-pink-500"
+                  color: "from-[#38bdf8] to-[#64ffda]"
                 },
                 {
                   step: "03",
                   title: "Implementation",
                   description: "Build with React/Next.js + Tailwind/Bootstrap",
                   icon: Code,
-                  color: "from-blue-500 to-cyan-500"
+                  color: "from-[#64ffda] to-[#38bdf8]"
                 },
                 {
                   step: "04",
                   title: "Quality Check",
                   description: "Pixel-perfect review, responsive testing",
                   icon: CheckCircle,
-                  color: "from-emerald-500 to-teal-500"
+                  color: "from-[#38bdf8] to-[#64ffda]"
                 },
                 {
                   step: "05",
                   title: "Delivery",
                   description: "Production-ready code + documentation",
                   icon: Rocket,
-                  color: "from-cyan-500 to-blue-500"
+                  color: "from-[#64ffda] to-[#38bdf8]"
                 }
               ].map((process, index) => {
                 const IconComponent = process.icon
@@ -549,7 +546,7 @@ export default function Home() {
                 >
                   {/* Connector Line */}
                   {index < 4 && (
-                    <div className="hidden md:block absolute top-12 left-[calc(100%-2rem)] w-[calc(100%+1.5rem)] h-0.5 bg-gradient-to-r from-emerald-500/50 to-blue-500/50 z-0"></div>
+                    <div className="hidden md:block absolute top-12 left-[calc(100%-2rem)] w-[calc(100%+1.5rem)] h-0.5 bg-gradient-to-r from-[#64ffda]/50 to-[#38bdf8]/50 z-0"></div>
                   )}
 
                   <div className="relative z-10">
@@ -558,7 +555,7 @@ export default function Home() {
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       className={`w-24 h-24 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${process.color} p-0.5`}
                     >
-                      <div className="w-full h-full bg-slate-900 rounded-2xl flex items-center justify-center">
+                      <div className="w-full h-full bg-[#0a192f] rounded-2xl flex items-center justify-center">
                         <div className="text-center">
                           <IconComponent className="w-10 h-10 text-white mx-auto mb-2" />
                           <div className={`text-xs font-bold bg-gradient-to-r ${process.color} bg-clip-text text-transparent`}>
@@ -569,8 +566,8 @@ export default function Home() {
                     </motion.div>
 
                     {/* Content */}
-                    <h3 className="text-lg font-bold text-white mb-2 text-center">{process.title}</h3>
-                    <p className="text-sm text-gray-400 text-center leading-relaxed">{process.description}</p>
+                    <h3 className="text-lg font-bold text-[#e0e0e0] mb-2 text-center">{process.title}</h3>
+                    <p className="text-sm text-[#a0aec0] text-center leading-relaxed">{process.description}</p>
                   </div>
                 </motion.div>
               )
@@ -585,9 +582,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="mt-16 text-center"
             >
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full px-6 py-3">
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
-                <span className="text-gray-300">Average turnaround: <span className="text-emerald-400 font-semibold">3-7 days</span></span>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-6 py-3">
+                <CheckCircle className="w-5 h-5 text-[#64ffda]" />
+                <span className="text-[#a0aec0]">Average turnaround: <span className="text-[#64ffda] font-semibold">3-7 days</span></span>
               </div>
             </motion.div>
           </div>
@@ -598,9 +595,9 @@ export default function Home() {
       <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
         {/* Animated gradient background */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[#38bdf8]/10 to-[#64ffda]/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -610,10 +607,10 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="flex w-max mx-auto items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-full px-5 py-2 mb-6"
+              className="flex w-max mx-auto items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-5 py-2 mb-6"
             >
-              <Zap className="w-4 h-4 text-cyan-400" />
-              <span className="text-cyan-400 text-sm font-medium">Tech Stack</span>
+              <Zap className="w-4 h-4 text-[#38bdf8]" />
+              <span className="text-[#38bdf8] text-sm font-medium">Tech Stack</span>
             </motion.div>
  
             <motion.h2
@@ -623,7 +620,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block mb-4"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda]">
                 My Tech Stack
               </span>
             </motion.h2>
@@ -632,7 +629,7 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-base sm:text-lg text-gray-400"
+              className="text-base sm:text-lg text-[#a0aec0]"
             >
               The tools I use to build modern web interfaces
             </motion.p>
@@ -659,23 +656,23 @@ export default function Home() {
               ]
 
               const gradients = [
-                "from-blue-500/20 to-cyan-500/20",
-                "from-purple-500/20 to-pink-500/20",
-                "from-yellow-500/20 to-orange-500/20",
-                "from-cyan-500/20 to-blue-500/20",
-                "from-orange-500/20 to-red-500/20",
-                "from-emerald-500/20 to-teal-500/20",
-                "from-violet-500/20 to-purple-500/20",
+                "from-[#64ffda]/15 to-[#38bdf8]/15",
+                "from-[#38bdf8]/15 to-[#64ffda]/15",
+                "from-[#64ffda]/10 to-[#38bdf8]/20",
+                "from-[#38bdf8]/10 to-[#64ffda]/20",
+                "from-[#64ffda]/20 to-[#38bdf8]/10",
+                "from-[#38bdf8]/20 to-[#64ffda]/10",
+                "from-[#64ffda]/15 to-[#38bdf8]/15",
               ]
 
               const borderGradients = [
-                "from-blue-500 to-cyan-500",
-                "from-purple-500 to-pink-500",
-                "from-yellow-500 to-orange-500",
-                "from-cyan-500 to-blue-500",
-                "from-orange-500 to-red-500",
-                "from-emerald-500 to-teal-500",
-                "from-violet-500 to-purple-500",
+                "from-[#64ffda] to-[#38bdf8]",
+                "from-[#38bdf8] to-[#64ffda]",
+                "from-[#64ffda] to-[#38bdf8]",
+                "from-[#38bdf8] to-[#64ffda]",
+                "from-[#64ffda] to-[#38bdf8]",
+                "from-[#38bdf8] to-[#64ffda]",
+                "from-[#64ffda] to-[#38bdf8]",
               ]
 
               return (
@@ -701,7 +698,7 @@ export default function Home() {
                   <div className={`absolute inset-0 bg-gradient-to-r ${borderGradients[index]} opacity-0 group-hover:opacity-100 rounded-2xl blur-xl transition-opacity duration-500`}></div>
 
                   {/* Card */}
-                  <div className="relative h-full w-full bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group-hover:border-white/30 transition-all duration-300">
+                  <div className="relative h-full w-full bg-gradient-to-br from-[#112240] to-[#0a192f] backdrop-blur-xl border border-[#64ffda]/10 rounded-2xl overflow-hidden group-hover:border-[#64ffda]/30 transition-all duration-300">
                     {/* Gradient overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${gradients[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
@@ -740,14 +737,14 @@ export default function Home() {
                         ></motion.div>
 
                         <div className={`relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r ${borderGradients[index]} p-0.5 group-hover:scale-110 transition-transform duration-300`}>
-                          <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
+                          <div className="w-full h-full bg-[#0a192f] rounded-full flex items-center justify-center">
                             <skill.icon className="text-3xl md:text-4xl text-white" />
                           </div>
                         </div>
                       </div>
 
                       {/* Skill name */}
-                      <h3 className="text-base md:text-lg font-bold text-white mb-2 text-center group-hover:scale-110 transition-transform duration-300">
+                      <h3 className="text-base md:text-lg font-bold text-[#e0e0e0] mb-2 text-center group-hover:scale-110 transition-transform duration-300">
                         {skill.name}
                       </h3>
 
@@ -806,11 +803,11 @@ export default function Home() {
             ].map((stat, index) => {
               const IconComponent = stat.icon
               return (
-                <div key={index} className="flex items-center gap-3 bg-gradient-to-r from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-cyan-500/20 rounded-full px-6 py-3">
-                  <IconComponent className="w-5 h-5 text-cyan-400" />
+                <div key={index} className="flex items-center gap-3 bg-[#112240] backdrop-blur-sm border border-[#64ffda]/15 rounded-full px-6 py-3">
+                  <IconComponent className="w-5 h-5 text-[#38bdf8]" />
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{stat.value}</span>
-                    <span className="text-sm text-gray-400">{stat.label}</span>
+                    <span className="text-2xl font-bold bg-gradient-to-r from-[#64ffda] to-[#38bdf8] bg-clip-text text-transparent">{stat.value}</span>
+                    <span className="text-sm text-[#a0aec0]">{stat.label}</span>
                   </div>
                 </div>
               )
@@ -822,8 +819,8 @@ export default function Home() {
       {/* Work Experience Section */}
       <section id="experience" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute left-1/4 top-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute left-1/4 top-0 w-72 h-72 bg-[#38bdf8]/10 rounded-full blur-3xl"></div>
+        <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-[#64ffda]/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
@@ -834,18 +831,18 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 Work Experience
               </span>
             </motion.h2>
-            <p className="text-base sm:text-lg text-gray-400 mt-4">
+            <p className="text-base sm:text-lg text-[#a0aec0] mt-4">
               Where I've built and grown as a frontend developer
             </p>
           </div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-400 via-cyan-500 to-blue-600 hidden sm:block"></div>
+            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#64ffda] via-[#38bdf8] to-[#64ffda] hidden sm:block"></div>
 
             <div className="space-y-8 sm:space-y-12">
               {/* Work Experience items */}
@@ -864,7 +861,7 @@ export default function Home() {
                     "Integrate REST APIs and manage frontend data flow",
                     "Collaborate with designers and backend teams in agile sprints",
                   ],
-                  color: "from-emerald-500 to-cyan-500",
+                  color: "from-[#64ffda] to-[#38bdf8]",
                 },
                 {
                   title: "Frontend Developer Intern",
@@ -879,7 +876,7 @@ export default function Home() {
                     "Participated in code reviews and team collaboration",
                     "Contributed to client projects under senior developer guidance",
                   ],
-                  color: "from-blue-500 to-purple-500",
+                  color: "from-[#38bdf8] to-[#64ffda]",
                 },
               ].map((job, index) => (
                 <motion.div
@@ -895,39 +892,39 @@ export default function Home() {
                     <div className="w-3 h-3 bg-white rounded-full"></div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 sm:p-8 rounded-2xl border border-gray-700/30 hover:border-emerald-500/30 transition-all group">
+                  <div className="bg-[#112240] p-6 sm:p-8 rounded-2xl border border-[#64ffda]/10 hover:border-[#64ffda]/30 transition-all group">
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
                       <div className="flex-1">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#e0e0e0] mb-2 group-hover:text-[#64ffda] transition-colors">
                           {job.title}
                         </h3>
-                        <div className="flex flex-wrap items-center gap-2 text-emerald-400 mb-2">
+                        <div className="flex flex-wrap items-center gap-2 text-[#64ffda] mb-2">
                           <span className="text-lg font-semibold">{job.company}</span>
-                          <span className="text-gray-400">•</span>
-                          <span className="text-sm text-gray-400">{job.location}</span>
+                          <span className="text-[#a0aec0]">•</span>
+                          <span className="text-sm text-[#a0aec0]">{job.location}</span>
                         </div>
                       </div>
                       <div className="flex flex-col items-start sm:items-end gap-2">
-                        <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 whitespace-nowrap">
+                        <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-[#64ffda]/15 text-[#64ffda] border border-[#64ffda]/20 whitespace-nowrap">
                           {job.period}
                         </span>
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/20">
                           {job.type}
                         </span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-base text-gray-300 mb-4 leading-relaxed">{job.description}</p>
+                    <p className="text-base text-[#a0aec0] mb-4 leading-relaxed">{job.description}</p>
 
                     {/* Responsibilities */}
                     <div className="space-y-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-3">Key Responsibilities:</h4>
+                      <h4 className="text-sm font-semibold text-[#38bdf8] mb-3">Key Responsibilities:</h4>
                       <ul className="space-y-2">
                         {job.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
-                            <span className="text-emerald-400 mt-1 flex-shrink-0">▹</span>
+                          <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#a0aec0]">
+                            <span className="text-[#64ffda] mt-1 flex-shrink-0">▹</span>
                             <span className="leading-relaxed">{responsibility}</span>
                           </li>
                         ))}
@@ -952,7 +949,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 Education
               </span>
             </motion.h2>
@@ -960,7 +957,7 @@ export default function Home() {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-600 hidden sm:block"></div>
+            <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#64ffda] via-[#38bdf8] to-[#64ffda] hidden sm:block"></div>
 
             <div className="space-y-8 sm:space-y-12">
               {/* Education items */}
@@ -1004,19 +1001,19 @@ export default function Home() {
                   className="sm:ml-16 relative"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-[-49px] sm:left-[-65px] top-0 w-7 h-7 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full hidden sm:flex items-center justify-center">
+                  <div className="absolute left-[-49px] sm:left-[-65px] top-0 w-7 h-7 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-full hidden sm:flex items-center justify-center">
                     <div className="w-3 h-3 bg-white rounded-full"></div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700/30 hover:border-cyan-500/30 transition-all">
+                  <div className="bg-[#112240] p-6 rounded-xl border border-[#64ffda]/10 hover:border-[#64ffda]/30 transition-all">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
-                      <h3 className="text-lg sm:text-xl font-bold text-white">{item.title}</h3>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400 whitespace-nowrap">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#e0e0e0]">{item.title}</h3>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#64ffda]/15 text-[#64ffda] whitespace-nowrap">
                         {item.period}
                       </span>
                     </div>
-                    <p className="text-base sm:text-lg text-cyan-400 mb-3">{item.institution}</p>
-                    <p className="text-sm sm:text-base text-gray-300">{item.description}</p>
+                    <p className="text-base sm:text-lg text-[#38bdf8] mb-3">{item.institution}</p>
+                    <p className="text-sm sm:text-base text-[#a0aec0]">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1027,8 +1024,8 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
-        <div className="absolute left-1/4 bottom-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute right-1/4 top-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute left-1/4 bottom-0 w-72 h-72 bg-[#38bdf8]/10 rounded-full blur-3xl"></div>
+        <div className="absolute right-1/4 top-0 w-72 h-72 bg-[#64ffda]/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto  relative z-10">
           <div className="text-center mb-16">
@@ -1039,12 +1036,12 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 Featured Projects
               </span>
             </motion.h2>
-            <p className="text-base sm:text-lg text-gray-400 mt-4">
-              Real projects I've built — from <span className="text-pink-400">design files</span> to <span className="text-emerald-400">live applications</span>.
+            <p className="text-base sm:text-lg text-[#a0aec0] mt-4">
+              Real projects I've built — from <span className="text-[#64ffda]">design files</span> to <span className="text-[#64ffda]">live applications</span>.
             </p>
           </div>
 
@@ -1073,12 +1070,11 @@ export default function Home() {
               href="https://github.com/srabonmojumder"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16, 185, 129, 0.6)" }}
+              className="inline-flex items-center justify-center bg-[#64ffda]/10 text-[#64ffda] border-2 border-[#64ffda]/40 px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] hover:bg-[#64ffda]/20 hover:border-[#64ffda]/60"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.15)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 View More Projects
                 <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -1089,8 +1085,8 @@ export default function Home() {
 
       {/* Services Section - Implementation Focus */}
       <section id="services" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
-        <div className="absolute left-1/4 top-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute left-1/4 top-0 w-72 h-72 bg-[#64ffda]/10 rounded-full blur-3xl"></div>
+        <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-[#38bdf8]/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -1101,11 +1097,11 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 What I Offer
               </span>
             </motion.h2>
-            <p className="text-base sm:text-lg text-gray-400 mt-4">
+            <p className="text-base sm:text-lg text-[#a0aec0] mt-4">
               Frontend services focused on quality and performance
             </p>
           </div>
@@ -1117,27 +1113,27 @@ export default function Home() {
                 title: "Design to Code",
                 description:
                   "I take your Figma or Adobe XD designs and build them in React or Next.js. Every spacing, color, and interaction — implemented exactly as designed with reusable, maintainable components.",
-                color: "from-emerald-500 to-cyan-500",
-                borderColor: "border-emerald-500/30",
-                hoverShadow: "hover:shadow-emerald-500/20",
+                color: "from-[#64ffda] to-[#38bdf8]",
+                borderColor: "border-[#64ffda]/20",
+                hoverShadow: "hover:shadow-[#64ffda]/20",
               },
               {
                 icon: Sparkles,
                 title: "Responsive Development",
                 description:
                   "Mobile-first layouts that look great on every screen. I build with proper breakpoints, optimized images, and test across real devices to make sure nothing breaks.",
-                color: "from-blue-500 to-purple-500",
-                borderColor: "border-blue-500/30",
-                hoverShadow: "hover:shadow-blue-500/20",
+                color: "from-[#38bdf8] to-[#64ffda]",
+                borderColor: "border-[#38bdf8]/20",
+                hoverShadow: "hover:shadow-[#38bdf8]/20",
               },
               {
                 icon: Heart,
                 title: "API Integration & Interactivity",
                 description:
                   "I connect your frontend to REST APIs and bring interfaces to life with smooth animations, transitions, and interactive elements using Framer Motion and CSS.",
-                color: "from-pink-500 to-orange-500",
-                borderColor: "border-pink-500/30",
-                hoverShadow: "hover:shadow-pink-500/20",
+                color: "from-[#64ffda] to-[#38bdf8]",
+                borderColor: "border-[#64ffda]/20",
+                hoverShadow: "hover:shadow-[#64ffda]/20",
               },
             ].map((service, index) => {
               const IconComponent = service.icon
@@ -1149,21 +1145,21 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 sm:p-8 rounded-2xl border ${service.borderColor} backdrop-blur-sm hover:shadow-xl ${service.hoverShadow} transition-all group relative overflow-hidden`}
+                  className={`bg-[#112240] p-6 sm:p-8 rounded-2xl border ${service.borderColor} backdrop-blur-sm hover:shadow-xl ${service.hoverShadow} transition-all group relative overflow-hidden`}
                 >
                   {/* Gradient overlay on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-5 transition-opacity rounded-2xl`}></div>
 
                   <div className="relative z-10">
                     <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} p-0.5 mb-6 group-hover:scale-110 transition-transform`}>
-                      <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
+                      <div className="w-full h-full bg-[#0a192f] rounded-xl flex items-center justify-center">
                         <IconComponent className="w-7 h-7 text-white" />
                       </div>
                     </div>
                     <h3 className={`text-xl font-bold mb-3 text-white group-hover:bg-gradient-to-r group-hover:${service.color} group-hover:bg-clip-text group-hover:text-transparent transition-all`}>
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed text-sm sm:text-base">{service.description}</p>
+                    <p className="text-[#a0aec0] leading-relaxed text-sm sm:text-base">{service.description}</p>
                   </div>
 
                   {/* Decorative corner */}
@@ -1179,9 +1175,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-12 bg-gradient-to-br from-emerald-900/20 to-blue-900/20 p-8 rounded-2xl border border-emerald-500/30 backdrop-blur-sm"
+            className="mt-12 bg-[#112240] p-8 rounded-2xl border border-[#64ffda]/20 backdrop-blur-sm"
           >
-            <h3 className="text-2xl font-bold mb-6 text-center text-emerald-400">Included With Every Project</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center text-[#64ffda]">Included With Every Project</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: CheckCircle, text: "Pixel-perfect implementation" },
@@ -1192,8 +1188,8 @@ export default function Home() {
                 const IconComponent = item.icon
                 return (
                   <div key={index} className="flex items-center gap-3">
-                    <IconComponent className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                    <span className="text-gray-300">{item.text}</span>
+                    <IconComponent className="w-5 h-5 text-[#64ffda] flex-shrink-0" />
+                    <span className="text-[#a0aec0]">{item.text}</span>
                   </div>
                 )
               })}
@@ -1213,7 +1209,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 What Clients Say
               </span>
             </motion.h2>
@@ -1229,12 +1225,12 @@ export default function Home() {
 
 
       {/* Achievement Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden">
+      <section className="py-20 bg-[#0a192f] relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#38bdf8]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#38bdf8]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#64ffda]/15 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1245,10 +1241,10 @@ export default function Home() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda] bg-clip-text text-transparent mb-4">
             By The Numbers
           </h2>
-          {/* <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div> */}
+          {/* <div className="w-24 h-1 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] mx-auto rounded-full"></div> */}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1275,7 +1271,7 @@ export default function Home() {
               >
                 {/* Card */}
                 <div
-                  className={`${stat.bgColor} backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center relative overflow-hidden transition-all duration-300 group-hover:border-white/20`}
+                  className={`${stat.bgColor} backdrop-blur-sm border border-[#64ffda]/10 rounded-2xl p-8 text-center relative overflow-hidden transition-all duration-300 group-hover:border-[#64ffda]/25`}
                 >
                   {/* Floating icon background */}
                   <div className="absolute -top-4 -right-4 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
@@ -1288,7 +1284,7 @@ export default function Home() {
                     transition={{ duration: 0.6 }}
                     className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r ${stat.color} p-0.5`}
                   >
-                    <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+                    <div className="w-full h-full bg-[#0a192f] rounded-full flex items-center justify-center">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                   </motion.div>
@@ -1310,7 +1306,7 @@ export default function Home() {
                   </motion.div>
 
                   {/* Label */}
-                  <p className="text-gray-300 text-lg font-medium leading-tight">{stat.label}</p>
+                  <p className="text-[#a0aec0] text-lg font-medium leading-tight">{stat.label}</p>
 
                   {/* Hover effect line */}
                   <div
@@ -1357,7 +1353,7 @@ export default function Home() {
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-3 h-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
+                className="w-3 h-3 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-full"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 1, 0.5],
@@ -1375,11 +1371,11 @@ export default function Home() {
     </section>
 
       {/* Contact Section */}
-   <section className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-hidden">
+   <section className="relative py-20 bg-[#0a192f] overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#64ffda]/10 to-[#38bdf8]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[#38bdf8]/10 to-[#64ffda]/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1392,17 +1388,17 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-full px-6 py-2 mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-6 py-2 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-cyan-400 text-sm font-medium">Let's Connect</span>
+            <Sparkles className="w-4 h-4 text-[#38bdf8]" />
+            <span className="text-[#38bdf8] text-sm font-medium">Let's Connect</span>
           </motion.div>
 
-          <h2 className=" text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text relative text-transparent mb-4">
+          <h2 className=" text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#e0e0e0] via-[#64ffda] to-[#38bdf8] bg-clip-text relative text-transparent mb-4">
             Let's Work Together
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-3">
+          <p className="text-[#a0aec0] text-lg max-w-2xl mx-auto mb-3">
             Have a design ready? I'd love to hear about your project and discuss how I can help build it.
           </p>
         </motion.div>
@@ -1417,14 +1413,14 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl" />
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 rounded-3xl blur-xl" />
+              <div className="relative bg-[#112240] backdrop-blur-xl border border-[#64ffda]/10 rounded-3xl p-8">
                 <div className="flex items-start gap-3 mb-6">
-                  <MessageCircle className="w-6 h-6 text-cyan-400" />
-                  <h3 className="text-2xl font-bold text-white">Ready to Start Your Project?</h3>
+                  <MessageCircle className="w-6 h-6 text-[#38bdf8]" />
+                  <h3 className="text-2xl font-bold text-[#e0e0e0]">Ready to Start Your Project?</h3>
                 </div>
 
-                <p className="text-gray-300 mb-8 leading-relaxed">
+                <p className="text-[#a0aec0] mb-8 leading-relaxed">
                   Whether you're building a new product or need frontend help on an existing one, feel free to reach out. I typically respond within 24 hours.
                 </p>
 
@@ -1444,8 +1440,8 @@ export default function Home() {
                           <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
                         <div className="flex-1 min-w-0"> {/* Added flex-1 and min-w-0 to prevent overflow */}
-                          <p className="text-gray-400 text-xs sm:text-sm font-medium">{item.label}</p>
-                          <p className="text-white font-semibold group-hover:text-cyan-400 transition-colors text-wrap break-words text-sm sm:text-base">
+                          <p className="text-[#a0aec0] text-xs sm:text-sm font-medium">{item.label}</p>
+                          <p className="text-[#e0e0e0] font-semibold group-hover:text-[#64ffda] transition-colors text-wrap break-words text-sm sm:text-base">
                             {item.value}
                           </p>
                         </div>
@@ -1458,14 +1454,14 @@ export default function Home() {
 
             {/* Decorative Element */}
             <motion.div
-              className="relative h-32 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 overflow-hidden"
+              className="relative h-32 rounded-2xl bg-gradient-to-r from-[#64ffda]/10 to-[#38bdf8]/10 border border-[#64ffda]/15 overflow-hidden"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#64ffda]/5 to-transparent animate-pulse" />
               <div className="flex items-center justify-center h-full">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-cyan-400 mb-1">24/7</div>
-                  <div className="text-gray-400 text-sm">Quick Response</div>
+                  <div className="text-2xl font-bold text-[#38bdf8] mb-1">24/7</div>
+                  <div className="text-[#a0aec0] text-sm">Quick Response</div>
                 </div>
               </div>
             </motion.div>
@@ -1479,8 +1475,8 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl" />
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/10 to-[#64ffda]/10 rounded-3xl blur-xl" />
+              <div className="relative bg-[#112240] backdrop-blur-xl border border-[#64ffda]/10 rounded-3xl p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="relative group">
@@ -1490,10 +1486,10 @@ export default function Home() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your Name"
-                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all group-hover:border-white/20"
+                        className="w-full p-4 bg-[#112240] border border-[#64ffda]/10 rounded-xl text-white placeholder-[#a0aec0]/50 focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all group-hover:border-[#64ffda]/25"
                         required
                       />
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-focus-within:from-cyan-500/10 group-focus-within:to-blue-500/10 transition-all pointer-events-none" />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#64ffda]/0 to-[#38bdf8]/0 group-focus-within:from-[#64ffda]/10 group-focus-within:to-[#38bdf8]/10 transition-all pointer-events-none" />
                     </div>
 
                     <div className="relative group">
@@ -1503,10 +1499,10 @@ export default function Home() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Your Email"
-                        className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all group-hover:border-white/20"
+                        className="w-full p-4 bg-[#112240] border border-[#64ffda]/10 rounded-xl text-white placeholder-[#a0aec0]/50 focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all group-hover:border-[#64ffda]/25"
                         required
                       />
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-focus-within:from-cyan-500/10 group-focus-within:to-blue-500/10 transition-all pointer-events-none" />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#64ffda]/0 to-[#38bdf8]/0 group-focus-within:from-[#64ffda]/10 group-focus-within:to-[#38bdf8]/10 transition-all pointer-events-none" />
                     </div>
                   </div>
 
@@ -1517,10 +1513,10 @@ export default function Home() {
                       onChange={handleChange}
                       placeholder="Tell me about your project (e.g., 'I have a Figma design for a SaaS dashboard that needs to be implemented in React...')"
                       rows={6}
-                      className="w-full p-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none group-hover:border-white/20"
+                      className="w-full p-4 bg-[#112240] border border-[#64ffda]/10 rounded-xl text-white placeholder-[#a0aec0]/50 focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all resize-none group-hover:border-[#64ffda]/25"
                       required
                     />
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/0 to-blue-500/0 group-focus-within:from-cyan-500/10 group-focus-within:to-blue-500/10 transition-all pointer-events-none" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#64ffda]/0 to-[#38bdf8]/0 group-focus-within:from-[#64ffda]/10 group-focus-within:to-[#38bdf8]/10 transition-all pointer-events-none" />
                   </div>
 
                   {formError && (
@@ -1531,14 +1527,12 @@ export default function Home() {
                   
                   <motion.button
                     type="submit"
-                    className="relative w-full group overflow-hidden"
-                    whileHover={{ scale: isLoading ? 1 : 1.02 }}
+                    className="w-full group overflow-hidden bg-[#64ffda]/10 text-[#64ffda] border-2 border-[#64ffda]/40 rounded-xl font-semibold hover:bg-[#64ffda]/20 hover:border-[#64ffda]/60 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                    whileHover={{ scale: isLoading ? 1 : 1.02, boxShadow: isLoading ? undefined : "0 0 25px rgba(100, 255, 218, 0.15)" }}
                     whileTap={{ scale: isLoading ? 1 : 0.98 }}
                     disabled={isLoading || isSubmitted}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-600 rounded-xl" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative flex items-center justify-center gap-3 py-4 px-6 text-white font-semibold">
+                    <div className="flex items-center justify-center gap-3 py-4 px-6 font-semibold">
                       {isSubmitted ? (
                         <>
                           <CheckCircle className="w-5 h-5" />
@@ -1574,7 +1568,7 @@ export default function Home() {
                     <div className="text-center">
                       <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
                       <p className="text-white font-semibold">Thank you for reaching out!</p>
-                      <p className="text-gray-300 text-sm">I'll get back to you soon.</p>
+                      <p className="text-[#a0aec0] text-sm">I'll get back to you soon.</p>
                     </div>
                   </motion.div>
                 )}

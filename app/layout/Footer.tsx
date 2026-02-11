@@ -14,7 +14,7 @@ export default function Footer() {
   const quickLinks = ["About", "Skills", "Experience", "Projects", "Services", "Contact"]
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-hidden">
+    <footer className="relative bg-[#0a192f] overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -46,7 +46,7 @@ export default function Footer() {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
+            className="absolute w-2 h-2 bg-[#64ffda]/30 rounded-full"
             animate={{
               y: [-20, -100, -20],
               x: [0, 30, 0],
@@ -84,20 +84,20 @@ export default function Footer() {
                     transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                     className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center"
                   >
-                    <Code className="w-6 h-6 text-white" />
+                    <Code className="w-6 h-6 text-[#e0e0e0]" />
                   </motion.div>
                   <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
                     Srabon Mojumder
                   </h3>
                 </div>
 
-                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+                <p className="text-[#a0aec0] text-lg leading-relaxed max-w-md">
                   Frontend Developer specializing in <span className="text-cyan-400 font-semibold">React</span>,{" "}
                   <span className="text-purple-400 font-semibold">Next.js</span>, and{" "}
                   <span className="text-pink-400 font-semibold">responsive web development</span>.
                 </p>
 
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div className="flex items-center space-x-2 text-[#a0aec0]/70">
                   <span>Made with</span>
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
@@ -119,7 +119,7 @@ export default function Footer() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <h4 className="text-xl font-semibold text-white flex items-center space-x-2">
+                <h4 className="text-xl font-semibold text-[#e0e0e0] flex items-center space-x-2">
                   <span>Connect With Me</span>
                   <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
                     <span className="text-cyan-400">→</span>
@@ -141,7 +141,7 @@ export default function Footer() {
                         boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
                       }}
                       whileTap={{ scale: 0.95 }}
-                      className={`group relative w-14 h-14 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl flex items-center justify-center text-gray-400 ${social.color} transition-all border border-gray-700/50 hover:border-cyan-500/30 overflow-hidden`}
+                      className={`group relative w-14 h-14 bg-[#112240] backdrop-blur-sm rounded-2xl flex items-center justify-center text-[#a0aec0]/70 ${social.color} transition-all border border-[#64ffda]/10 hover:border-[#64ffda]/30 overflow-hidden`}
                       aria-label={social.label}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-300" />
@@ -160,7 +160,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h4 className="text-xl font-semibold text-white">Quick Navigation</h4>
+              <h4 className="text-xl font-semibold text-[#e0e0e0]">Quick Navigation</h4>
               <div className="grid grid-cols-2 gap-3">
                 {quickLinks.map((link, index) => (
                   <motion.a
@@ -170,7 +170,7 @@ export default function Footer() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     whileHover={{ x: 5, scale: 1.05 }}
-                    className="group relative px-4 py-3 bg-gradient-to-r from-gray-800/30 to-gray-900/30 backdrop-blur-sm rounded-xl text-gray-300 hover:text-white transition-all border border-gray-700/30 hover:border-cyan-500/30 overflow-hidden"
+                    className="group relative px-4 py-3 bg-[#112240]/60 backdrop-blur-sm rounded-xl text-[#a0aec0] hover:text-[#e0e0e0] transition-all border border-[#64ffda]/10 hover:border-[#64ffda]/30 overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 to-purple-500/0 group-hover:from-cyan-500/5 group-hover:to-purple-500/5 transition-all duration-300" />
                     <span className="relative z-10 font-medium">{link}</span>
@@ -188,14 +188,14 @@ export default function Footer() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8" />
+            <div className="h-px bg-gradient-to-r from-transparent via-[#64ffda]/20 to-transparent mb-8" />
 
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-sm">
+              <p className="text-[#a0aec0]/70 text-sm">
                 © {new Date().getFullYear()} Srabon Mojumder. All rights reserved.
               </p>
 
-              <div className="flex items-center space-x-4 text-sm text-gray-400">
+              <div className="flex items-center space-x-4 text-sm text-[#a0aec0]/70">
                 <span>Built with modern frontend technologies</span>
                 <div className="flex space-x-2">
                   {["React", "TypeScript", "Tailwind CSS"].map((tech, index) => (
@@ -204,7 +204,7 @@ export default function Footer() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="px-2 py-1 bg-gray-800/50 rounded-md text-xs text-cyan-400 border border-gray-700/50"
+                      className="px-2 py-1 bg-[#112240] rounded-md text-xs text-[#64ffda] border border-[#64ffda]/15"
                     >
                       {tech}
                     </motion.span>

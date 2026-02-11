@@ -49,13 +49,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#06060a] text-white">
+    <div className="min-h-screen bg-[#0a192f] text-[#e0e0e0]">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#06060a]/80 backdrop-blur-xl border-b border-white/[0.06]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a192f]/80 backdrop-blur-xl border-b border-[#64ffda]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link
             href="/#projects"
-            className="flex items-center gap-2 text-white/50 hover:text-white transition-colors group"
+            className="flex items-center gap-2 text-[#a0aec0] hover:text-[#64ffda] transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium">Back to Projects</span>
@@ -65,7 +65,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.06] flex items-center justify-center text-white/50 hover:text-white transition-all"
+              className="w-9 h-9 rounded-lg bg-[#112240] hover:bg-[#112240]/80 border border-[#64ffda]/10 flex items-center justify-center text-[#a0aec0] hover:text-[#64ffda] transition-all"
             >
               <FaGithub className="w-4 h-4" />
             </a>
@@ -73,7 +73,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 text-sm font-medium rounded-lg hover:bg-[#64ffda]/20 hover:border-[#64ffda]/50 transition-all"
             >
               <span>Live Site</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -84,7 +84,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
       {/* Hero Section with Image Slider */}
       <section className="pt-16">
-        <div className="relative w-full aspect-[21/9] sm:aspect-[2.5/1] bg-slate-900 overflow-hidden group">
+        <div className="relative w-full aspect-[21/9] sm:aspect-[2.5/1] bg-[#112240] overflow-hidden group">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
               key={currentIndex}
@@ -107,20 +107,20 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </AnimatePresence>
 
           {/* Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06060a] via-transparent to-[#06060a]/30 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-[#0a192f]/30 z-10 pointer-events-none" />
 
           {/* Navigation Arrows */}
           {hasMultipleImages && (
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 backdrop-blur-md border border-[#64ffda]/15 flex items-center justify-center text-[#a0aec0] hover:text-[#64ffda] hover:bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/40 backdrop-blur-md border border-[#64ffda]/15 flex items-center justify-center text-[#a0aec0] hover:text-[#64ffda] hover:bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -139,8 +139,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   }}
                   className={`rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "w-8 h-2 bg-white"
-                      : "w-2 h-2 bg-white/30 hover:bg-white/50"
+                      ? "w-8 h-2 bg-[#64ffda]"
+                      : "w-2 h-2 bg-[#a0aec0]/30 hover:bg-[#64ffda]/50"
                   }`}
                 />
               ))}
@@ -162,7 +162,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 }}
                 className={`relative flex-shrink-0 w-24 h-16 sm:w-32 sm:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                   index === currentIndex
-                    ? "border-white/40 ring-1 ring-white/20"
+                    ? "border-[#64ffda]/40 ring-1 ring-[#64ffda]/20"
                     : "border-transparent opacity-50 hover:opacity-80"
                 }`}
               >
@@ -190,10 +190,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white/95 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e0e0e0] tracking-tight">
                 {project.title}
               </h1>
-              <p className="text-lg text-white/40 leading-relaxed max-w-2xl">
+              <p className="text-lg text-[#a0aec0]/70 leading-relaxed max-w-2xl">
                 {project.longDescription}
               </p>
             </motion.div>
@@ -205,7 +205,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-5"
             >
-              <h2 className="text-lg font-semibold text-white/70 uppercase tracking-wider">
+              <h2 className="text-lg font-semibold text-[#a0aec0] uppercase tracking-wider">
                 Key Highlights
               </h2>
               <div className="space-y-3">
@@ -217,10 +217,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     transition={{ duration: 0.3, delay: 0.15 + index * 0.05 }}
                     className="flex items-start gap-3 group"
                   >
-                    <div className="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                    <div className="mt-0.5 w-5 h-5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-3 h-3 text-[#64ffda]" />
                     </div>
-                    <span className="text-white/50 group-hover:text-white/70 transition-colors">
+                    <span className="text-[#a0aec0]/80 group-hover:text-[#a0aec0] transition-colors">
                       {highlight}
                     </span>
                   </motion.div>
@@ -237,21 +237,21 @@ export default function ProjectDetail({ project }: { project: Project }) {
             className="space-y-6"
           >
             {/* Info Card */}
-            <div className="bg-white/[0.03] rounded-2xl border border-white/[0.06] p-6 space-y-6">
+            <div className="bg-[#112240] rounded-2xl border border-[#64ffda]/10 p-6 space-y-6">
               {/* Role */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-white/30 text-xs font-medium uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
                   <User className="w-3.5 h-3.5" />
                   <span>Role</span>
                 </div>
-                <p className="text-white/80 font-medium">{project.role}</p>
+                <p className="text-[#e0e0e0] font-medium">{project.role}</p>
               </div>
 
-              <div className="h-px bg-white/[0.06]" />
+              <div className="h-px bg-[#64ffda]/10" />
 
               {/* Tech Stack */}
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-white/30 text-xs font-medium uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
                   <Layers className="w-3.5 h-3.5" />
                   <span>Tech Stack</span>
                 </div>
@@ -259,7 +259,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-xs font-medium text-white/60 bg-white/[0.05] rounded-lg border border-white/[0.08]"
+                      className="px-3 py-1.5 text-xs font-medium text-[#a0aec0] bg-[#0a192f] rounded-lg border border-[#64ffda]/15"
                     >
                       {tech}
                     </span>
@@ -267,11 +267,11 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 </div>
               </div>
 
-              <div className="h-px bg-white/[0.06]" />
+              <div className="h-px bg-[#64ffda]/10" />
 
               {/* Links */}
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-white/30 text-xs font-medium uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-[#a0aec0]/60 text-xs font-medium uppercase tracking-wider">
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Links</span>
                 </div>
@@ -280,7 +280,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between px-4 py-3 bg-white text-black rounded-xl font-medium text-sm hover:bg-white/90 transition-colors group"
+                    className="flex items-center justify-between px-4 py-3 bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 rounded-xl font-medium text-sm hover:bg-[#64ffda]/20 hover:border-[#64ffda]/50 transition-all group"
                   >
                     <span>Visit Live Site</span>
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -289,7 +289,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between px-4 py-3 bg-white/[0.06] hover:bg-white/[0.1] text-white/70 hover:text-white rounded-xl font-medium text-sm transition-all group border border-white/[0.06]"
+                    className="flex items-center justify-between px-4 py-3 bg-[#112240] hover:bg-[#112240]/80 text-[#a0aec0] hover:text-[#64ffda] rounded-xl font-medium text-sm transition-all group border border-[#64ffda]/15"
                   >
                     <div className="flex items-center gap-2">
                       <FaGithub className="w-4 h-4" />
@@ -302,8 +302,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
             </div>
 
             {/* Navigation to other projects */}
-            <div className="bg-white/[0.03] rounded-2xl border border-white/[0.06] p-6 space-y-4">
-              <h3 className="text-sm font-medium text-white/30 uppercase tracking-wider">
+            <div className="bg-[#112240] rounded-2xl border border-[#64ffda]/10 p-6 space-y-4">
+              <h3 className="text-sm font-medium text-[#a0aec0]/60 uppercase tracking-wider">
                 Other Projects
               </h3>
               <div className="space-y-2">
@@ -314,9 +314,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
                     <Link
                       key={p.slug}
                       href={`/projects/${p.slug}`}
-                      className="flex items-center gap-3 px-3 py-2.5 -mx-1 rounded-xl hover:bg-white/[0.04] transition-colors group"
+                      className="flex items-center gap-3 px-3 py-2.5 -mx-1 rounded-xl hover:bg-[#112240]/60 transition-colors group"
                     >
-                      <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-slate-800">
+                      <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#112240]">
                         <Image
                           src={p.images[0]}
                           alt={p.title}
@@ -325,10 +325,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors truncate">
+                        <p className="text-sm font-medium text-[#a0aec0] group-hover:text-[#64ffda]/90 transition-colors truncate">
                           {p.title}
                         </p>
-                        <p className="text-xs text-white/25 truncate">
+                        <p className="text-xs text-[#a0aec0]/50 truncate">
                           {p.technologies.slice(0, 3).join(" · ")}
                         </p>
                       </div>
@@ -341,16 +341,16 @@ export default function ProjectDetail({ project }: { project: Project }) {
       </section>
 
       {/* Footer */}
-      <div className="border-t border-white/[0.06]">
+      <div className="border-t border-[#64ffda]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-center justify-between">
           <Link
             href="/#projects"
-            className="flex items-center gap-2 text-white/40 hover:text-white transition-colors group"
+            className="flex items-center gap-2 text-[#a0aec0]/70 hover:text-[#64ffda] transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm">All Projects</span>
           </Link>
-          <p className="text-sm text-white/20">
+          <p className="text-sm text-[#a0aec0]/40">
             &copy; {new Date().getFullYear()} Srabon Mojumder
           </p>
         </div>

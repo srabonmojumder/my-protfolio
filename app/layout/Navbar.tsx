@@ -32,7 +32,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a192f]/95 backdrop-blur-md border-b border-[#64ffda]/10" : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 whileHover={{ scale: 1.05 }}
-                className="text-gray-300 hover:text-cyan-400 transition-colors font-medium"
+                className="text-[#a0aec0] hover:text-[#64ffda] transition-colors font-medium"
               >
                 {item.name}
               </motion.a>
@@ -61,7 +61,7 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-300 hover:text-cyan-400 transition-colors">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-[#a0aec0] hover:text-[#64ffda] transition-colors">
               {isOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
           </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
           initial={false}
           animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-gray-900/95 backdrop-blur-md rounded-lg mt-2"
+          className="md:hidden overflow-hidden bg-[#0a192f]/95 backdrop-blur-md rounded-lg mt-2"
         >
           <div className="px-4 py-4 space-y-3 header-menu">
             {navItems.map((item) => (
@@ -80,7 +80,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-gray-300 hover:text-cyan-400 transition-colors font-medium py-2"
+                className="block text-[#a0aec0] hover:text-[#64ffda] transition-colors font-medium py-2"
               >
                 {item.name}
               </a>
