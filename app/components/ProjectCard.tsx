@@ -1,16 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { FaGithub } from "react-icons/fa"
-import { Palette, Code2, Zap, ArrowRight, Eye } from "lucide-react"
-import { useState } from "react"
+import { Palette, Code2, Zap, ArrowRight, Eye, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useCallback, useEffect, useRef } from "react"
 
 interface ProjectCardProps {
   title: string
   description: string
   technologies: string[]
-  imageUrl: string
+  images: string[]
   githubUrl: string
   liveUrl: string
 }
@@ -19,11 +19,55 @@ export default function ProjectCard({
   title,
   description,
   technologies,
-  imageUrl,
+  images,
   githubUrl,
   liveUrl,
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
+  const hasMultipleImages = images.length > 1
+
+  const goToSlide = useCallback((index: number) => {
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
+  }, [currentIndex])
+
+  const nextSlide = useCallback(() => {
+    setDirection(1)
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }, [images.length])
+
+  const prevSlide = useCallback(() => {
+    setDirection(-1)
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }, [images.length])
+
+  // Auto-play when hovered and has multiple images
+  useEffect(() => {
+    if (isHovered && hasMultipleImages) {
+      autoPlayRef.current = setInterval(nextSlide, 3000)
+    }
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current)
+    }
+  }, [isHovered, hasMultipleImages, nextSlide])
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  }
 
   return (
     <motion.div
@@ -65,25 +109,82 @@ export default function ProjectCard({
           ))}
         </div>
 
-        {/* Image Container with Tilt Effect */}
+        {/* Image Container with Slider */}
         <div className="relative overflow-hidden aspect-video sm:aspect-[16/10]">
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
 
-          {/* Project Image */}
-          <motion.div
-            className="relative w-full h-full"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <Image
-              src={imageUrl || "/placeholder.svg"}
-              alt={title}
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+          {/* Image Slider */}
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <motion.div
+                className="relative w-full h-full"
+                whileHover={{ scale: hasMultipleImages ? 1 : 1.1 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                <Image
+                  src={images[currentIndex] || "/placeholder.svg"}
+                  alt={`${title} - ${currentIndex + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Slider Navigation Arrows */}
+          {hasMultipleImages && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prevSlide() }}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/70 backdrop-blur-md border border-slate-600/50 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 hover:bg-emerald-500/80 hover:border-emerald-400/50 transition-all duration-300 hover:scale-110"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextSlide() }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/70 backdrop-blur-md border border-slate-600/50 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 hover:bg-emerald-500/80 hover:border-emerald-400/50 transition-all duration-300 hover:scale-110"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
+
+          {/* Slider Dots */}
+          {hasMultipleImages && (
+            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => { e.stopPropagation(); goToSlide(index) }}
+                  className={`rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "w-6 h-2 bg-emerald-400 shadow-lg shadow-emerald-400/50"
+                      : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Image Counter Badge */}
+          {hasMultipleImages && (
+            <div className="absolute top-4 right-20 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="backdrop-blur-xl bg-slate-900/70 border border-slate-600/50 rounded-xl px-3 py-1.5 text-xs font-semibold text-white">
+                {currentIndex + 1} / {images.length}
+              </div>
+            </div>
+          )}
 
           {/* Top Corner Badge - Design → Code */}
           <motion.div
