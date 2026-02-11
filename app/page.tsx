@@ -297,7 +297,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-200 leading-relaxed">
-              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years of Professional Experience
+              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years of Experience
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               I turn <span className="text-emerald-400 font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-cyan-400 font-semibold">React, Next.js, and Tailwind CSS</span>. Clean code, pixel-perfect results, and smooth performance across every device.
@@ -406,7 +406,7 @@ export default function Home() {
                 About Me
               </span>
             </h2>
-            <p className="text-lg text-gray-400">Frontend Developer. Design Implementer. Detail-Oriented.</p>
+            <p className="text-lg text-gray-400">Frontend Developer. Design to Code. Detail-Oriented.</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -421,7 +421,7 @@ export default function Home() {
               <div className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 p-8 rounded-2xl border border-emerald-500/30 backdrop-blur-sm">
                 <h3 className="text-2xl font-bold mb-4 text-emerald-400">Who I Am</h3>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-                  I'm a <span className="text-emerald-400 font-semibold">Frontend Developer</span> at Luminous Labs with 3 years of experience building responsive web applications. I take Figma and Adobe XD designs and turn them into <span className="text-cyan-400 font-semibold">clean, production-ready code</span> using React, Next.js, and modern CSS frameworks.
+                  I'm a <span className="text-emerald-400 font-semibold">Frontend Developer</span> at Luminous Labs with 3 years of experience building responsive web applications. I take Figma and Adobe XD designs and turn them into <span className="text-cyan-400 font-semibold">clean, production-ready code</span> using React, Next.js, Tailwind CSS, and Bootstrap.
                 </p>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   I focus on writing maintainable components, integrating APIs, and making sure every layout works smoothly across all screen sizes. If you have a design ready, I can build it.
@@ -471,19 +471,19 @@ export default function Home() {
                 <ul className="space-y-3 text-sm sm:text-base text-gray-300">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-1">→</span>
-                    <span>Start with the design file, understand every detail</span>
+                    <span>Review the design file and understand every detail before writing code</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-1">→</span>
-                    <span>Build mobile-first, then scale up to larger screens</span>
+                    <span>Build mobile-first, then scale up for tablets and desktops</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-1">→</span>
-                    <span>Write reusable components, not one-off code</span>
+                    <span>Write reusable React components that your team can build on</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-400 mt-1">→</span>
-                    <span>Test across devices and browsers before delivery</span>
+                    <span>Test across real devices and browsers before delivery</span>
                   </li>
                 </ul>
               </div>
@@ -520,11 +520,12 @@ export default function Home() {
                 </div>
 
                 <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-blue-500/20">
-                  <h3 className="text-lg font-semibold mb-3 text-blue-400">Certifications</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-blue-400">Core Focus</h3>
                   <ul className="space-y-2 text-sm text-gray-300">
-                    <li>• React.js Certification</li>
+                    <li>• React & Next.js Development</li>
                     <li>• CSS Grid & Flexbox Masterclass</li>
-                    <li>• Frontend Web Development</li>
+                    <li>• Figma/XD to Code Conversion</li>
+                    <li>• Responsive Web Development</li>
                   </ul>
                 </div>
               </div>
