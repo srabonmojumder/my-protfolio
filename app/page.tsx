@@ -333,7 +333,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold !mb-0">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 About Me
               </span>
@@ -486,8 +486,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold !mb-0">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] !mb-0 to-[#38bdf8]">
                 How I Work
               </span>
             </h2>
@@ -618,7 +618,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block !mb-0"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda]">
                 My Tech Stack
@@ -829,7 +829,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block !mb-0"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 Work Experience
@@ -1034,7 +1034,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block !mb-0"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
                 Featured Projects
@@ -1095,9 +1095,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold relative !mb-0 inline-block"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r !mb-0 from-[#64ffda] to-[#38bdf8]">
                 What I Offer
               </span>
             </motion.h2>
@@ -1395,7 +1395,7 @@ export default function Home() {
             <span className="text-[#38bdf8] text-sm font-medium">Let's Connect</span>
           </motion.div>
 
-          <h2 className=" text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#e0e0e0] via-[#64ffda] to-[#38bdf8] bg-clip-text relative text-transparent mb-4">
+          <h2 className=" text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#e0e0e0] via-[#64ffda] to-[#38bdf8] bg-clip-text relative text-transparent !mb-0">
             Let's Work Together
           </h2>
           <p className="text-[#a0aec0] text-lg max-w-2xl mx-auto mb-3">
