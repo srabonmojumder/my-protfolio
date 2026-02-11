@@ -94,7 +94,7 @@ export default function Footer() {
                 <p className="text-gray-300 text-lg leading-relaxed max-w-md">
                   Frontend Developer specializing in <span className="text-cyan-400 font-semibold">React</span>,{" "}
                   <span className="text-purple-400 font-semibold">Next.js</span>, and{" "}
-                  <span className="text-pink-400 font-semibold">modern UI/UX</span> design.
+                  <span className="text-pink-400 font-semibold">responsive web development</span>.
                 </p>
 
                 <div className="flex items-center space-x-2 text-gray-400">

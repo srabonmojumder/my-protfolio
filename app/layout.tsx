@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Srabon Mozumder | Frontend Developer | React & Next.js Specialist",
-  description: "Frontend Developer with 3 years of experience specializing in React, Next.js, and Tailwind CSS. Expert in transforming Figma designs into pixel-perfect, production-ready web applications. Based in Dhaka, Bangladesh.",
-  keywords: "Frontend Developer, React Developer, Next.js, Tailwind CSS, JavaScript, Web Development, UI Developer, Figma to Code, Bangladesh Developer",
+  description: "Frontend Developer with 3 years of experience building responsive web applications with React, Next.js, and Tailwind CSS. I convert Figma and XD designs into clean, production-ready code. Based in Dhaka, Bangladesh.",
+  keywords: "Frontend Developer, React Developer, Next.js Developer, Tailwind CSS, JavaScript, Responsive Web Development, Figma to Code, HTML CSS, Bootstrap",
   authors: [{ name: "Srabon Mozumder" }],
   openGraph: {
     title: "Srabon Mozumder | Frontend Developer",
-    description: "Frontend Developer specializing in React, Next.js, and modern web technologies",
+    description: "Frontend Developer building responsive web apps with React, Next.js, and Tailwind CSS",
     type: "website",
   },
 };

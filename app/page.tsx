@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs, SiJquery } from "react-icons/si"
+import { SiTailwindcss, SiNextdotjs } from "react-icons/si"
 import { motion, useAnimation } from "framer-motion"
 import { useEffect, useState } from "react"
 import Navbar from "./layout/Navbar"
@@ -16,15 +16,15 @@ import emailjs from '@emailjs/browser'
 const projects = [
   {
     title: "Agrovue Overwatch",
-    description: "Led frontend development of a satellite-powered agricultural monitoring platform as Frontend Lead. Architected and implemented complex data visualization dashboards, authentication flows, and real-time analytics interfaces that transform Google Earth Engine satellite data and AI-generated insights into actionable intelligence for agricultural stakeholders. Directed a team of 2 frontend developers while collaborating with backend teams to integrate REST APIs handling large-scale geospatial and AI-processed datasets.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST API", "Data Visualization"],
+    description: "Led the frontend for an agricultural monitoring platform. Built data visualization dashboards, authentication flows, and analytics interfaces. Integrated REST APIs for satellite and AI-processed data. Managed a team of 2 frontend developers.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST API"],
     imageUrl: "/images/overwatch.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://overwatch.agrovue.io/Auth/Login",
   },
   {
     title: "Beige",
-    description: "Built a sophisticated, responsive frontend for a creative marketplace platform connecting clients with professional videographers and photographers. Developed complex booking interfaces with real-time availability, interactive project management dashboards, and seamless backend API integration. Implemented advanced filtering, search functionality, and optimized image galleries with lazy loading for superior performance.",
+    description: "Built the frontend for a creative marketplace connecting clients with videographers and photographers. Developed booking interfaces, project dashboards, search filtering, and optimized image galleries with API integration.",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
     imageUrl: "/images/beige2.png",
     githubUrl: "https://github.com/srabonmojumder",
@@ -32,15 +32,15 @@ const projects = [
   },
   {
     title: "AI Avatar",
-    description: "Developed a responsive, user-friendly frontend for an AI-driven workflow automation platform. Built interactive UI components for subscription management, content generation, and product analysis with Gemini AI integration. Implemented real-time data updates, dynamic form validation, and optimized component rendering for seamless user experience across all devices.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Gemini AI", "API Integration"],
+    description: "Developed the frontend for an AI-powered workflow platform. Built UI components for subscription management, content generation, and product analysis. Handled real-time data updates and form validation across all devices.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "API Integration"],
     imageUrl: "/images/ai-avatar.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://avatarplayground.luminousdemo.com",
   },
   {
     title: "Text CRM",
-    description: "Designed and implemented intuitive, data-rich interfaces for a comprehensive CRM platform. Built complex dashboard components with real-time analytics visualization, responsive chat interfaces with typing indicators and read receipts, and a dynamic product catalog with advanced filtering capabilities. Focused on accessibility standards (WCAG 2.1) and created a cohesive design system using Material UI components with custom theming for brand consistency.",
+    description: "Built dashboard interfaces for a CRM platform including analytics views, a real-time chat UI, and a product catalog with filtering. Styled with Material UI and followed accessibility best practices.",
     technologies: ["React", "TypeScript", "CSS", "Material UI", "REST API"],
     imageUrl: "/images/text-crm.png",
     githubUrl: "https://github.com/srabonmojumder",
@@ -48,7 +48,7 @@ const projects = [
   },
   {
     title: "Meridian Africa",
-    description: "Transformed a comprehensive Figma design into a fully responsive, high-performance landing page for Meridian Africa. Implemented pixel-perfect designs with smooth scroll animations, interactive elements using Framer Motion, and optimized asset loading. Ensured cross-browser compatibility and achieved 95+ PageSpeed scores while maintaining design fidelity across all breakpoints.",
+    description: "Converted a Figma design into a fully responsive landing page. Implemented smooth scroll animations with Framer Motion and optimized assets for fast load times across all screen sizes.",
     technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     imageUrl: "/images/agrovue.png",
     githubUrl: "https://github.com/srabonmojumder",
@@ -56,7 +56,7 @@ const projects = [
   },
   {
     title: "Keos LLC",
-    description: "Contributed to multiple high-impact projects as a Frontend Developer, building scalable responsive interfaces and feature-rich interactive dashboards. Developed reusable component libraries, collaborated closely with backend teams to design and integrate RESTful APIs, and maintained strict adherence to UI/UX specifications. Implemented state management patterns, optimized bundle sizes, and ensured consistent design language across multiple applications.",
+    description: "Worked on multiple client projects building responsive interfaces and interactive dashboards. Created reusable component libraries and integrated RESTful APIs in collaboration with backend teams.",
     technologies: ["React", "JavaScript", "Bootstrap", "API Integration"],
     imageUrl: "/images/keos-llc.png",
     githubUrl: "https://github.com/srabonmojumder",
@@ -64,15 +64,15 @@ const projects = [
   },
   {
     title: "Carpentier Agency",
-    description: "Transformed a creative Figma design into a visually stunning, responsive landing page for a premier photography agency. Developed high-performance interactive galleries with optimized image loading strategies, smooth page transitions, and hover effects that highlight the agency's portfolio. Implemented advanced lazy loading, WebP format support, and responsive image srcsets for optimal performance across all devices and network conditions.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Image Optimization"],
+    description: "Converted a Figma design into a responsive landing page for a photography agency. Built interactive image galleries with optimized loading, smooth transitions, and hover effects.",
+    technologies: ["React", "Next.js", "Tailwind CSS"],
     imageUrl: "/images/carpentier-agency.png",
     githubUrl: "https://github.com/srabonmojumder",
     liveUrl: "https://www.carpentieragency.com/",
   },
   {
     title: "AlertComm",
-    description: "Developed a fully responsive, user-centric frontend for AlertComm's communication platform. Built interactive pages with intuitive navigation patterns, integrated RESTful backend APIs for real-time data synchronization, and implemented comprehensive error handling. Optimized for cross-device compatibility with thorough browser testing, ensuring consistent experience across desktop, tablet, and mobile viewports.",
+    description: "Developed a responsive frontend for a communication platform. Built interactive pages, integrated REST APIs for real-time data, and tested across desktop, tablet, and mobile devices.",
     technologies: ["React", "Next.js", "Tailwind CSS", "REST API"],
     imageUrl: "/images/alertcomm.png",
     githubUrl: "https://github.com/srabonmojumder",
@@ -99,44 +99,43 @@ const testimonials = [
 
 const stats = [
   {
-    number: "50+",
-    label: "Designs Implemented",
-    icon: Code,
+    number: "3",
+    label: "Years Experience",
+    icon: Award,
     color: "from-emerald-400 to-cyan-400",
     bgColor: "bg-emerald-500/10",
   },
   {
-    number: "98%",
-    label: "Pixel Accuracy Rate",
-    icon: Award,
+    number: "50+",
+    label: "Projects Delivered",
+    icon: Code,
     color: "from-blue-400 to-purple-400",
     bgColor: "bg-blue-500/10",
   },
   {
-    number: "45+",
-    label: "Components Built",
-    icon: Heart,
+    number: "8+",
+    label: "Happy Clients",
+    icon: Users,
     color: "from-pink-400 to-orange-400",
     bgColor: "bg-pink-500/10",
   },
   {
     number: "100%",
-    label: "Responsive Delivery",
-    icon: Users,
+    label: "Responsive Builds",
+    icon: Heart,
     color: "from-cyan-400 to-blue-400",
     bgColor: "bg-cyan-500/10",
   },
 ]
 
 const skills = [
+  { name: "React.js", icon: FaReact, level: "Advanced" },
+  { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
+  { name: "JavaScript", icon: FaJsSquare, level: "Advanced" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, level: "Advanced" },
   { name: "HTML5", icon: FaHtml5, level: "Expert" },
   { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
-  { name: "Bootstrap", icon: FaBootstrap, level: "Expert" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
-  { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
-  { name: "React.js", icon: FaReact, level: "Advanced" },
-  { name: "jQuery", icon: SiJquery, level: "Advanced" },
-  { name: "JavaScript", icon: FaJsSquare, level: "Advanced" },
+  { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
 ]
 
 const fadeIn = {
@@ -273,7 +272,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full px-5 py-2 mb-8"
           >
             <Code className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-medium">Figma to Code Specialist</span>
+            <span className="text-emerald-400 text-sm font-medium">Frontend Developer</span>
           </motion.div>
 
           <motion.h1
@@ -283,11 +282,11 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-200 to-emerald-400">
-              I Don't Design.
+              I Build What
             </span>
             <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
-              I Build Them.
+              You Design.
             </span>
           </motion.h1>
 
@@ -298,13 +297,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-200 leading-relaxed">
-              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years Transforming Designs into Code
+              Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> | 3 Years of Professional Experience
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Frontend Developer with nearly 3 years of experience in building <span className="text-emerald-400 font-semibold">responsive, high-performance web applications</span>. Strong in React, Next.js, Tailwind CSS, modern JavaScript (ES6+), API integration, and <span className="text-cyan-400 font-semibold">pixel-perfect UI implementation</span>.
-            </p>
-            <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-              Specializing in transforming <span className="text-pink-400">Figma & Adobe XD designs</span> into production-ready code, creating <span className="text-emerald-400">reusable React components</span>, integrating <span className="text-cyan-400">REST APIs</span>, and delivering <span className="text-purple-400">cross-device responsive solutions</span>. Every project delivered with clean, maintainable code and attention to performance optimization.
+              I turn <span className="text-emerald-400 font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-cyan-400 font-semibold">React, Next.js, and Tailwind CSS</span>. Clean code, pixel-perfect results, and smooth performance across every device.
             </p>
           </motion.div>
 
@@ -354,7 +350,7 @@ export default function Home() {
               className="inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 to-cyan-600 px-8 py-4 rounded-xl text-lg font-semibold transition-all relative overflow-hidden group min-w-[200px]"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative">See Transformations</span>
+              <span className="relative">View Projects</span>
               <ArrowRightIcon className="ml-2 h-5 w-5 relative group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
@@ -407,10 +403,10 @@ export default function Home() {
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
-                Let Me Be Clear About What I Do
+                About Me
               </span>
             </h2>
-            <p className="text-lg text-gray-400">Honest. Direct. Implementation-Focused.</p>
+            <p className="text-lg text-gray-400">Frontend Developer. Design Implementer. Detail-Oriented.</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -423,15 +419,12 @@ export default function Home() {
             >
               {/* Main Message */}
               <div className="bg-gradient-to-br from-emerald-900/20 to-blue-900/20 p-8 rounded-2xl border border-emerald-500/30 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold mb-4 text-emerald-400">I'm Not a Designer</h3>
+                <h3 className="text-2xl font-bold mb-4 text-emerald-400">Who I Am</h3>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-                  I don't create Figma mockups from scratch. I'm a <span className="text-emerald-400 font-semibold">design implementation specialist</span> who bridges the gap between design and development. I transform existing design files into production-ready code that your team can actually work with.
+                  I'm a <span className="text-emerald-400 font-semibold">Frontend Developer</span> at Luminous Labs with 3 years of experience building responsive web applications. I take Figma and Adobe XD designs and turn them into <span className="text-cyan-400 font-semibold">clean, production-ready code</span> using React, Next.js, and modern CSS frameworks.
                 </p>
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-                  Currently a Frontend Developer at <span className="text-emerald-400 font-semibold">Luminous Labs</span> with nearly 3 years of professional experience and pursuing a Diploma in Computer Technology. I specialize in taking beautiful designs and building them <span className="text-cyan-400 font-semibold">pixel-by-pixel</span> in code with precision and efficiency.
-                </p>
-                <p className="text-base text-gray-400 leading-relaxed">
-                  My approach combines technical expertise with a deep understanding of design systems, ensuring that every component is not just visually accurate but also performant, accessible, and maintainable.
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                  I focus on writing maintainable components, integrating APIs, and making sure every layout works smoothly across all screen sizes. If you have a design ready, I can build it.
                 </p>
               </div>
 
@@ -439,54 +432,58 @@ export default function Home() {
               <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-emerald-500/20">
                 <h3 className="text-lg font-semibold mb-4 text-emerald-400 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
-                  What I DO
+                  What I Do
                 </h3>
                 <ul className="space-y-3 text-sm sm:text-base text-gray-300">
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">✓</span>
-                    <span>Transform Figma/Adobe XD designs into pixel-perfect code</span>
+                    <span>Convert Figma and Adobe XD designs into pixel-perfect React/Next.js code</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">✓</span>
-                    <span>Build responsive, mobile-first React/Next.js applications</span>
+                    <span>Build responsive layouts that work on every screen size</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">✓</span>
-                    <span>Implement complex animations and interactions</span>
+                    <span>Create reusable components with React and Next.js</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">✓</span>
-                    <span>Optimize for performance and accessibility</span>
+                    <span>Integrate REST APIs and display data on the frontend</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">✓</span>
-                    <span>Write clean, maintainable, documented code</span>
+                    <span>Style with Tailwind CSS, Bootstrap, or pure CSS</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span>Deliver clean, maintainable, production-ready code</span>
                   </li>
                 </ul>
               </div>
 
-              {/* What I DON'T DO */}
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-pink-500/20">
-                <h3 className="text-lg font-semibold mb-4 text-pink-400 flex items-center gap-2">
-                  <span className="text-2xl">✗</span>
-                  What I DON'T DO
+              {/* My Approach */}
+              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-blue-500/20">
+                <h3 className="text-lg font-semibold mb-4 text-blue-400 flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  My Approach
                 </h3>
                 <ul className="space-y-3 text-sm sm:text-base text-gray-300">
                   <li className="flex items-start gap-2">
-                    <span className="text-pink-400 mt-1">✗</span>
-                    <span>Create UI/UX designs or mockups from scratch</span>
+                    <span className="text-blue-400 mt-1">→</span>
+                    <span>Start with the design file, understand every detail</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-pink-400 mt-1">✗</span>
-                    <span>Conduct UX research or user testing</span>
+                    <span className="text-blue-400 mt-1">→</span>
+                    <span>Build mobile-first, then scale up to larger screens</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-pink-400 mt-1">✗</span>
-                    <span>Graphic design, branding, or logo creation</span>
+                    <span className="text-blue-400 mt-1">→</span>
+                    <span>Write reusable components, not one-off code</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-pink-400 mt-1">✗</span>
-                    <span>Backend development or database design</span>
+                    <span className="text-blue-400 mt-1">→</span>
+                    <span>Test across devices and browsers before delivery</span>
                   </li>
                 </ul>
               </div>
@@ -518,7 +515,7 @@ export default function Home() {
                   <ul className="space-y-2 text-sm text-gray-300">
                     <li>• Frontend Developer at Luminous Labs</li>
                     <li>• 3 Years Professional Experience</li>
-                    <li>• 50+ Designs Transformed</li>
+                    <li>• 50+ Projects Delivered</li>
                   </ul>
                 </div>
 
@@ -534,9 +531,9 @@ export default function Home() {
 
               {/* My Sweet Spot */}
               <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 p-6 rounded-xl border border-blue-500/30">
-                <h3 className="text-lg font-semibold mb-3 text-blue-400">My Sweet Spot</h3>
+                <h3 className="text-lg font-semibold mb-3 text-blue-400">Best Fit</h3>
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                  Hand me a detailed Figma file with a solid design system, and I'll deliver clean, maintainable React/Next.js code that your team can actually work with. No shortcuts, no "close enough" - just <span className="text-emerald-400 font-semibold">precise implementation</span>.
+                  Give me a Figma or XD file with clear specs, and I'll deliver <span className="text-emerald-400 font-semibold">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
                 </p>
               </div>
             </motion.div>
@@ -558,10 +555,10 @@ export default function Home() {
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
-                From Design File to Deployment
+                How I Work
               </span>
             </h2>
-            <p className="text-lg text-gray-400">A systematic approach to pixel-perfect implementation</p>
+            <p className="text-lg text-gray-400">From design handoff to production-ready code</p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -691,7 +688,7 @@ export default function Home() {
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block mb-4"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
-                Technical Arsenal
+                My Tech Stack
               </span>
             </motion.h2>
             <motion.p
@@ -701,7 +698,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-base sm:text-lg text-gray-400"
             >
-              Technologies I master to transform designs into reality
+              The tools I use to build modern web interfaces
             </motion.p>
           </div>
 
@@ -720,32 +717,29 @@ export default function Home() {
                 "col-span-1 row-span-1",
                 "col-span-1 row-span-1",
                 "col-span-1 row-span-1",
+                "col-span-1 row-span-1",
+                "col-span-1 row-span-1",
                 "md:col-span-2 col-span-2 row-span-1",
-                "col-span-1 row-span-1",
-                "col-span-1 row-span-1",
-                "col-span-1 row-span-1"
               ]
 
               const gradients = [
-                "from-orange-500/20 to-red-500/20",
                 "from-blue-500/20 to-cyan-500/20",
                 "from-purple-500/20 to-pink-500/20",
+                "from-yellow-500/20 to-orange-500/20",
                 "from-cyan-500/20 to-blue-500/20",
+                "from-orange-500/20 to-red-500/20",
                 "from-emerald-500/20 to-teal-500/20",
-                "from-pink-500/20 to-rose-500/20",
                 "from-violet-500/20 to-purple-500/20",
-                "from-yellow-500/20 to-orange-500/20"
               ]
 
               const borderGradients = [
-                "from-orange-500 to-red-500",
                 "from-blue-500 to-cyan-500",
                 "from-purple-500 to-pink-500",
+                "from-yellow-500 to-orange-500",
                 "from-cyan-500 to-blue-500",
+                "from-orange-500 to-red-500",
                 "from-emerald-500 to-teal-500",
-                "from-pink-500 to-rose-500",
                 "from-violet-500 to-purple-500",
-                "from-yellow-500 to-orange-500"
               ]
 
               return (
@@ -871,8 +865,8 @@ export default function Home() {
           >
             {[
               { label: "Years Experience", value: "3", icon: Award },
-              { label: "Technologies", value: "10+", icon: Code },
-              { label: "Projects Built", value: "50+", icon: Rocket }
+              { label: "Core Technologies", value: "7", icon: Code },
+              { label: "Projects Delivered", value: "50+", icon: Rocket }
             ].map((stat, index) => {
               const IconComponent = stat.icon
               return (
@@ -909,7 +903,7 @@ export default function Home() {
               </span>
             </motion.h2>
             <p className="text-base sm:text-lg text-gray-400 mt-4">
-              Building exceptional web experiences at leading companies
+              Where I've built and grown as a frontend developer
             </p>
           </div>
 
@@ -926,14 +920,13 @@ export default function Home() {
                   period: "Sep 2023 – Present",
                   location: "Dhaka, Bangladesh",
                   type: "Full-time",
-                  description: "Leading frontend development initiatives for diverse client projects across multiple industries.",
+                  description: "Building frontend interfaces for client projects across different industries.",
                   responsibilities: [
-                    "Build responsive, cross-device user interfaces using React, Next.js, and Tailwind CSS",
-                    "Convert Figma and Adobe XD designs into pixel-perfect, production-ready code",
-                    "Develop reusable React components and maintain component libraries",
-                    "Integrate RESTful APIs and manage application state effectively",
-                    "Collaborate with backend developers, QA teams, and designers in agile workflows",
-                    "Optimize web applications for maximum performance and accessibility",
+                    "Build responsive interfaces using React, Next.js, and Tailwind CSS",
+                    "Convert Figma and XD designs into production-ready components",
+                    "Develop and maintain reusable React component libraries",
+                    "Integrate REST APIs and manage frontend data flow",
+                    "Collaborate with designers and backend teams in agile sprints",
                   ],
                   color: "from-emerald-500 to-cyan-500",
                 },
@@ -943,13 +936,12 @@ export default function Home() {
                   period: "Mar 2022 – Sep 2023",
                   location: "Dhaka, Bangladesh",
                   type: "Internship",
-                  description: "Gained hands-on experience in modern web development practices and professional workflows.",
+                  description: "Learned modern frontend development through hands-on work on real client projects.",
                   responsibilities: [
-                    "Worked on responsive layouts and UI implementation from design mockups",
-                    "Learned and applied React, Next.js, and modern CSS frameworks",
-                    "Participated in code reviews and team collaboration sessions",
-                    "Followed production workflow from design handoff to deployment",
-                    "Contributed to real client projects under senior developer mentorship",
+                    "Built responsive layouts from design mockups using HTML, CSS, and React",
+                    "Learned and applied Next.js and Tailwind CSS in production projects",
+                    "Participated in code reviews and team collaboration",
+                    "Contributed to client projects under senior developer guidance",
                   ],
                   color: "from-blue-500 to-purple-500",
                 },
@@ -1112,11 +1104,11 @@ export default function Home() {
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
-                Design Transformations
+                Featured Projects
               </span>
             </motion.h2>
             <p className="text-base sm:text-lg text-gray-400 mt-4">
-              Real projects. <span className="text-pink-400">Designs</span> transformed into <span className="text-emerald-400">production code</span>.
+              Real projects I've built — from <span className="text-pink-400">design files</span> to <span className="text-emerald-400">live applications</span>.
             </p>
           </div>
 
@@ -1174,11 +1166,11 @@ export default function Home() {
               className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
-                Implementation Services
+                What I Offer
               </span>
             </motion.h2>
             <p className="text-base sm:text-lg text-gray-400 mt-4">
-              Transforming designs into production-ready code
+              Frontend services focused on quality and performance
             </p>
           </div>
 
@@ -1186,27 +1178,27 @@ export default function Home() {
             {[
               {
                 icon: Code,
-                title: "Figma/XD to React/Next.js",
+                title: "Design to Code",
                 description:
-                  "Your design, perfectly implemented. I transform your Figma or Adobe XD files into clean, maintainable React or Next.js code with component-based architecture. Every pixel, every spacing, every font weight - exactly as designed. Includes proper TypeScript typing, reusable components, and comprehensive code documentation for easy team collaboration.",
+                  "I take your Figma or Adobe XD designs and build them in React or Next.js. Every spacing, color, and interaction — implemented exactly as designed with reusable, maintainable components.",
                 color: "from-emerald-500 to-cyan-500",
                 borderColor: "border-emerald-500/30",
                 hoverShadow: "hover:shadow-emerald-500/20",
               },
               {
                 icon: Sparkles,
-                title: "Responsive Implementation",
+                title: "Responsive Development",
                 description:
-                  "One design, all devices. Mobile-first development ensuring perfect rendering from smartphones to 4K displays. I implement breakpoints that match your design system, optimize images for different screen densities, and test across real devices - not just browser resize. Your users get a native-quality experience regardless of their device.",
+                  "Mobile-first layouts that look great on every screen. I build with proper breakpoints, optimized images, and test across real devices to make sure nothing breaks.",
                 color: "from-blue-500 to-purple-500",
                 borderColor: "border-blue-500/30",
                 hoverShadow: "hover:shadow-blue-500/20",
               },
               {
                 icon: Heart,
-                title: "Animation & Interaction",
+                title: "API Integration & Interactivity",
                 description:
-                  "Designs that move beautifully. I implement smooth animations, transitions, and micro-interactions using industry-leading libraries like Framer Motion, GSAP, and optimized CSS animations. Every animation is performance-tested to maintain 60fps, with proper loading states, hover effects, and interactive feedback that enhances user experience without sacrificing performance.",
+                  "I connect your frontend to REST APIs and bring interfaces to life with smooth animations, transitions, and interactive elements using Framer Motion and CSS.",
                 color: "from-pink-500 to-orange-500",
                 borderColor: "border-pink-500/30",
                 hoverShadow: "hover:shadow-pink-500/20",
@@ -1253,7 +1245,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mt-12 bg-gradient-to-br from-emerald-900/20 to-blue-900/20 p-8 rounded-2xl border border-emerald-500/30 backdrop-blur-sm"
           >
-            <h3 className="text-2xl font-bold mb-6 text-center text-emerald-400">What You Get With Every Project</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center text-emerald-400">Included With Every Project</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: CheckCircle, text: "Pixel-perfect implementation" },
@@ -1318,7 +1310,7 @@ export default function Home() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4">
-            Implementation By The Numbers
+            By The Numbers
           </h2>
           {/* <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div> */}
         </motion.div>
@@ -1472,13 +1464,10 @@ export default function Home() {
           </motion.div>
 
           <h2 className=" text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text relative text-transparent mb-4">
-            Let's Transform Your Design Into Reality
+            Let's Work Together
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-3">
-            Have a Figma or Adobe XD design ready? Let's discuss how I can transform it into a pixel-perfect, production-ready application.
-          </p>
-          <p className="text-gray-500 text-base max-w-xl mx-auto">
-            Whether you need a complete implementation or assistance with specific components, I'm here to help bring your vision to life with clean, maintainable code.
+            Have a design ready? I'd love to hear about your project and discuss how I can help build it.
           </p>
         </motion.div>
 
@@ -1499,11 +1488,8 @@ export default function Home() {
                   <h3 className="text-2xl font-bold text-white">Ready to Start Your Project?</h3>
                 </div>
 
-                <p className="text-gray-300 mb-4 leading-relaxed">
-                  I'm available for design-to-code implementation projects, whether you're building a new product, redesigning an existing application, or need help with specific frontend components.
-                </p>
-                <p className="text-gray-400 mb-8 leading-relaxed text-sm">
-                  Typical response time: Within 24 hours on weekdays. I'm currently accepting new projects and would love to hear about yours!
+                <p className="text-gray-300 mb-8 leading-relaxed">
+                  Whether you're building a new product or need frontend help on an existing one, feel free to reach out. I typically respond within 24 hours.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
