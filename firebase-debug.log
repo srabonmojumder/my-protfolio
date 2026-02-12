@@ -1,0 +1,21 @@
+[debug] [2026-02-11T17:44:22.266Z] ----------------------------------------------------------------------
+[debug] [2026-02-11T17:44:22.267Z] Command:       /Users/luminouslabs/Library/Application Support/Herd/config/nvm/versions/node/v20.19.5/bin/node /Users/luminouslabs/Library/Application Support/Herd/config/nvm/versions/node/v20.19.5/bin/firebase deploy --only hosting
+[debug] [2026-02-11T17:44:22.267Z] CLI Version:   15.3.1
+[debug] [2026-02-11T17:44:22.267Z] Platform:      darwin
+[debug] [2026-02-11T17:44:22.267Z] Node Version:  v20.19.5
+[debug] [2026-02-11T17:44:22.267Z] Time:          Wed Feb 11 2026 23:44:22 GMT+0600 (Bangladesh Standard Time)
+[debug] [2026-02-11T17:44:22.268Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-11T17:44:23.052Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-11T17:44:23.052Z] > authorizing via signed-in user (srabonmozumder29@gmail.com)
+[debug] [2026-02-11T17:44:23.053Z] [iam] checking project my-protfolio-c19df for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-11T17:44:23.053Z] Checked if tokens are valid: true, expires at: 1770835336046
+[debug] [2026-02-11T17:44:23.053Z] Checked if tokens are valid: true, expires at: 1770835336046
+[debug] [2026-02-11T17:44:23.053Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/my-protfolio-c19df:testIamPermissions [none]
+[debug] [2026-02-11T17:44:23.053Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/my-protfolio-c19df:testIamPermissions x-goog-quota-user=projects/my-protfolio-c19df
+[debug] [2026-02-11T17:44:23.054Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/my-protfolio-c19df:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-11T17:44:24.441Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/my-protfolio-c19df:testIamPermissions 200
+[debug] [2026-02-11T17:44:24.442Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/my-protfolio-c19df:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-11T17:44:24.442Z] Checked if tokens are valid: true, expires at: 1770835336046
+[debug] [2026-02-11T17:44:24.442Z] Checked if tokens are valid: true, expires at: 1770835336046
+[debug] [2026-02-11T17:44:24.443Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/my-protfolio-c19df [none]

@@ -12,6 +12,7 @@ import ProjectCard from "./components/ProjectCard"
 import Testimonial from "./components/Testimonial"
 import { Mail, MapPin, Phone, Send, MessageCircle, Sparkles, ArrowRight, CheckCircle, Award, Code, Heart, Users, FileText, Search, Zap, Rocket } from "lucide-react"
 import emailjs from '@emailjs/browser'
+import toast, { Toaster } from 'react-hot-toast'
 import { projects } from "./data/projects"
 
 
@@ -96,50 +97,46 @@ export default function Home() {
     message: "",
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
-
   const [isLoading, setIsLoading] = useState(false)
-  const [formError, setFormError] = useState('')
   
   useEffect(() => {
-    // Initialize EmailJS with your public key
-    // You'll need to sign up on https://www.emailjs.com/ and get your public key
-    emailjs.init("YOUR_PUBLIC_KEY") // Replace with your actual EmailJS public key
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
   }, [])
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    setFormError('')
-    
+
     try {
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }
-      )
-      
-      console.log('Email sent successfully:', result.text)
-      
-      // Show success message
-      setIsSubmitted(true)
-      
-      // Reset form after successful submission
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+
+      if (!serviceId || !templateId) {
+        throw new Error('EmailJS is not configured. Please set up environment variables.')
+      }
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        subject: `New Message from Let's Work Together Section`,
       })
-      
-      // Hide success message after 3 seconds
+
+      toast.success('Message sent successfully! I\'ll get back to you soon.', {
+        duration: 4000,
+      })
+
+      setIsSubmitted(true)
+      setFormData({ name: "", email: "", message: "" })
       setTimeout(() => setIsSubmitted(false), 3000)
     } catch (error) {
       console.error('Error sending message:', error)
-      setFormError('Failed to send message. Please try again later.')
+      toast.error('Failed to send message. Please try again later.', {
+        duration: 4000,
+      })
     } finally {
       setIsLoading(false)
     }
@@ -179,6 +176,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0a192f] text-[#e0e0e0] overflow-x-hidden">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: '#112240',
+            color: '#e0e0e0',
+            border: '1px solid rgba(100, 255, 218, 0.2)',
+          },
+          success: {
+            iconTheme: { primary: '#64ffda', secondary: '#112240' },
+          },
+          error: {
+            iconTheme: { primary: '#f87171', secondary: '#112240' },
+          },
+        }}
+      />
       <Navbar />
 
       {/* Hero Section - Design to Code Specialist */}
@@ -1519,12 +1532,6 @@ export default function Home() {
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#64ffda]/0 to-[#38bdf8]/0 group-focus-within:from-[#64ffda]/10 group-focus-within:to-[#38bdf8]/10 transition-all pointer-events-none" />
                   </div>
 
-                  {formError && (
-                    <div className="text-red-400 text-sm mb-4 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
-                      {formError}
-                    </div>
-                  )}
-                  
                   <motion.button
                     type="submit"
                     className="w-full group overflow-hidden bg-[#64ffda]/10 text-[#64ffda] border-2 border-[#64ffda]/40 rounded-xl font-semibold hover:bg-[#64ffda]/20 hover:border-[#64ffda]/60 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
@@ -1557,21 +1564,6 @@ export default function Home() {
                   </motion.button>
                 </form>
 
-                {/* Success Animation */}
-                {isSubmitted && (
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center bg-green-500/20 backdrop-blur-sm rounded-3xl"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                  >
-                    <div className="text-center">
-                      <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                      <p className="text-white font-semibold">Thank you for reaching out!</p>
-                      <p className="text-[#a0aec0] text-sm">I'll get back to you soon.</p>
-                    </div>
-                  </motion.div>
-                )}
               </div>
             </div>
           </motion.div>
