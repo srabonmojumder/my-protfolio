@@ -354,7 +354,7 @@ export default function Home() {
             <p className="text-lg text-[#a0aec0]">Frontend Developer. Design to Code. Detail-Oriented.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-start">
             <motion.div
               className="space-y-6"
               initial={{ opacity: 0, x: -50 }}
@@ -445,11 +445,11 @@ export default function Home() {
               <div className="relative mx-auto ">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-2xl blur-2xl opacity-20"></div>
                 <Image
-                  src="/images/srabon.png"
+                  src="/images/srabon01.png"
                   alt="Srabon Mojumder - Design to Code Specialist"
-                  width={400}
-                  height={400}
-                  className="relative rounded-2xl shadow-2xl w-full h-auto border border-[#64ffda]/20"
+                  width={200}
+                  height={200}
+                  className="relative rounded-2xl shadow-2xl w-full h-[700px] object-cover border border-[#64ffda]/20"
                 />
               </div>
 
