@@ -1,8 +1,8 @@
-import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si"
+import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare, FaVuejs } from "react-icons/fa"
+import { SiTailwindcss, SiNextdotjs, SiJquery, SiJavascript } from "react-icons/si"
 import {
   Award, Code, Heart, Users, Mail, MapPin, Phone,
-  FileText, Search, CheckCircle, Rocket, Sparkles, Zap,
+  FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone,
 } from "lucide-react"
 import type {
   Testimonial, Stat, Skill, ContactInfo,
@@ -64,6 +64,10 @@ export const skills: Skill[] = [
   { name: "Tailwind CSS", icon: SiTailwindcss, level: "Advanced" },
   { name: "HTML5", icon: FaHtml5, level: "Expert" },
   { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
+  { name: "Responsive Design", icon: Smartphone, level: "Expert" },
+  { name: "ES6+", icon: SiJavascript, level: "Advanced" },
+  { name: "jQuery", icon: SiJquery, level: "Advanced" },
+  { name: "Vue.js", icon: FaVuejs, level: "Intermediate" },
   { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
 ]
 

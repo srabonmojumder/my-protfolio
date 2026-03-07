@@ -12,6 +12,10 @@ const layouts = [
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
   "md:col-span-2 col-span-2 row-span-1",
 ]
 
@@ -23,9 +27,17 @@ const gradients = [
   "from-[#64ffda]/20 to-[#38bdf8]/10",
   "from-[#38bdf8]/20 to-[#64ffda]/10",
   "from-[#64ffda]/15 to-[#38bdf8]/15",
+  "from-[#38bdf8]/15 to-[#64ffda]/15",
+  "from-[#64ffda]/10 to-[#38bdf8]/20",
+  "from-[#38bdf8]/10 to-[#64ffda]/20",
+  "from-[#64ffda]/15 to-[#38bdf8]/15",
 ]
 
 const borderGradients = [
+  "from-[#64ffda] to-[#38bdf8]",
+  "from-[#38bdf8] to-[#64ffda]",
+  "from-[#64ffda] to-[#38bdf8]",
+  "from-[#38bdf8] to-[#64ffda]",
   "from-[#64ffda] to-[#38bdf8]",
   "from-[#38bdf8] to-[#64ffda]",
   "from-[#64ffda] to-[#38bdf8]",
