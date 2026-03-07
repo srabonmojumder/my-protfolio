@@ -86,10 +86,8 @@ export default function ProjectCard({
             </motion.div>
           </AnimatePresence>
 
-          {/* Subtle bottom gradient */}
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a192f] to-transparent z-10 pointer-events-none" />
 
-          {/* Slider Arrows */}
           {hasMultipleImages && (
             <>
               <button
@@ -107,7 +105,6 @@ export default function ProjectCard({
             </>
           )}
 
-          {/* Dots */}
           {hasMultipleImages && (
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
               {images.map((_, index) => (
@@ -129,7 +126,6 @@ export default function ProjectCard({
             </div>
           )}
 
-          {/* Hover overlay with quick actions */}
           <div className="absolute inset-0 z-10 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-3 pointer-events-none">
             <motion.a
               href={liveUrl}
@@ -158,7 +154,6 @@ export default function ProjectCard({
 
         {/* Content */}
         <div className="p-5 sm:p-6 space-y-4">
-          {/* Tech tags */}
           <div className="flex flex-wrap gap-1.5">
             {technologies.slice(0, 4).map((tech) => (
               <span
@@ -175,17 +170,14 @@ export default function ProjectCard({
             )}
           </div>
 
-          {/* Title */}
           <h3 className="text-lg sm:text-xl font-semibold text-[#e0e0e0] group-hover:text-[#64ffda] transition-colors leading-tight">
             {title}
           </h3>
 
-          {/* Description */}
           <p className="text-sm text-[#a0aec0]/70 leading-relaxed line-clamp-2">
             {description}
           </p>
 
-          {/* View Details Link */}
           <Link
             href={`/projects/${slug}`}
             className="inline-flex items-center gap-2 text-sm font-medium text-[#a0aec0] hover:text-[#64ffda] transition-colors group/link pt-1"

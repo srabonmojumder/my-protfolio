@@ -21,7 +21,8 @@ import {
   Lightbulb,
 } from "lucide-react"
 import { useState, useCallback, useEffect, useRef } from "react"
-import { projects, type Project } from "../../data/projects"
+import type { Project } from "../../types"
+import { projects } from "../../data/projects"
 
 export default function ProjectDetail({ project }: { project: Project }) {
   const [currentIndex, setCurrentIndex] = useState(0)

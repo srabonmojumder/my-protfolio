@@ -1,21 +1,6 @@
-export interface Project {
-  slug: string
-  title: string
-  description: string
-  longDescription: string
-  technologies: string[]
-  images: string[]
-  githubUrl: string
-  liveUrl: string
-  role: string
-  highlights: string[]
-  category: string
-  duration: string
-  teamSize: string
-  completedDate: string
-  features: string[]
-  challenges: { problem: string; solution: string }[]
-}
+import type { Project } from "../types"
+
+export type { Project }
 
 export const projects: Project[] = [
   {
