@@ -61,7 +61,7 @@ export const skills: Skill[] = [
   { name: "React.js", icon: FaReact, level: "Advanced" },
   { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
   { name: "JavaScript", icon: FaJsSquare, level: "Advanced" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, level: "Advanced" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
   { name: "HTML5", icon: FaHtml5, level: "Expert" },
   { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
   { name: "Responsive Design", icon: Smartphone, level: "Expert" },
