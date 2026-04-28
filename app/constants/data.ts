@@ -9,6 +9,8 @@ import type {
   WorkExperience, Education, ProcessStep, Service,
 } from "../types"
 
+// Testimonials shown in the constellation carousel. Replace placeholder
+// entries (David Park onwards) with real client feedback when available.
 export const testimonials: Testimonial[] = [
   {
     quote:
@@ -16,6 +18,7 @@ export const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Lead Designer",
     company: "Creative Studio",
+    badge: "Pixel Perfect",
   },
   {
     quote:
@@ -23,6 +26,55 @@ export const testimonials: Testimonial[] = [
     name: "Sarah Williams",
     role: "Product Manager",
     company: "Tech Startup",
+    badge: "On Time",
+  },
+  {
+    quote:
+      "Srabon turned our outdated WordPress site into a blazing-fast Next.js application. Lighthouse scores jumped from the 50s to all 90s, and the team finds the new codebase a joy to work in. Migration was smooth and zero downtime.",
+    name: "David Park",
+    role: "CTO",
+    company: "SaaS Startup",
+    badge: "10x Faster",
+  },
+  {
+    quote:
+      "The dashboard Srabon built handles thousands of data points without breaking a sweat. Smooth animations, responsive layouts, and a clean component architecture — exactly what our team needed to scale our analytics product.",
+    name: "Anna Kowalski",
+    role: "Engineering Lead",
+    company: "Analytics Co",
+    badge: "Scales Well",
+  },
+  {
+    quote:
+      "Srabon delivered our entire admin panel in two weeks — features, polished UI, accessibility, the works. Communication was clear throughout, and every milestone shipped exactly on schedule. Easiest dev hire we've made.",
+    name: "Marcus Johnson",
+    role: "Founder",
+    company: "Logistics App",
+    badge: "2 Weeks Flat",
+  },
+  {
+    quote:
+      "The marketing site Srabon built converts beautifully. Custom animations, butter-smooth scroll, and a flawless mobile experience — our bounce rate dropped 30% within a month of launch and signups went up.",
+    name: "Priya Sharma",
+    role: "Head of Growth",
+    company: "Health Tech",
+    badge: "+30% CR",
+  },
+  {
+    quote:
+      "I needed someone who understood both Tailwind and design systems. Srabon refactored our chaotic styles into a clean, reusable component library that our whole team uses now. Documentation was thorough.",
+    name: "Daniel Lee",
+    role: "Design Director",
+    company: "EdTech Platform",
+    badge: "Design System",
+  },
+  {
+    quote:
+      "Srabon integrated our React frontend with three separate APIs without a hitch. Robust error handling, loading states, retries — it all just works. Our users haven't reported a single client-side issue since launch.",
+    name: "Rachel Bennett",
+    role: "Product Manager",
+    company: "Fintech App",
+    badge: "Zero Bugs",
   },
 ]
 
