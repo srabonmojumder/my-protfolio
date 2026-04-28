@@ -114,9 +114,11 @@ export default function TestimonialsSection() {
       return { path: "", endX: 0, endY: 0, trailX: 0, trailY: 0 }
     const ax = (activeSlot.x / 100) * size.w
     const ay = (activeSlot.y / 100) * size.h
-    const hw = Math.min(size.w * 0.46, 224)
-    const hh = 210
-    return buildCurve(ax, ay, size.w / 2, size.h / 2, hw, hh)
+    const cardCapPx = size.w < 640 ? 130 : size.w < 1024 ? 192 : 224
+    const hw = Math.min(size.w * 0.42, cardCapPx)
+    const hh = size.w < 640 ? 175 : 210
+    const gap = size.w < 640 ? 22 : 32
+    return buildCurve(ax, ay, size.w / 2, size.h / 2, hw, hh, gap)
   }, [activeSlot.x, activeSlot.y, size.w, size.h])
 
   return (
@@ -125,7 +127,7 @@ export default function TestimonialsSection() {
       className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-10 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-14">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +147,7 @@ export default function TestimonialsSection() {
           onMouseLeave={() => setHovered(false)}
           onFocusCapture={() => setHovered(true)}
           onBlurCapture={() => setHovered(false)}
-          className="relative mx-auto h-[560px] sm:h-[600px]"
+          className="relative mx-auto h-[460px] sm:h-[560px] lg:h-[600px] max-w-md sm:max-w-2xl lg:max-w-5xl"
         >
           {size.w > 0 && (
             <svg
@@ -198,7 +200,7 @@ export default function TestimonialsSection() {
                 type="button"
                 onClick={() => setActive(i)}
                 aria-label={`Show testimonial from ${testimonials[i].name}`}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full cursor-pointer transition-all duration-300 hover:scale-110 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64ffda] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a192f]"
+                className="absolute -translate-x-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full cursor-pointer transition-all duration-300 hover:scale-110 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64ffda] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a192f]"
                 style={{ left: `${slot.x}%`, top: `${slot.y}%` }}
               >
                 <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-[#64ffda]/40 ring-offset-2 ring-offset-[#0a192f] opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:ring-[#64ffda] transition-all">
@@ -223,7 +225,7 @@ export default function TestimonialsSection() {
           >
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-[#64ffda]/30 blur-md" />
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2px] bg-gradient-to-br from-[#64ffda] to-[#38bdf8]">
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full p-[2px] bg-gradient-to-br from-[#64ffda] to-[#38bdf8]">
                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -234,7 +236,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
               {t.badge && (
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-semibold bg-[#64ffda] text-[#0a192f] whitespace-nowrap shadow-md">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-semibold bg-[#64ffda] text-[#0a192f] whitespace-nowrap shadow-md">
                   {t.badge}
                 </div>
               )}
@@ -248,10 +250,10 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35 }}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[92%] max-w-md bg-[#112240] rounded-2xl p-6 sm:p-8 border border-[#64ffda]/10 shadow-xl shadow-[#64ffda]/5 backdrop-blur-sm"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[68%] max-w-[260px] sm:w-[80%] sm:max-w-sm lg:max-w-md bg-[#112240] rounded-2xl p-4 sm:p-6 lg:p-8 border border-[#64ffda]/10 shadow-xl shadow-[#64ffda]/5 backdrop-blur-sm"
             >
-              <header className="flex items-start gap-3 mb-5">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#38bdf8] p-[2px]">
+              <header className="flex items-start gap-2 sm:gap-3 mb-4 sm:mb-5">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 shrink-0 rounded-full overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#38bdf8] p-[2px]">
                   <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -262,27 +264,27 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
                 <div className="min-w-0">
-                  <div className="font-semibold text-[#e0e0e0] text-base sm:text-lg leading-tight">
+                  <div className="font-semibold text-[#e0e0e0] text-sm sm:text-base lg:text-lg leading-tight">
                     {t.name}
                   </div>
-                  <div className="mt-1 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#64ffda]/80 font-mono">
+                  <div className="mt-1 text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.15em] sm:tracking-[0.18em] text-[#64ffda]/80 font-mono">
                     {t.role}, {t.company}
                   </div>
                 </div>
               </header>
 
-              <blockquote className="text-[#a0aec0] text-sm sm:text-base leading-relaxed mb-6">
+              <blockquote className="text-[#a0aec0] text-xs sm:text-sm lg:text-base leading-relaxed mb-4 sm:mb-6 line-clamp-6 sm:line-clamp-none">
                 {t.quote}
               </blockquote>
 
-              <footer className="flex justify-between items-center pt-4 border-t border-[#64ffda]/10">
-                <div className="flex items-center gap-2 text-[10px] sm:text-xs text-[#a0aec0]/70">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#64ffda]" />
-                  <span className="uppercase tracking-[0.15em]">
-                    Verified User
+              <footer className="flex justify-between items-center pt-3 sm:pt-4 border-t border-[#64ffda]/10 gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] lg:text-xs text-[#a0aec0]/70 min-w-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#64ffda] shrink-0" />
+                  <span className="uppercase tracking-[0.12em] sm:tracking-[0.15em] truncate">
+                    Verified
                   </span>
                 </div>
-                <div className="text-[10px] sm:text-xs text-[#a0aec0]/50 uppercase tracking-[0.15em] font-mono">
+                <div className="text-[9px] sm:text-[10px] lg:text-xs text-[#a0aec0]/50 uppercase tracking-[0.12em] sm:tracking-[0.15em] font-mono shrink-0">
                   ID: {String(active + 1).padStart(2, "0")}
                 </div>
               </footer>
@@ -290,8 +292,8 @@ export default function TestimonialsSection() {
           </AnimatePresence>
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-3 flex-wrap justify-center max-w-md">
+        <div className="mt-4 sm:mt-6 flex flex-col items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center max-w-md">
             {testimonials.slice(0, total).map((_, i) => (
               <button
                 key={i}
@@ -299,8 +301,8 @@ export default function TestimonialsSection() {
                 onClick={() => setActive(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
                 aria-current={i === active}
-                className={`relative h-2 rounded-full overflow-hidden transition-all ${
-                  i === active ? "w-10 bg-white/15" : "w-2 bg-white/20 hover:bg-white/40"
+                className={`relative h-1.5 sm:h-2 rounded-full overflow-hidden transition-all ${
+                  i === active ? "w-8 sm:w-10 bg-white/15" : "w-1.5 sm:w-2 bg-white/20 hover:bg-white/40"
                 }`}
               >
                 {i === active && (
