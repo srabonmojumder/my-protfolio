@@ -1,12 +1,13 @@
 import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare, FaVuejs } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs, SiJquery, SiJavascript } from "react-icons/si"
+import { SiTailwindcss, SiNextdotjs, SiJquery, SiJavascript, SiRedux, SiReact } from "react-icons/si"
 import {
   Award, Code, Heart, Users, Mail, MapPin, Phone,
-  FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone,
+  FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone, Layers,
 } from "lucide-react"
 import type {
   Testimonial, Stat, Skill, ContactInfo,
   WorkExperience, Education, ProcessStep, Service,
+  StateManagementSkill,
 } from "../types"
 
 // Testimonials shown in the constellation carousel. Replace placeholder
@@ -121,6 +122,48 @@ export const skills: Skill[] = [
   { name: "jQuery", icon: SiJquery, level: "Advanced" },
   { name: "Vue.js", icon: FaVuejs, level: "Intermediate" },
   { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
+]
+
+// State management specialization shown in the dedicated section.
+// Edit each `highlights` array with concrete project names, scale, and
+// outcomes from your actual work — keep entries to 3-5 short bullet points.
+export const stateManagement: StateManagementSkill[] = [
+  {
+    name: "Redux Toolkit",
+    icon: SiRedux,
+    level: "Production",
+    tagline: "Predictable global state for dashboards and authenticated apps",
+    highlights: [
+      "Built createSlice-based auth and user state for the VoiceNimble dashboard with redux-persist token hydration and route guards",
+      "Modeled booking state on Beige with createEntityAdapter — kept O(1) lookups across paginated photographer and videographer listings",
+      "Wrote createAsyncThunk flows for IELTSMocker timed tests covering pending / fulfilled / rejected across every test endpoint",
+      "Tuned Text CRM chat list re-renders with memoized createSelector — dropped full-list updates to single-row on new messages",
+    ],
+  },
+  {
+    name: "Context API",
+    icon: SiReact,
+    level: "Daily Use",
+    tagline: "Lightweight provider trees for app-shell concerns",
+    highlights: [
+      "Split Auth, Theme, and Locale into separate providers on Beige to localize re-renders to consuming subtrees only",
+      "Wired a global Modal + Toast context with useReducer and custom hooks (useModal, useToast) reused across VoiceNimble and Beige",
+      "Default for app-shell state on Next.js App Router projects (Meridian Africa, AI Avatar) — no extra state-lib added to the bundle",
+      "Paired Context with REST API hooks instead of caching server data inside it — kept the Context surface to pure UI concerns",
+    ],
+  },
+  {
+    name: "Zustand",
+    icon: Layers,
+    level: "Preferred",
+    tagline: "Minimal, composable stores for feature-scoped state",
+    highlights: [
+      "Migrated AI Avatar playground filters from Context to Zustand with shallow selectors — measurably dropped re-renders during prompt iteration",
+      "Built feature-scoped stores for VoiceNimble dashboard filters, sort, and pagination — each module exports its own typed hook",
+      "Layered persist + immer middleware on the Beige multi-step booking wizard so drafts survive refresh and route changes",
+      "Drove IELTSMocker timed-test state (timer, current question, answers) through one store — eliminated prop drilling across nested test components",
+    ],
+  },
 ]
 
 export const contactInfo: ContactInfo[] = [

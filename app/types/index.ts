@@ -42,6 +42,16 @@ export interface Skill {
   level: string
 }
 
+export type AnyIcon = LucideIcon | IconType
+
+export interface StateManagementSkill {
+  name: string
+  icon: AnyIcon
+  level: string
+  tagline: string
+  highlights: string[]
+}
+
 export interface ContactInfo {
   icon: LucideIcon
   label: string

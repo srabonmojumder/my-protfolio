@@ -8,6 +8,7 @@ import {
   AboutSection,
   ProcessSection,
   SkillsSection,
+  StateManagementSection,
   ExperienceSection,
   EducationSection,
   ProjectsSection,
@@ -41,6 +42,7 @@ export default function Home() {
       <AboutSection />
       <ProcessSection />
       <SkillsSection />
+      <StateManagementSection />
       <ExperienceSection />
       <EducationSection />
       <ProjectsSection />
