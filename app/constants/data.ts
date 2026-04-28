@@ -1,5 +1,5 @@
-import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare, FaVuejs } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs, SiJquery, SiJavascript, SiRedux, SiReact } from "react-icons/si"
+import { FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaWordpress, FaSass, FaGitAlt } from "react-icons/fa"
+import { SiTailwindcss, SiNextdotjs, SiJavascript, SiRedux, SiReact, SiElementor } from "react-icons/si"
 import {
   Award, Code, Heart, Users, Mail, MapPin, Phone,
   FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone, Layers,
@@ -81,14 +81,14 @@ export const testimonials: Testimonial[] = [
 
 export const stats: Stat[] = [
   {
-    number: "3",
+    number: "3+",
     label: "Years Experience",
     icon: Award,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
   },
   {
-    number: "50+",
+    number: "10+",
     label: "Projects Delivered",
     icon: Code,
     color: "from-[#38bdf8] to-[#64ffda]",
@@ -113,15 +113,15 @@ export const stats: Stat[] = [
 export const skills: Skill[] = [
   { name: "React.js", icon: FaReact, level: "Advanced" },
   { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
-  { name: "JavaScript", icon: FaJsSquare, level: "Advanced" },
+  { name: "JavaScript (ES6+)", icon: SiJavascript, level: "Advanced" },
   { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
+  { name: "SASS", icon: FaSass, level: "Advanced" },
   { name: "HTML5", icon: FaHtml5, level: "Expert" },
   { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
   { name: "Responsive Design", icon: Smartphone, level: "Expert" },
-  { name: "ES6+", icon: SiJavascript, level: "Advanced" },
-  { name: "jQuery", icon: SiJquery, level: "Advanced" },
-  { name: "Vue.js", icon: FaVuejs, level: "Intermediate" },
-  { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
+  { name: "WordPress", icon: FaWordpress, level: "Advanced" },
+  { name: "Elementor", icon: SiElementor, level: "Advanced" },
+  { name: "Git & GitHub", icon: FaGitAlt, level: "Advanced" },
 ]
 
 // State management specialization shown in the dedicated section.
@@ -194,28 +194,30 @@ export const workExperiences: WorkExperience[] = [
     period: "Sep 2023 – Present",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
-    description: "Building frontend interfaces for client projects across different industries.",
+    description:
+      "Build production frontends for SaaS, AI, and marketplace platforms across multiple regions.",
     responsibilities: [
-      "Build responsive interfaces using React, Next.js, and Tailwind CSS",
-      "Convert Figma and XD designs into production-ready components",
-      "Develop and maintain reusable React component libraries",
-      "Integrate REST APIs and manage frontend data flow",
-      "Collaborate with designers and backend teams in agile sprints",
+      "Build responsive, cross-device UIs with React.js, Next.js, and Tailwind CSS — managing state via Redux, Zustand, and Context API",
+      "Translate Figma designs into pixel-perfect, production-ready code using reusable component libraries",
+      "Integrate REST APIs and AI services (including Gemini) for real-time, dynamic data across dashboards and platforms",
+      "Build WordPress sites and develop custom Elementor widgets and landing-page components for client projects",
+      "Leverage AI tools (Claude, ChatGPT, Copilot) to accelerate development, debugging, and code quality",
+      "Collaborate with designers, backend, and QA across the full delivery cycle — resolving UI bugs, API issues, and performance bottlenecks",
     ],
     color: "from-[#64ffda] to-[#38bdf8]",
   },
   {
     title: "Frontend Developer Intern",
     company: "Luminous Labs",
-    period: "Mar 2022 – Sep 2023",
+    period: "Mar 2022 – Sep 2022",
     location: "Dhaka, Bangladesh",
     type: "Internship",
-    description: "Learned modern frontend development through hands-on work on real client projects.",
+    description:
+      "Learned modern frontend development through hands-on work on real client projects.",
     responsibilities: [
-      "Built responsive layouts from design mockups using HTML, CSS, and React",
-      "Learned and applied Next.js and Tailwind CSS in production projects",
-      "Participated in code reviews and team collaboration",
-      "Contributed to client projects under senior developer guidance",
+      "Contributed to web app, e-commerce, and WordPress projects across UI implementation and QA",
+      "Translated mockups into responsive HTML, CSS, and JavaScript components under senior developer mentorship",
+      "Picked up React, Next.js, and Tailwind CSS through hands-on production work",
     ],
     color: "from-[#38bdf8] to-[#64ffda]",
   },
@@ -224,17 +226,10 @@ export const workExperiences: WorkExperience[] = [
 export const educationItems: Education[] = [
   {
     title: "Diploma in Computer Technology",
-    institution: "Dash Polytechnic Institute",
-    period: "2023 - Present",
+    institution: "Dash Polytechnic Institute, Dhaka",
+    period: "Feb 2023 – Present",
     description:
       "Focusing on practical applications of web technologies, software development, database management, and modern programming principles.",
-  },
-  {
-    title: "Frontend Web Development Training",
-    institution: "Luminous Labs",
-    period: "2022",
-    description:
-      "Intensive hands-on training in modern frontend frameworks including React, Next.js, Tailwind CSS, responsive design, and API integration.",
   },
   {
     title: "Higher Secondary Certificate (HSC)",
@@ -328,7 +323,7 @@ export const serviceIncludes = [
 ]
 
 export const skillStats = [
-  { label: "Years Experience", value: "3", icon: Award },
-  { label: "Core Technologies", value: "7", icon: Code },
-  { label: "Projects Delivered", value: "50+", icon: Rocket },
+  { label: "Years Experience", value: "3+", icon: Award },
+  { label: "Core Technologies", value: "11", icon: Code },
+  { label: "Projects Delivered", value: "10+", icon: Rocket },
 ]

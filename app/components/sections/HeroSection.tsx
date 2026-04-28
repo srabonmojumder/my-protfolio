@@ -55,10 +55,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl mb-4 text-[#e0e0e0] leading-relaxed">
-            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3 Years of Experience
+            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 2.9+ Years of Experience
           </p>
           <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
-            I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, and Tailwind CSS</span>. Clean code, pixel-perfect results, and smooth performance across every device.
+            I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, and Tailwind CSS</span> — with state managed by Redux, Zustand, and Context API, and REST/AI APIs powering the data layer.
           </p>
         </motion.div>
 
@@ -124,7 +124,7 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.a
-            href="/cv/Srabon Mozumder_last.pdf"
+            href="/cv/without_imgCV.pdf"
             download="Srabon_Mozumder_CV.pdf"
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)" }}
             whileTap={{ scale: 0.95 }}
