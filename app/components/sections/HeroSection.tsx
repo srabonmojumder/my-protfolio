@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#64ffda]/15 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#38bdf8]/15 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
         <div className="absolute top-3/4 left-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-[#38bdf8]/10 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div> */}
       </div>
 
       <motion.div
@@ -55,10 +55,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl mb-4 text-[#e0e0e0] leading-relaxed">
-            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 2.9+ Years of Experience
+            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3+ Years of Experience
           </p>
           <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
-            I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, and Tailwind CSS</span> — with state managed by Redux, Zustand, and Context API, and REST/AI APIs powering the data layer.
+            I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, TypeScript, and Tailwind CSS</span> — leveraging <span className="text-[#64ffda] font-semibold">SSR, CSR, SSG, and ISR</span> rendering strategies, with state managed by Redux, Zustand, and Context API, and REST, GraphQL, and AI APIs powering the data layer.
           </p>
         </motion.div>
 

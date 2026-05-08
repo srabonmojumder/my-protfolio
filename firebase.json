@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "srabonmozumder",
     "public": "out",
     "ignore": [
       "firebase.json",

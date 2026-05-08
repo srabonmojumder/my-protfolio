@@ -37,10 +37,10 @@ export default function AboutSection() {
             <div className="bg-[#112240] p-8 rounded-2xl border border-[#64ffda]/20 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-4 text-[#64ffda]">Who I Am</h3>
               <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed mb-4">
-                I'm a <span className="text-[#64ffda] font-semibold">Frontend Developer</span> at Luminous Labs with <span className="text-[#64ffda] font-semibold">2.9+ years</span> of experience building responsive, high-performance web applications using <span className="text-[#38bdf8] font-semibold">React.js, Next.js, and modern JavaScript</span>.
+                I'm a <span className="text-[#64ffda] font-semibold">Frontend Developer</span> at Luminous Labs with <span className="text-[#64ffda] font-semibold">3+ years</span> of experience building responsive, high-performance web applications using <span className="text-[#38bdf8] font-semibold">React.js, Next.js, and modern JavaScript</span>.
               </p>
               <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
-                I translate UI/UX designs into clean, scalable code, manage state with <span className="text-[#64ffda] font-semibold">Redux, Zustand, and Context API</span>, and integrate REST and AI APIs (including Gemini) to deliver dynamic, data-driven interfaces. Strong collaborator across design, backend, and QA, with a focus on pixel-perfect UI and cross-device performance.
+                I translate UI/UX designs into clean, scalable code, manage state with <span className="text-[#64ffda] font-semibold">Redux, Zustand, and Context API</span>, and integrate REST, GraphQL, and AI APIs (including Gemini) to deliver dynamic, data-driven interfaces. Strong collaborator across design, backend, and QA, with a focus on pixel-perfect UI and cross-device performance.
               </p>
             </div>
 
@@ -54,7 +54,7 @@ export default function AboutSection() {
                   "Convert Figma and Adobe XD designs into pixel-perfect React/Next.js code",
                   "Build responsive layouts that work on every screen size",
                   "Manage application state with Redux, Zustand, and Context API",
-                  "Integrate REST APIs and AI services (including Gemini) for real-time data",
+                  "Integrate REST and GraphQL APIs and AI services (including Gemini) for real-time data",
                   "Build WordPress sites and custom Elementor widgets for client work",
                   "Deliver clean, maintainable, production-ready code",
                 ].map((item, i) => (
@@ -111,7 +111,7 @@ export default function AboutSection() {
                 <ul className="space-y-2 text-sm text-[#a0aec0]">
                   <li>• Frontend Developer at Luminous Labs</li>
                   <li>• 3 Years Professional Experience</li>
-                  <li>• 50+ Projects Delivered</li>
+                  <li>• 20+ Projects Delivered</li>
                 </ul>
               </div>
 

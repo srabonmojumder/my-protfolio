@@ -235,11 +235,11 @@ export default function TestimonialsSection() {
                   />
                 </div>
               </div>
-              {t.badge && (
+              {/* {t.badge && (
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-semibold bg-[#64ffda] text-[#0a192f] whitespace-nowrap shadow-md">
                   {t.badge}
                 </div>
-              )}
+              )} */}
             </div>
           </motion.div>
 

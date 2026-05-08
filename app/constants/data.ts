@@ -1,5 +1,5 @@
-import { FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaWordpress, FaSass, FaGitAlt } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs, SiJavascript, SiRedux, SiReact, SiElementor } from "react-icons/si"
+import { FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaWordpress, FaSass, FaGitAlt, FaBootstrap } from "react-icons/fa"
+import { SiTailwindcss, SiNextdotjs, SiJavascript, SiTypescript, SiRedux, SiReact, SiElementor, SiJquery, SiVuedotjs } from "react-icons/si"
 import {
   Award, Code, Heart, Users, Mail, MapPin, Phone,
   FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone, Layers,
@@ -88,7 +88,7 @@ export const stats: Stat[] = [
     bgColor: "bg-[#64ffda]/10",
   },
   {
-    number: "10+",
+    number: "20+",
     label: "Projects Delivered",
     icon: Code,
     color: "from-[#38bdf8] to-[#64ffda]",
@@ -113,15 +113,21 @@ export const stats: Stat[] = [
 export const skills: Skill[] = [
   { name: "React.js", icon: FaReact, level: "Advanced" },
   { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
+  { name: "Vue.js", icon: SiVuedotjs, level: "Intermediate" },
   { name: "JavaScript (ES6+)", icon: SiJavascript, level: "Advanced" },
+  { name: "TypeScript", icon: SiTypescript, level: "Advanced" },
   { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
+  { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
   { name: "SASS", icon: FaSass, level: "Advanced" },
   { name: "HTML5", icon: FaHtml5, level: "Expert" },
   { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
   { name: "Responsive Design", icon: Smartphone, level: "Expert" },
   { name: "WordPress", icon: FaWordpress, level: "Advanced" },
   { name: "Elementor", icon: SiElementor, level: "Advanced" },
+  { name: "jQuery", icon: SiJquery, level: "Advanced" },
   { name: "Git & GitHub", icon: FaGitAlt, level: "Advanced" },
+  { name: "Redux", icon: SiRedux, level: "Advanced" },
+  { name: "Context API", icon: SiReact, level: "Advanced" },
 ]
 
 // State management specialization shown in the dedicated section.
@@ -199,7 +205,7 @@ export const workExperiences: WorkExperience[] = [
     responsibilities: [
       "Build responsive, cross-device UIs with React.js, Next.js, and Tailwind CSS — managing state via Redux, Zustand, and Context API",
       "Translate Figma designs into pixel-perfect, production-ready code using reusable component libraries",
-      "Integrate REST APIs and AI services (including Gemini) for real-time, dynamic data across dashboards and platforms",
+      "Integrate REST and GraphQL APIs and AI services (including Gemini) for real-time, dynamic data across dashboards and platforms",
       "Build WordPress sites and develop custom Elementor widgets and landing-page components for client projects",
       "Leverage AI tools (Claude, ChatGPT, Copilot) to accelerate development, debugging, and code quality",
       "Collaborate with designers, backend, and QA across the full delivery cycle — resolving UI bugs, API issues, and performance bottlenecks",
@@ -308,7 +314,7 @@ export const services: Service[] = [
     icon: Heart,
     title: "API Integration & Interactivity",
     description:
-      "I connect your frontend to REST APIs and bring interfaces to life with smooth animations, transitions, and interactive elements using Framer Motion and CSS.",
+      "I connect your frontend to REST and GraphQL APIs and bring interfaces to life with smooth animations, transitions, and interactive elements using Framer Motion and CSS.",
     color: "from-[#64ffda] to-[#38bdf8]",
     borderColor: "border-[#64ffda]/20",
     hoverShadow: "hover:shadow-[#64ffda]/20",
@@ -325,5 +331,5 @@ export const serviceIncludes = [
 export const skillStats = [
   { label: "Years Experience", value: "3+", icon: Award },
   { label: "Core Technologies", value: "11", icon: Code },
-  { label: "Projects Delivered", value: "10+", icon: Rocket },
+  { label: "Projects Delivered", value: "20+", icon: Rocket },
 ]
