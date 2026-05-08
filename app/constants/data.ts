@@ -82,28 +82,28 @@ export const testimonials: Testimonial[] = [
 export const stats: Stat[] = [
   {
     number: "3+",
-    label: "Years Experience",
+    label: "Years of Professional Frontend Development Experience",
     icon: Award,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
   },
   {
     number: "20+",
-    label: "Projects Delivered",
+    label: "Production-Ready Projects Delivered Across Industries",
     icon: Code,
     color: "from-[#38bdf8] to-[#64ffda]",
     bgColor: "bg-[#38bdf8]/10",
   },
   {
     number: "8+",
-    label: "Happy Clients",
+    label: "Long-Term Clients with Continued Trust and Partnership",
     icon: Users,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
   },
   {
     number: "100%",
-    label: "Responsive Builds",
+    label: "Responsive, Pixel-Perfect Delivery Across Every Device",
     icon: Heart,
     color: "from-[#38bdf8] to-[#64ffda]",
     bgColor: "bg-[#64ffda]/10",
