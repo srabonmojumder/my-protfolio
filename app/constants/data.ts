@@ -14,6 +14,16 @@ import type {
 // entries (David Park onwards) with real client feedback when available.
 export const testimonials: Testimonial[] = [
   {
+    // TODO: Replace this draft quote with Moniruz Zaman's actual words.
+    quote:
+      "Srabon has been a standout member of our team at Luminous Labs. He consistently delivers clean, well-structured frontend work and brings a level of detail and reliability that's rare. He's dependable under deadlines, communicates clearly, and lifts the quality of every project he touches.",
+    name: "Moniruz Zaman",
+    role: "CEO",
+    company: "Luminous Labs",
+    image: "/images/shajal.png",
+    badge: "Team Lead",
+  },
+  {
     quote:
       "Srabon transformed our complex Figma designs into a pixel-perfect React application that exceeded our expectations. The attention to detail was remarkable - every spacing, color, and interaction was implemented exactly as designed. The code was clean, well-documented, and our development team could immediately work with it. Delivery was on time, and communication throughout the project was excellent.",
     name: "Michael Chen",
@@ -68,14 +78,6 @@ export const testimonials: Testimonial[] = [
     role: "Design Director",
     company: "EdTech Platform",
     badge: "Design System",
-  },
-  {
-    quote:
-      "Srabon integrated our React frontend with three separate APIs without a hitch. Robust error handling, loading states, retries — it all just works. Our users haven't reported a single client-side issue since launch.",
-    name: "Rachel Bennett",
-    role: "Product Manager",
-    company: "Fintech App",
-    badge: "Zero Bugs",
   },
 ]
 

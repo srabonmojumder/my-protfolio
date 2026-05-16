@@ -26,6 +26,7 @@ export interface Testimonial {
   role: string
   company: string
   badge?: string
+  image?: string
 }
 
 export interface Stat {

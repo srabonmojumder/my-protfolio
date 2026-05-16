@@ -26,6 +26,11 @@ const avatarUrl = (seed: string) => {
   return `https://i.pravatar.cc/150?img=${id}`
 }
 
+// Use the provided photo when available, otherwise fall back to a
+// deterministic generated avatar.
+const avatarSrc = (t: { image?: string; name: string }) =>
+  t.image || avatarUrl(t.name)
+
 function buildCurve(
   ax: number,
   ay: number,
@@ -206,9 +211,9 @@ export default function TestimonialsSection() {
                 <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-[#64ffda]/40 ring-offset-2 ring-offset-[#0a192f] opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:ring-[#64ffda] transition-all">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={avatarUrl(testimonials[i].name)}
+                    src={avatarSrc(testimonials[i])}
                     alt={testimonials[i].name}
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </button>
@@ -229,9 +234,9 @@ export default function TestimonialsSection() {
                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={avatarUrl(t.name)}
+                    src={avatarSrc(t)}
                     alt={t.name}
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -257,9 +262,9 @@ export default function TestimonialsSection() {
                   <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={avatarUrl(t.name)}
+                      src={avatarSrc(t)}
                       alt={t.name}
-                      className="w-full h-full"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
