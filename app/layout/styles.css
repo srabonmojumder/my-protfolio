@@ -91,7 +91,7 @@ a {
   color: var(--secondary-color);
 }
 
-.header-menu a::after {
+/* .header-menu a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -104,7 +104,7 @@ a {
 
 .header-menu a:hover::after {
   width: 100%;
-}
+} */
 
 /* Buttons */
 .button {

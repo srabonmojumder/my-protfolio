@@ -84,6 +84,17 @@ export default function Navbar() {
                   {item.name}
                 </motion.a>
               ))}
+              <motion.a
+                href="https://wa.me/8801827621312?text=Hi%20Srabon%2C%20I%27d%20like%20to%20hire%20you%20for%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0a192f] hover:text-[#0a192f]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+              >
+                Hire Me
+                <ArrowUpRight className="w-4 h-4" />
+              </motion.a>
             </div>
 
             {/* Mobile menu button */}
@@ -146,7 +157,7 @@ export default function Navbar() {
               />
 
               {/* Grid overlay */}
-              <div
+              {/* <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 opacity-[0.06]"
                 style={{
@@ -154,7 +165,7 @@ export default function Navbar() {
                     "linear-gradient(rgba(100,255,218,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(100,255,218,0.6) 1px, transparent 1px)",
                   backgroundSize: "32px 32px",
                 }}
-              />
+              /> */}
 
               {/* Right edge glow */}
               <div
@@ -289,7 +300,9 @@ export default function Navbar() {
                     ))}
                   </div>
                   <motion.a
-                    href="#contact"
+                    href="https://wa.me/8801827621312?text=Hi%20Srabon%2C%20I%27d%20like%20to%20hire%20you%20for%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}

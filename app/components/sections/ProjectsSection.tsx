@@ -1,12 +1,18 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowRightIcon } from "@heroicons/react/24/outline"
+import { ArrowRightIcon, PlusIcon } from "@heroicons/react/24/outline"
 import ProjectCard from "../ui/ProjectCard"
 import { projects } from "../../data/projects"
-import { staggerContainer } from "../../constants/animations"
+
+const PROJECTS_STEP = 6
 
 export default function ProjectsSection() {
+  const [visibleCount, setVisibleCount] = useState(PROJECTS_STEP)
+  const visibleProjects = projects.slice(0, visibleCount)
+  const hasMore = visibleCount < projects.length
+
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="absolute left-1/4 bottom-0 w-72 h-72 bg-[#38bdf8]/10 rounded-full blur-3xl"></div>
@@ -30,27 +36,33 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={staggerContainer}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={index}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: (index % PROJECTS_STEP) * 0.08 }}
             >
               <ProjectCard {...project} />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {hasMore && (
+            <motion.button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + PROJECTS_STEP)}
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] text-[#0a192f] px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] shadow-lg shadow-[#64ffda]/20"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.25)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Load More
+              <PlusIcon className="h-5 w-5 group-hover:rotate-90 transition-transform" />
+            </motion.button>
+          )}
           <motion.a
             href="https://github.com/srabonmojumder"
             target="_blank"

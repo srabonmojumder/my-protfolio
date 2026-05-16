@@ -79,13 +79,13 @@ export default function Footer() {
                 className="space-y-4"
               >
                 <div className="flex items-center space-x-3">
-                  <motion.div
+                  {/* <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                     className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center"
                   >
                     <Code className="w-6 h-6 text-[#e0e0e0]" />
-                  </motion.div>
+                  </motion.div> */}
                   <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
                     Srabon Mojumder
                   </h3>
