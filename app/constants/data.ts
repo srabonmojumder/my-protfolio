@@ -25,6 +25,15 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
+      "Srabon is a skilled frontend developer who consistently delivers modern, user-friendly, and visually appealing designs. He focuses on creating unique UI experiences that are both functional and engaging, ensuring clean structure, smooth interactions, and a professional look in every project.",
+    name: "Thompson Ikechukwu",
+    role: "Founder & CEO",
+    company: "AgroVue",
+    image: "/images/agrovuec.png",
+    badge: "Modern UI",
+  },
+  {
+    quote:
       "Srabon transformed our complex Figma designs into a pixel-perfect React application that exceeded our expectations. The attention to detail was remarkable - every spacing, color, and interaction was implemented exactly as designed. The code was clean, well-documented, and our development team could immediately work with it. Delivery was on time, and communication throughout the project was excellent.",
     name: "Michael Chen",
     role: "Lead Designer",
@@ -70,14 +79,6 @@ export const testimonials: Testimonial[] = [
     role: "Head of Growth",
     company: "Health Tech",
     badge: "+30% CR",
-  },
-  {
-    quote:
-      "I needed someone who understood both Tailwind and design systems. Srabon refactored our chaotic styles into a clean, reusable component library that our whole team uses now. Documentation was thorough.",
-    name: "Daniel Lee",
-    role: "Design Director",
-    company: "EdTech Platform",
-    badge: "Design System",
   },
 ]
 
