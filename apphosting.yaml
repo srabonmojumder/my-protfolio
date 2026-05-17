@@ -1,0 +1,25 @@
+# Firebase App Hosting configuration
+# Docs: https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  minInstances: 0
+  maxInstances: 1
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+
+env:
+  - variable: EMAIL_USER
+    value: srabonmozumder29@gmail.com
+    availability:
+      - RUNTIME
+
+  - variable: EMAIL_RECIPIENT
+    value: srabonmozumder29@gmail.com
+    availability:
+      - RUNTIME
+
+  - variable: EMAIL_PASS
+    secret: EMAIL_PASS
+    availability:
+      - RUNTIME

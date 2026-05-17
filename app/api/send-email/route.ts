@@ -37,13 +37,14 @@ export async function POST(request: Request) {
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_RECIPIENT || process.env.EMAIL_USER, // Where you want to receive the emails
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_RECIPIENT || process.env.EMAIL_USER,
+      replyTo: `"${name}" <${email}>`,
       subject: `Portfolio Contact: Message from ${name}`,
       text: `
         Name: ${name}
         Email: ${email}
-        
+
         Message:
         ${message}
       `,
