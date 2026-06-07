@@ -97,7 +97,7 @@ export default function AboutSection() {
             <div className="relative mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-2xl blur-2xl opacity-20"></div>
               <Image
-                src="/images/srabon01.png"
+                src="/images/new.png"
                 alt="Srabon Mojumder - Design to Code Specialist"
                 width={200}
                 height={200}

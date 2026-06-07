@@ -124,7 +124,7 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.a
-            href="/cv/without_imgCV.pdf"
+            href="/cv/Srabon_Mozumder_CV_updated.pdf"
             download="Srabon_Mozumder_CV.pdf"
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)" }}
             whileTap={{ scale: 0.95 }}
