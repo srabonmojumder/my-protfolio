@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import emailjs from "@emailjs/browser"
 import toast from "react-hot-toast"
 
 export function useContactForm() {
@@ -12,22 +13,31 @@ export function useContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
 
-      const data = await response.json()
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || "Failed to send message")
+      if (!serviceId || !templateId) {
+        throw new Error("EmailJS is not configured. Please set up environment variables.")
       }
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        subject: `New Message from Let's Work Together Section`,
+      })
 
       toast.success("Message sent successfully! I'll get back to you soon.", {
         duration: 4000,
@@ -38,10 +48,9 @@ export function useContactForm() {
       setTimeout(() => setIsSubmitted(false), 3000)
     } catch (error) {
       console.error("Error sending message:", error)
-      toast.error(
-        error instanceof Error ? error.message : "Failed to send message. Please try again later.",
-        { duration: 4000 }
-      )
+      toast.error("Failed to send message. Please try again later.", {
+        duration: 4000,
+      })
     } finally {
       setIsLoading(false)
     }
