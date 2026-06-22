@@ -84,6 +84,7 @@ export interface ProcessStep {
   description: string
   icon: LucideIcon
   color: string
+  tag?: string
 }
 
 export interface Service {

@@ -263,6 +263,7 @@ export const processSteps: ProcessStep[] = [
     description: "You provide Figma/XD files with design specs",
     icon: FileText,
     color: "from-[#64ffda] to-[#38bdf8]",
+    tag: "Figma · XD",
   },
   {
     step: "02",
@@ -270,6 +271,7 @@ export const processSteps: ProcessStep[] = [
     description: "I analyze components, breakpoints, interactions",
     icon: Search,
     color: "from-[#38bdf8] to-[#64ffda]",
+    tag: "Components · Breakpoints",
   },
   {
     step: "03",
@@ -277,6 +279,7 @@ export const processSteps: ProcessStep[] = [
     description: "Build with React/Next.js + Tailwind/Bootstrap",
     icon: Code,
     color: "from-[#64ffda] to-[#38bdf8]",
+    tag: "React · Next.js · Tailwind",
   },
   {
     step: "04",
@@ -284,6 +287,7 @@ export const processSteps: ProcessStep[] = [
     description: "Pixel-perfect review, responsive testing",
     icon: CheckCircle,
     color: "from-[#38bdf8] to-[#64ffda]",
+    tag: "Pixel-Perfect · Responsive",
   },
   {
     step: "05",
@@ -291,6 +295,7 @@ export const processSteps: ProcessStep[] = [
     description: "Production-ready code + documentation",
     icon: Rocket,
     color: "from-[#64ffda] to-[#38bdf8]",
+    tag: "Production-Ready",
   },
 ]
 
