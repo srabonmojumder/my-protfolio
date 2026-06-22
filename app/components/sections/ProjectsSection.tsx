@@ -55,7 +55,7 @@ export default function ProjectsSection() {
             <motion.button
               type="button"
               onClick={() => setVisibleCount((count) => count + PROJECTS_STEP)}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] text-[#0a192f] px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] shadow-lg shadow-[#64ffda]/20"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] text-[#0A0F1A] px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] shadow-lg shadow-[#64ffda]/20"
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.25)" }}
               whileTap={{ scale: 0.95 }}
             >

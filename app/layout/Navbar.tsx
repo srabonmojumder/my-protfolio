@@ -59,7 +59,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a192f]/95 backdrop-blur-md border-b border-[#64ffda]/10" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0A0F1A]/95 backdrop-blur-md border-b border-[#64ffda]/10" : "bg-transparent"
           }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0a192f] hover:text-[#0a192f]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+                className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0A0F1A] hover:text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
               >
                 Hire Me
                 <ArrowUpRight className="w-4 h-4" />
@@ -140,7 +140,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-105%" }}
               transition={{ type: "spring", stiffness: 260, damping: 30 }}
-              className="relative h-full w-[86%] max-w-sm overflow-hidden flex flex-col bg-gradient-to-b from-[#0b1b35] via-[#0a192f] to-[#0a192f]"
+              className="relative h-full w-[86%] max-w-sm overflow-hidden flex flex-col bg-gradient-to-b from-[#0b1b35] via-[#0A0F1A] to-[#0A0F1A]"
             >
               {/* Ambient gradient blobs */}
               <motion.div
@@ -186,7 +186,7 @@ export default function Navbar() {
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-lg shadow-cyan-500/20"
                   >
-                    <Code className="w-5 h-5 text-[#0a192f]" />
+                    <Code className="w-5 h-5 text-[#0A0F1A]" />
                   </motion.div>
                   <div className="flex flex-col leading-tight">
                     <span className="text-base font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
@@ -306,7 +306,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0a192f] bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+                    className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0A0F1A] bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
                   >
                     Hire Me
                     <ArrowUpRight className="w-4 h-4" />

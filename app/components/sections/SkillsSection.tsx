@@ -20,9 +20,9 @@ const edgeFade = {
 function SkillChip({ skill, index }: { skill: Skill; index: number }) {
   const ring = index % 2 === 0 ? "from-[#64ffda] to-[#38bdf8]" : "from-[#38bdf8] to-[#64ffda]"
   return (
-    <div className="group/chip flex shrink-0 items-center gap-3 rounded-2xl border border-[#64ffda]/10 bg-gradient-to-br from-[#112240] to-[#0a192f] px-5 py-3 transition-colors duration-300 hover:border-[#64ffda]/40">
+    <div className="group/chip flex shrink-0 items-center gap-3 rounded-2xl border border-[#64ffda]/10 bg-gradient-to-br from-[#112240] to-[#0A0F1A] px-5 py-3 transition-colors duration-300 hover:border-[#64ffda]/40">
       <div className={`h-11 w-11 shrink-0 rounded-full bg-gradient-to-r ${ring} p-0.5`}>
-        <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0a192f]">
+        <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0A0F1A]">
           <skill.icon className="text-xl text-white" />
         </div>
       </div>

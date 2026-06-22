@@ -63,7 +63,7 @@ export default function ProjectCard({
       onHoverEnd={() => setIsHovered(false)}
       className="group relative h-full"
     >
-      <div className="relative h-full bg-[#0a192f] rounded-2xl overflow-hidden border border-[#64ffda]/10 hover:border-[#64ffda]/25 transition-all duration-500">
+      <div className="relative h-full bg-[#0A0F1A] rounded-2xl overflow-hidden border border-[#64ffda]/10 hover:border-[#64ffda]/25 transition-all duration-500">
         {/* Image Section */}
         <div className="relative aspect-[16/10] overflow-hidden bg-[#112240]">
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -86,7 +86,7 @@ export default function ProjectCard({
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a192f] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0F1A] to-transparent z-10 pointer-events-none" />
 
           {hasMultipleImages && (
             <>

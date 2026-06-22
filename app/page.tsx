@@ -20,7 +20,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a192f] text-[#e0e0e0] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0A0F1A] text-[#e0e0e0] overflow-x-hidden">
       <Toaster
         position="top-right"
         toastOptions={{

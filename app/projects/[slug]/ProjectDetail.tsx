@@ -56,9 +56,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a192f] text-[#e0e0e0]">
+    <div className="min-h-screen bg-[#0A0F1A] text-[#e0e0e0]">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a192f]/80 backdrop-blur-xl border-b border-[#64ffda]/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0F1A]/80 backdrop-blur-xl border-b border-[#64ffda]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link
             href="/#projects"
@@ -114,7 +114,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </AnimatePresence>
 
           {/* Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-[#0a192f]/30 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1A] via-transparent to-[#0A0F1A]/30 z-10 pointer-events-none" />
 
           {/* Navigation Arrows */}
           {hasMultipleImages && (
@@ -396,7 +396,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-xs font-medium text-[#a0aec0] bg-[#0a192f] rounded-lg border border-[#64ffda]/15"
+                      className="px-3 py-1.5 text-xs font-medium text-[#a0aec0] bg-[#0A0F1A] rounded-lg border border-[#64ffda]/15"
                     >
                       {tech}
                     </span>

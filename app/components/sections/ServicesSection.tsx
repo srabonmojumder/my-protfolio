@@ -44,7 +44,7 @@ export default function ServicesSection() {
 
                 <div className="relative z-10">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} p-0.5 mb-6 group-hover:scale-110 transition-transform`}>
-                    <div className="w-full h-full bg-[#0a192f] rounded-xl flex items-center justify-center">
+                    <div className="w-full h-full bg-[#0A0F1A] rounded-xl flex items-center justify-center">
                       <IconComponent className="w-7 h-7 text-white" />
                     </div>
                   </div>

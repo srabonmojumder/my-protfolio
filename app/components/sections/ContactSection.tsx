@@ -9,7 +9,7 @@ export default function ContactSection() {
   const { formData, isSubmitted, isLoading, handleSubmit, handleChange } = useContactForm()
 
   return (
-    <section id="contact" className="relative py-20 bg-[#0a192f] overflow-hidden">
+    <section id="contact" className="relative py-20 bg-[#0A0F1A] overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#64ffda]/10 to-[#38bdf8]/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[#38bdf8]/10 to-[#64ffda]/10 rounded-full blur-3xl animate-pulse delay-1000" />

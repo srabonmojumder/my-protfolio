@@ -11,7 +11,7 @@ function splitNumber(value: string) {
 
 export default function StatsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-[#0a192f] relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 bg-[#0A0F1A] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-to-r from-[#64ffda]/[0.03] via-[#38bdf8]/[0.03] to-[#64ffda]/[0.03] blur-3xl"></div>
       </div>

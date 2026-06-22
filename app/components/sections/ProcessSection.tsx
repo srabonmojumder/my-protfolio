@@ -14,7 +14,7 @@ const accents = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8 bg-[#0a192f]">
+    <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8 bg-[#0A0F1A]">
       <div className="container mx-auto relative z-10">
         {/* Header */}
         <motion.div
@@ -82,7 +82,7 @@ export default function ProcessSection() {
                     <div
                       className="relative flex h-14 w-14 items-center justify-center rounded-full"
                       style={{
-                        background: "#0a192f",
+                        background: "#0A0F1A",
                         border: `2px solid ${accent.from}`,
                         boxShadow: `0 0 0 5px ${accent.from}12, 0 0 22px ${accent.from}3d`,
                       }}
@@ -90,7 +90,7 @@ export default function ProcessSection() {
                       <IconComponent className="h-6 w-6" style={{ color: accent.from }} />
                     </div>
                     <span
-                      className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white ring-2 ring-[#0a192f]"
+                      className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white ring-2 ring-[#0A0F1A]"
                       style={{ background: `linear-gradient(135deg, ${accent.from}, ${accent.to})` }}
                     >
                       {process.step}

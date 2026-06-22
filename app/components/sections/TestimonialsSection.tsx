@@ -178,7 +178,7 @@ export default function TestimonialsSection() {
                 cy={curve.endY}
                 r={6}
                 fill="#64ffda"
-                stroke="#0a192f"
+                stroke="#0A0F1A"
                 strokeWidth={1.5}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -205,10 +205,10 @@ export default function TestimonialsSection() {
                 type="button"
                 onClick={() => setActive(i)}
                 aria-label={`Show testimonial from ${testimonials[i].name}`}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full cursor-pointer transition-all duration-300 hover:scale-110 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64ffda] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a192f]"
+                className="absolute -translate-x-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full cursor-pointer transition-all duration-300 hover:scale-110 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#64ffda] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0F1A]"
                 style={{ left: `${slot.x}%`, top: `${slot.y}%` }}
               >
-                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-[#64ffda]/40 ring-offset-2 ring-offset-[#0a192f] opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:ring-[#64ffda] transition-all">
+                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-[#64ffda]/40 ring-offset-2 ring-offset-[#0A0F1A] opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:ring-[#64ffda] transition-all">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={avatarSrc(testimonials[i])}
@@ -231,7 +231,7 @@ export default function TestimonialsSection() {
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-[#64ffda]/30 blur-md" />
               <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-full p-[2px] bg-gradient-to-br from-[#64ffda] to-[#38bdf8]">
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
+                <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0F1A]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={avatarSrc(t)}
@@ -241,7 +241,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
               {/* {t.badge && (
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-semibold bg-[#64ffda] text-[#0a192f] whitespace-nowrap shadow-md">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-1.5 sm:px-2 py-0.5 rounded text-[8px] sm:text-[10px] font-semibold bg-[#64ffda] text-[#0A0F1A] whitespace-nowrap shadow-md">
                   {t.badge}
                 </div>
               )} */}
@@ -259,7 +259,7 @@ export default function TestimonialsSection() {
             >
               <header className="flex items-start gap-2 sm:gap-3 mb-4 sm:mb-5">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 shrink-0 rounded-full overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#38bdf8] p-[2px]">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-[#0a192f]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-[#0A0F1A]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={avatarSrc(t)}
