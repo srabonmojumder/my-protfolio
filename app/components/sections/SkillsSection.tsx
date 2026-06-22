@@ -2,68 +2,37 @@
 
 import { motion } from "framer-motion"
 import { Zap } from "lucide-react"
+import type { Skill } from "../../types"
 import { skills, skillStats } from "../../constants/data"
-import { staggerContainer } from "../../constants/animations"
 
-const layouts = [
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "col-span-1 row-span-1",
-  "md:col-span-2 col-span-2 row-span-1",
-  "md:col-span-2 col-span-2 row-span-1",
-  "md:col-span-2 col-span-2 row-span-1",
-]
+// Split the stack into two marquee rows that scroll in opposite directions
+const half = Math.ceil(skills.length / 2)
+const rowOne = skills.slice(0, half)
+const rowTwo = skills.slice(half)
 
-const gradients = [
-  "from-[#64ffda]/15 to-[#38bdf8]/15",
-  "from-[#38bdf8]/15 to-[#64ffda]/15",
-  "from-[#64ffda]/10 to-[#38bdf8]/20",
-  "from-[#38bdf8]/10 to-[#64ffda]/20",
-  "from-[#64ffda]/20 to-[#38bdf8]/10",
-  "from-[#38bdf8]/20 to-[#64ffda]/10",
-  "from-[#64ffda]/15 to-[#38bdf8]/15",
-  "from-[#38bdf8]/15 to-[#64ffda]/15",
-  "from-[#64ffda]/10 to-[#38bdf8]/20",
-  "from-[#38bdf8]/10 to-[#64ffda]/20",
-  "from-[#64ffda]/15 to-[#38bdf8]/15",
-  "from-[#38bdf8]/15 to-[#64ffda]/15",
-  "from-[#64ffda]/20 to-[#38bdf8]/20",
-  "from-[#38bdf8]/15 to-[#64ffda]/15",
-  "from-[#64ffda]/20 to-[#38bdf8]/20",
-  "from-[#38bdf8]/20 to-[#64ffda]/20",
-  "from-[#64ffda]/20 to-[#38bdf8]/20",
-]
+const edgeFade = {
+  maskImage:
+    "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+  WebkitMaskImage:
+    "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+}
 
-const borderGradients = [
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-  "from-[#38bdf8] to-[#64ffda]",
-  "from-[#64ffda] to-[#38bdf8]",
-]
+function SkillChip({ skill, index }: { skill: Skill; index: number }) {
+  const ring = index % 2 === 0 ? "from-[#64ffda] to-[#38bdf8]" : "from-[#38bdf8] to-[#64ffda]"
+  return (
+    <div className="group/chip flex shrink-0 items-center gap-3 rounded-2xl border border-[#64ffda]/10 bg-gradient-to-br from-[#112240] to-[#0a192f] px-5 py-3 transition-colors duration-300 hover:border-[#64ffda]/40">
+      <div className={`h-11 w-11 shrink-0 rounded-full bg-gradient-to-r ${ring} p-0.5`}>
+        <div className="flex h-full w-full items-center justify-center rounded-full bg-[#0a192f]">
+          <skill.icon className="text-xl text-white" />
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <span className="whitespace-nowrap text-sm font-semibold text-[#e0e0e0]">{skill.name}</span>
+        <span className="text-xs text-[#38bdf8]">{skill.level}</span>
+      </div>
+    </div>
+  )
+}
 
 export default function SkillsSection() {
   return (
@@ -75,7 +44,7 @@ export default function SkillsSection() {
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-16 flex flex-col justify-center">
+        <div className="text-center mb-12 sm:mb-16 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -109,97 +78,43 @@ export default function SkillsSection() {
           </motion.p>
         </div>
 
+        {/* Auto-scrolling marquee */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
-          initial="hidden"
-          whileInView="visible"
-          variants={staggerContainer}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="flex flex-col gap-5 sm:gap-6"
         >
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                hidden: { opacity: 0, scale: 0.8, rotateY: -20 },
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  rotateY: 0,
-                  transition: { duration: 0.5, delay: index * 0.1 },
-                },
-              }}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                transition: { duration: 0.3 },
-              }}
-              className={`${layouts[index]} group relative`}
+          {/* Row 1 — scrolls left */}
+          <div className="group relative overflow-hidden" style={edgeFade}>
+            <div
+              className="flex w-max gap-4 sm:gap-6 animate-marquee-left group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: "42s" }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${borderGradients[index]} opacity-0 group-hover:opacity-100 rounded-2xl blur-xl transition-opacity duration-500`}></div>
+              {[...rowOne, ...rowOne].map((skill, index) => (
+                <SkillChip key={`r1-${index}`} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
 
-              <div className="relative h-full w-full bg-gradient-to-br from-[#112240] to-[#0a192f] backdrop-blur-xl border border-[#64ffda]/10 rounded-2xl overflow-hidden group-hover:border-[#64ffda]/30 transition-all duration-300">
-                <div className={`absolute inset-0 bg-gradient-to-br ${gradients[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className={`absolute h-[1px] w-full bg-gradient-to-r ${borderGradients[index]} top-1/2`}
-                      style={{ transform: `rotate(${i * 45}deg)` }}
-                      animate={{ opacity: [0.2, 0.6, 0.2] }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: i * 0.3 }}
-                    />
-                  ))}
-                </div>
-
-                <div className="relative h-full flex flex-col items-center justify-center p-6 z-10">
-                  <div className="relative mb-4">
-                    <motion.div
-                      className={`absolute inset-0 rounded-full bg-gradient-to-r ${borderGradients[index]} blur-md opacity-0 group-hover:opacity-60`}
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                    ></motion.div>
-
-                    <div className={`relative w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r ${borderGradients[index]} p-0.5 group-hover:scale-110 transition-transform duration-300`}>
-                      <div className="w-full h-full bg-[#0a192f] rounded-full flex items-center justify-center">
-                        <skill.icon className="text-3xl md:text-4xl text-white" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <h3 className="text-base md:text-lg font-bold text-[#e0e0e0] mb-2 text-center group-hover:scale-110 transition-transform duration-300">
-                    {skill.name}
-                  </h3>
-
-                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${borderGradients[index]} text-white text-xs font-medium group-hover:scale-110 transition-transform duration-300`}>
-                    <Zap className="w-3 h-3" />
-                    {skill.level}
-                  </div>
-
-                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    {[...Array(5)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className={`absolute w-1 h-1 bg-gradient-to-r ${borderGradients[index]} rounded-full opacity-0 group-hover:opacity-100`}
-                        style={{ left: `${20 + i * 15}%`, top: `${30 + (i % 3) * 20}%` }}
-                        animate={{ y: [-10, -30, -10], opacity: [0, 1, 0], scale: [1, 1.5, 1] }}
-                        transition={{ duration: 2 + i * 0.5, repeat: Number.POSITIVE_INFINITY, delay: i * 0.2 }}
-                      />
-                    ))}
-                  </div>
-
-                  <div className={`absolute top-2 right-2 w-8 h-8 bg-gradient-to-br ${borderGradients[index]} opacity-20 rounded-full blur-lg group-hover:opacity-40 transition-opacity`}></div>
-                  <div className={`absolute bottom-2 left-2 w-6 h-6 bg-gradient-to-br ${borderGradients[index]} opacity-20 rounded-full blur-lg group-hover:opacity-40 transition-opacity`}></div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Row 2 — scrolls right */}
+          <div className="group relative overflow-hidden" style={edgeFade}>
+            <div
+              className="flex w-max gap-4 sm:gap-6 animate-marquee-right group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: "36s" }}
+            >
+              {[...rowTwo, ...rowTwo].map((skill, index) => (
+                <SkillChip key={`r2-${index}`} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
           className="mt-12 flex flex-wrap justify-center gap-4"
         >
