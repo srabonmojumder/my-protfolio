@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Code2, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
+import { Github, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/srabonmojumder", label: "GitHub" },
@@ -94,15 +95,14 @@ export default function Footer() {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#64ffda] to-[#38bdf8] p-[1.5px]">
-                <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0A0F1A]">
-                  <Code2 className="h-5 w-5 text-[#64ffda]" />
-                </div>
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-[#e6f1ff]">
-                Srabon <span className="bg-gradient-to-r from-[#64ffda] to-[#38bdf8] bg-clip-text text-transparent">Mojumder</span>
-              </span>
+            <div className="flex items-center">
+              <Image
+                src="/images/logo.png"
+                alt="Srabon Mojumder"
+                width={760}
+                height={328}
+                className="h-14 w-auto brightness-0 invert"
+              />
             </div>
 
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-[#8892b0]">

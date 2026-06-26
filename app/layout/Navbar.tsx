@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
-import { ArrowUpRight, Code, Github, Linkedin, Mail, MapPin } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "#" },
@@ -65,32 +66,45 @@ export default function Navbar() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <motion.div
+            <motion.a
+              href="#"
               whileHover={{ scale: 1.05 }}
-              className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500"
+              className="flex items-center"
+              aria-label="Srabon Mojumder — home"
             >
-              Srabon Mojumder
-            </motion.div>
+              <Image
+                src="/images/logo.png"
+                alt="Srabon Mojumder"
+                width={760}
+                height={328}
+                priority
+                className="h-9 sm:h-14 w-auto brightness-0 invert"
+              />
+            </motion.a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8 header-menu">
+            {/* Desktop Navigation — centered floating pill */}
+            <div className="hidden md:flex items-center gap-2 px-2 py-2 rounded-full border border-[#64ffda]/10 bg-[#112240]/60 backdrop-blur-md shadow-lg shadow-black/20 header-menu">
               {navItems.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
                   whileHover={{ scale: 1.05 }}
-                  className="text-[#a0aec0] hover:text-[#64ffda] transition-colors font-medium"
+                  className="px-4 py-2 rounded-full text-sm text-[#a0aec0] hover:text-white hover:bg-[#64ffda]/10 transition-colors font-medium"
                 >
                   {item.name}
                 </motion.a>
               ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center">
               <motion.a
                 href="https://wa.me/8801827621312?text=Hi%20Srabon%2C%20I%27d%20like%20to%20hire%20you%20for%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0A0F1A] hover:text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-[#0A0F1A] hover:text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
               >
                 Hire Me
                 <ArrowUpRight className="w-4 h-4" />
@@ -179,23 +193,15 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex items-center"
                 >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-lg shadow-cyan-500/20"
-                  >
-                    <Code className="w-5 h-5 text-[#0A0F1A]" />
-                  </motion.div>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-base font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
-                      Srabon Mojumder
-                    </span>
-                    <span className="text-[10px] uppercase tracking-[0.18em] text-[#a0aec0]/70">
-                      Frontend Developer
-                    </span>
-                  </div>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Srabon Mojumder"
+                    width={760}
+                    height={328}
+                    className="h-11 w-auto brightness-0 invert"
+                  />
                 </motion.div>
 
                 <motion.button
