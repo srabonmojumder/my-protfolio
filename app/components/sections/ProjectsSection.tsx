@@ -1,17 +1,43 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowRightIcon, PlusIcon } from "@heroicons/react/24/outline"
+import { ArrowRightIcon } from "@heroicons/react/24/outline"
 import ProjectCard from "../ui/ProjectCard"
 import { projects } from "../../data/projects"
 
-const PROJECTS_STEP = 6
+function MarqueeRow({
+  items,
+  direction,
+}: {
+  items: typeof projects
+  direction: "left" | "right"
+}) {
+  return (
+    <div className="group/marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+      <div
+        className={`flex w-max gap-6 sm:gap-8 ${
+          direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
+        } group-hover/marquee:[animation-play-state:paused]`}
+        style={{ animationDuration: "70s" }}
+      >
+        {[...items, ...items].map((project, index) => (
+          <div
+            key={index}
+            aria-hidden={index >= items.length}
+            className="w-[300px] shrink-0 sm:w-[360px]"
+          >
+            <ProjectCard {...project} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function ProjectsSection() {
-  const [visibleCount, setVisibleCount] = useState(PROJECTS_STEP)
-  const visibleProjects = projects.slice(0, visibleCount)
-  const hasMore = visibleCount < projects.length
+  const mid = Math.ceil(projects.length / 2)
+  const rowOne = projects.slice(0, mid)
+  const rowTwo = projects.slice(mid)
 
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
@@ -35,34 +61,16 @@ export default function ProjectsSection() {
             Real projects I've built — from <span className="text-[#64ffda]">design files</span> to <span className="text-[#64ffda]">live applications</span>.
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {visibleProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: (index % PROJECTS_STEP) * 0.08 }}
-            >
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
-        </div>
+      {/* Auto-scrolling rows — full-bleed so cards run edge to edge */}
+      <div className="relative z-10 space-y-6 sm:space-y-8">
+        <MarqueeRow items={rowOne} direction="left" />
+        <MarqueeRow items={rowTwo} direction="right" />
+      </div>
 
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          {hasMore && (
-            <motion.button
-              type="button"
-              onClick={() => setVisibleCount((count) => count + PROJECTS_STEP)}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] text-[#0A0F1A] px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] shadow-lg shadow-[#64ffda]/20"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.25)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Load More
-              <PlusIcon className="h-5 w-5 group-hover:rotate-90 transition-transform" />
-            </motion.button>
-          )}
+      <div className="container mx-auto relative z-10">
+        <div className="mt-12 flex items-center justify-center">
           <motion.a
             href="https://github.com/srabonmojumder"
             target="_blank"
