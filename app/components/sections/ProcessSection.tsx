@@ -63,8 +63,8 @@ export default function ProcessSection() {
                 <div
                   className={`absolute z-[5] h-0.5 rounded-full top-[59px] md:top-1/2 md:-translate-y-1/2 ${
                     isLeft
-                      ? "left-[27px] w-9 md:left-auto md:right-0 md:w-10"
-                      : "left-[27px] w-9 md:left-0 md:w-10"
+                      ? "left-[27px] w-9 md:left-auto md:right-[9px] md:w-10"
+                      : "left-[27px] w-9 md:left-[9px] md:w-10"
                   }`}
                   style={{ background: `${accent.from}66` }}
                 />

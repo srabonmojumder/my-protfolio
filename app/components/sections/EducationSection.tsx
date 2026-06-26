@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { GraduationCap } from "lucide-react"
 import { educationItems } from "../../constants/data"
 
 export default function EducationSection() {
@@ -22,34 +23,48 @@ export default function EducationSection() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-4 sm:left-[12px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#64ffda] via-[#38bdf8] to-[#64ffda] hidden sm:block"></div>
+          {/* Center line */}
+          <div className="pointer-events-none absolute top-0 bottom-0 left-5 w-0.5 -translate-x-1/2 bg-gradient-to-b from-[#64ffda] via-[#38bdf8] to-[#64ffda] lg:left-1/2" />
 
-          <div className="space-y-8 sm:space-y-12">
-            {educationItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="sm:ml-16 relative"
-              >
-                <div className="absolute left-[-49px] sm:left-[-65px] top-0 w-7 h-7 bg-gradient-to-r from-[#64ffda] to-[#38bdf8] rounded-full hidden sm:flex items-center justify-center">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
+          <div className="space-y-10 lg:space-y-2">
+            {educationItems.map((item, index) => {
+              const isLeft = index % 2 === 0
+              return (
+                <div
+                  key={index}
+                  className="relative lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-14"
+                >
+                  {/* Node on the line */}
+                  <span className="absolute z-10 left-5 top-7 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-r from-[#64ffda] to-[#38bdf8] ring-4 ring-[#0A0F1A] lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2">
+                    <GraduationCap className="h-3.5 w-3.5 text-[#0A0F1A]" />
+                  </span>
 
-                <div className="bg-[#112240] p-6 rounded-xl border border-[#64ffda]/10 hover:border-[#64ffda]/30 transition-all">
-                  <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#e0e0e0]">{item.title}</h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#64ffda]/15 text-[#64ffda] whitespace-nowrap">
-                      {item.period}
-                    </span>
-                  </div>
-                  <p className="text-base sm:text-lg text-[#38bdf8] mb-3">{item.institution}</p>
-                  <p className="text-sm sm:text-base text-[#a0aec0]">{item.description}</p>
+                  {/* Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className={`ml-12 lg:ml-0 ${
+                      isLeft ? "lg:col-start-1 lg:pr-8 lg:text-right" : "lg:col-start-2 lg:pl-8"
+                    }`}
+                  >
+                    <div className="group relative rounded-2xl border border-[#64ffda]/10 bg-[#112240] p-6 transition-all hover:border-[#64ffda]/30 hover:shadow-lg hover:shadow-[#64ffda]/5">
+                      <span
+                        className={`mb-3 inline-flex items-center rounded-full bg-[#64ffda]/15 px-3 py-1 text-xs font-medium text-[#64ffda] ${
+                          isLeft ? "lg:ml-auto" : ""
+                        }`}
+                      >
+                        {item.period}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-bold text-[#e0e0e0]">{item.title}</h3>
+                      <p className="mt-1 text-base sm:text-lg text-[#38bdf8]">{item.institution}</p>
+                      <p className="mt-3 text-sm sm:text-base text-[#a0aec0]">{item.description}</p>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
