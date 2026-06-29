@@ -124,8 +124,8 @@ export default function HeroSection() {
           </motion.a>
 
           <motion.a
-            href="/cv/Srabon_Mozumder_CV_updated.pdf"
-            download="Srabon_Mozumder_CV.pdf"
+            href="/cv/Srabon_Mozumder.pdf"
+            download="Srabon_Mozumder.pdf"
             whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(100, 255, 218, 0.2)" }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center justify-center border-2 border-[#64ffda]/50 text-[#64ffda] bg-[#64ffda]/5 px-8 py-3 rounded-xl text-lg font-semibold transition-all group min-w-[200px] hover:bg-[#64ffda]/10 hover:border-[#64ffda]"
