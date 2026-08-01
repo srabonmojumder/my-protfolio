@@ -22,15 +22,25 @@ export default function HeroSection() {
         variants={fadeIn}
         className="text-center max-w-6xl mx-auto z-10 relative"
       >
-        {/* Badge */}
+        {/* Badges — role + availability status */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-5 py-2 mb-8"
+          className="mb-8 flex flex-wrap items-center justify-center gap-3"
         >
-          <Code className="w-4 h-4 text-[#64ffda]" />
-          <span className="text-[#64ffda] text-sm font-medium">Frontend Developer</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/20 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 px-5 py-2 backdrop-blur-sm">
+            <Code className="w-4 h-4 text-[#64ffda]" />
+            <span className="text-[#64ffda] text-sm font-medium">Frontend Developer</span>
+          </span>
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/[0.08] px-5 py-2 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <span className="text-sm font-medium text-emerald-300">Available for work</span>
+          </span>
         </motion.div>
 
         <motion.h1
@@ -55,7 +65,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl mb-4 text-[#e0e0e0] leading-relaxed">
-            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3.5 Years of Experience
+            Frontend Developer | <span className="text-[#64ffda] font-semibold">3.5 Years of Experience</span>
           </p>
           <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
             I turn <span className="text-[#64ffda] font-semibold">Figma designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, TypeScript, Tailwind CSS, and SCSS</span> — leveraging <span className="text-[#64ffda] font-semibold">SSR, SSG, and CSR</span> rendering strategies, with state managed by Redux, Zustand, and Context API, and REST plus Gemini AI APIs powering the data layer.

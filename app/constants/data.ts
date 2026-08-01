@@ -270,11 +270,11 @@ export const workExperiences: WorkExperience[] = [
   {
     title: "Frontend Developer",
     company: "Luminous Labs",
-    period: "Mar 2022 – Present",
+    period: "Mar 2022 – Jul 2026",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
     description:
-      "Build production frontends for SaaS, AI, POS, CRM and marketplace platforms for clients across 5 countries.",
+      "Built production frontends for SaaS, AI, POS, CRM and marketplace platforms for clients across 5 countries.",
     responsibilities: [
       "Delivered 20+ responsive, cross-device UIs with React.js, TypeScript, Next.js and SCSS for clients across 5 countries — cutting design-to-code cycle time ~30% through reusable TypeScript component libraries",
       "Converted 100+ Figma screens into pixel-perfect production code; built and maintained 50+ reusable components using Redux, Zustand and Context API across multiple live products",

@@ -134,10 +134,6 @@ const personJsonLd = {
     addressLocality: "Mirpur 12, Dhaka",
     addressCountry: "BD",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: "Luminous Labs",
-  },
   alumniOf: {
     "@type": "EducationalOrganization",
     name: "Dash Polytechnic Institute",

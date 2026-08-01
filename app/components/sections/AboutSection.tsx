@@ -3,67 +3,57 @@
 import Image from "next/image"
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { User, Code2, Zap, Briefcase, Target, Sparkles, ArrowUpRight } from "lucide-react"
+import {
+  User, Code2, Zap, Target, Sparkles, ArrowUpRight, Smartphone,
+  Layers, Server, Bug, LayoutTemplate, MapPin, Briefcase, Languages,
+} from "lucide-react"
 
-const whatIDo = [
-  "Convert Figma designs into pixel-perfect React/Next.js code — 100+ screens shipped",
-  "Build responsive, cross-device layouts with Tailwind CSS and SCSS architecture",
-  "Manage application state with Redux, Zustand, and Context API",
-  "Integrate REST APIs and Gemini AI services for real-time data rendering",
-  "Run manual and cross-browser testing with Jest and React Testing Library",
-  "Build WordPress sites and custom Elementor widgets for client work",
+type IconType = typeof User
+
+const whatIDo: { icon: IconType; text: string }[] = [
+  { icon: Code2, text: "Convert Figma designs into pixel-perfect React/Next.js code — 100+ screens shipped" },
+  { icon: Smartphone, text: "Build responsive, cross-device layouts with Tailwind CSS and SCSS architecture" },
+  { icon: Layers, text: "Manage application state with Redux, Zustand, and Context API" },
+  { icon: Server, text: "Integrate REST APIs and Gemini AI services for real-time data rendering" },
+  { icon: Bug, text: "Run manual and cross-browser testing with Jest and React Testing Library" },
+  { icon: LayoutTemplate, text: "Build WordPress sites and custom Elementor widgets for client work" },
 ]
 
-const myApproach = [
+const howIBuild = [
   "Review the design file and understand every detail before writing code",
   "Build mobile-first, then scale up for tablets and desktops",
   "Write reusable TypeScript components that your team can build on",
   "Test across real devices and browsers before delivery",
 ]
 
-const experience = [
-  "Frontend Developer at Luminous Labs",
-  "3.5 Years Professional Experience",
-  "25+ Web Applications Delivered",
-  "Clients Across 5 Countries",
+const quickFacts: { icon: IconType; label: string; value: string; live?: boolean }[] = [
+  { icon: MapPin, label: "Based in", value: "Mirpur 12, Dhaka, Bangladesh" },
+  { icon: Briefcase, label: "Most recently", value: "Frontend Developer · Luminous Labs" },
+  { icon: Zap, label: "Availability", value: "Open to new projects", live: true },
+  { icon: Languages, label: "Languages", value: "English (Professional) · Bangla (Native)" },
 ]
 
-const coreFocus = [
-  "React, Next.js & TypeScript Development",
+const focusAreas = [
+  "React, Next.js & TypeScript",
   "Component Architecture & Design Systems",
-  "Figma to Pixel-Perfect Code",
+  "Figma → Pixel-Perfect Code",
   "Performance Optimisation (20–40% faster loads)",
-]
-
-const highlights = [
-  { value: "3.5", label: "Years Experience" },
-  { value: "25+", label: "Projects Delivered" },
-  { value: "5", label: "Countries Served" },
 ]
 
 const techPills = ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "SCSS", "Redux", "Zustand", "Framer Motion"]
 
-type IconType = typeof User
-
 function GlassCard({
   className = "",
-  num,
   children,
 }: {
   className?: string
-  num?: string
   children: React.ReactNode
 }) {
   return (
     <div
       className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025] backdrop-blur-xl transition-all duration-500 hover:border-[#64ffda]/30 hover:bg-white/[0.04] ${className}`}
     >
-      <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-      {num && (
-        <span className="pointer-events-none absolute right-5 top-2 text-[5rem] font-black leading-none text-white/[0.035] select-none">
-          {num}
-        </span>
-      )}
+      <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
       <div className="relative z-10 flex h-full flex-col p-6 sm:p-7">{children}</div>
     </div>
   )
@@ -78,17 +68,8 @@ function CardHead({ icon: Icon, title, accent = "#64ffda" }: { icon: IconType; t
       >
         <Icon className="h-5 w-5" style={{ color: accent }} />
       </div>
-      <h3 className="text-lg font-bold text-[#e6f1ff] !mb-0">{title}</h3>
+      <h3 className="!mb-0 text-lg font-bold text-[#e6f1ff]">{title}</h3>
     </div>
-  )
-}
-
-function ListItem({ children, accent = "#64ffda" }: { children: React.ReactNode; accent?: string }) {
-  return (
-    <li className="flex items-start gap-2.5">
-      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: accent }} />
-      <span>{children}</span>
-    </li>
   )
 }
 
@@ -148,7 +129,7 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Hero bento */}
+        {/* Row 1 — identity: photo + narrative + quick facts */}
         <motion.div
           className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-12"
           initial={{ opacity: 0, y: 30 }}
@@ -156,11 +137,11 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* Image */}
+          {/* Photo */}
           <div className="md:col-span-5 md:row-span-2">
             <div className="relative h-full">
               <div className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-[#64ffda]/25 to-[#38bdf8]/25 opacity-60 blur-2xl" />
-              <div className="relative h-full min-h-[460px] overflow-hidden rounded-[1.5rem] border border-white/10">
+              <div className="relative h-full min-h-[440px] overflow-hidden rounded-[1.5rem] border border-white/10">
                 <motion.div style={{ y: photoY }} className="absolute inset-x-0 -inset-y-[14%]">
                   <Image
                     src="/images/new.png"
@@ -195,7 +176,7 @@ export default function AboutSection() {
           <GlassCard className="md:col-span-7">
             <CardHead icon={User} title="Who I Am" />
             <p className="mb-4 text-base leading-relaxed text-[#a0aec0] sm:text-lg">
-              I&apos;m an outcome-focused <span className="font-semibold text-[#64ffda]">Frontend Developer</span> at Luminous Labs with <span className="font-semibold text-[#64ffda]">3.5 years</span> of experience delivering <span className="font-semibold text-[#64ffda]">25+ production web applications</span> across 5 countries — US, UK, France, Colombia and Bangladesh — using <span className="font-semibold text-[#38bdf8]">React.js, TypeScript, and Next.js</span>.
+              I&apos;m an outcome-focused <span className="font-semibold text-[#64ffda]">Frontend Developer</span> with <span className="font-semibold text-[#64ffda]">3.5 years</span> of experience delivering <span className="font-semibold text-[#64ffda]">25+ production web applications</span> across 5 countries — US, UK, France, Colombia and Bangladesh — using <span className="font-semibold text-[#38bdf8]">React.js, TypeScript, and Next.js</span>.
             </p>
             <p className="text-base leading-relaxed text-[#a0aec0] sm:text-lg">
               I translate Figma designs into pixel-perfect, scalable interfaces with <span className="font-semibold text-[#38bdf8]">Tailwind CSS and SCSS</span>, manage state with <span className="font-semibold text-[#64ffda]">Redux, Zustand, and Context API</span>, and integrate REST and Gemini AI APIs for real-time data. I handle manual and cross-browser testing (Jest, React Testing Library) and motion design with Framer Motion and GSAP — collaborating closely with design, backend, and QA on every release.
@@ -212,24 +193,33 @@ export default function AboutSection() {
             </div>
           </GlassCard>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-5 md:col-span-7">
-            {highlights.map((h) => (
+          {/* Quick facts */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:col-span-7">
+            {quickFacts.map((fact) => (
               <div
-                key={h.label}
-                className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025] px-3 py-5 text-center backdrop-blur-xl transition-colors hover:border-[#64ffda]/30"
+                key={fact.label}
+                className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025] p-5 backdrop-blur-xl transition-colors hover:border-[#64ffda]/30"
               >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#64ffda]/60 to-transparent" />
-                <div className="bg-gradient-to-r from-[#64ffda] to-[#38bdf8] bg-clip-text text-2xl font-extrabold text-transparent sm:text-4xl">
-                  {h.value}
-                </div>
-                <div className="mt-1.5 text-[11px] leading-tight text-[#8892b0] sm:text-xs">{h.label}</div>
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#64ffda]/50 to-transparent" />
+                <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-[#64ffda]/70">
+                  <fact.icon className="h-3.5 w-3.5" />
+                  {fact.label}
+                </span>
+                <p className="mt-2 flex items-center gap-2 text-sm font-semibold leading-snug text-[#e6f1ff]">
+                  {fact.live && (
+                    <span className="relative flex h-2 w-2 shrink-0">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ade80] opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#4ade80]" />
+                    </span>
+                  )}
+                  {fact.value}
+                </p>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Info bento */}
+        {/* Row 2 — what I do + how I build */}
         <motion.div
           className="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:gap-5 md:grid-cols-12"
           initial={{ opacity: 0, y: 30 }}
@@ -237,60 +227,86 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <GlassCard className="md:col-span-7" num="01">
+          <GlassCard className="md:col-span-7">
             <CardHead icon={Code2} title="What I Do" />
-            <ul className="space-y-3 text-sm text-[#a0aec0] sm:text-base">
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {whatIDo.map((item, i) => (
-                <ListItem key={i}>{item}</ListItem>
+                <li
+                  key={i}
+                  className="flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#64ffda]/25 hover:bg-white/[0.045]"
+                >
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20">
+                    <item.icon className="h-4 w-4 text-[#64ffda]" />
+                  </span>
+                  <span className="text-sm leading-relaxed text-[#a0aec0]">{item.text}</span>
+                </li>
               ))}
             </ul>
           </GlassCard>
 
-          <GlassCard className="md:col-span-5" num="02">
-            <CardHead icon={Zap} title="My Approach" accent="#38bdf8" />
-            <ul className="space-y-3 text-sm text-[#a0aec0] sm:text-base">
-              {myApproach.map((item, i) => (
-                <ListItem key={i} accent="#38bdf8">
-                  {item}
-                </ListItem>
+          <GlassCard className="md:col-span-5">
+            <CardHead icon={Zap} title="How I Build" accent="#38bdf8" />
+            <ol className="space-y-4">
+              {howIBuild.map((step, i) => (
+                <li key={i} className="relative flex gap-4">
+                  {i < howIBuild.length - 1 && (
+                    <span className="pointer-events-none absolute -bottom-4 left-4 top-9 w-px -translate-x-1/2 bg-gradient-to-b from-[#38bdf8]/40 to-transparent" />
+                  )}
+                  <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-[#38bdf8]/30 bg-[#38bdf8]/10 font-mono text-xs font-bold text-[#38bdf8]">
+                    {i + 1}
+                  </span>
+                  <p className="pt-1 text-sm leading-relaxed text-[#a0aec0]">{step}</p>
+                </li>
               ))}
-            </ul>
+            </ol>
           </GlassCard>
+        </motion.div>
 
-          <GlassCard className="md:col-span-4" num="03">
-            <CardHead icon={Briefcase} title="Experience" />
-            <ul className="space-y-3 text-sm text-[#a0aec0] sm:text-base">
-              {experience.map((item, i) => (
-                <ListItem key={i}>{item}</ListItem>
-              ))}
-            </ul>
-          </GlassCard>
+        {/* Row 3 — best fit banner + focus areas */}
+        <motion.div
+          className="group relative mt-4 overflow-hidden rounded-[1.5rem] border border-[#64ffda]/25 bg-gradient-to-br from-[#64ffda]/[0.12] via-white/[0.02] to-[#38bdf8]/[0.12] p-6 sm:mt-5 sm:p-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[#64ffda]/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
 
-          <GlassCard className="md:col-span-4" num="04">
-            <CardHead icon={Target} title="Core Focus" accent="#38bdf8" />
-            <ul className="space-y-3 text-sm text-[#a0aec0] sm:text-base">
-              {coreFocus.map((item, i) => (
-                <ListItem key={i} accent="#38bdf8">
-                  {item}
-                </ListItem>
-              ))}
-            </ul>
-          </GlassCard>
-
-          {/* Best Fit — featured */}
-          <div className="group relative overflow-hidden rounded-[1.5rem] border border-[#64ffda]/25 bg-gradient-to-br from-[#64ffda]/15 to-[#38bdf8]/15 p-6 sm:p-7 md:col-span-4">
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#64ffda]/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[#64ffda]/30 bg-[#0A0F1A]/40">
-                <Sparkles className="h-5 w-5 text-[#64ffda]" />
+          <div className="relative z-10 grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-10">
+            <div className="lg:col-span-7">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#64ffda]/30 bg-[#0A0F1A]/40">
+                  <Sparkles className="h-5 w-5 text-[#64ffda]" />
+                </div>
+                <h3 className="!mb-0 text-lg font-bold text-[#e6f1ff]">Best Fit</h3>
               </div>
-              <h3 className="mb-2 text-lg font-bold text-[#e6f1ff]">Best Fit</h3>
-              <p className="text-sm leading-relaxed text-[#cbd5e1]">
+              <p className="text-base leading-relaxed text-[#cbd5e1]">
                 Give me a Figma file with clear specs, and I&apos;ll deliver <span className="font-semibold text-[#64ffda]">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
               </p>
-              <span className="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-semibold text-[#64ffda]">
-                Let&apos;s build together <ArrowUpRight className="h-4 w-4" />
+              <a
+                href="#contact"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#64ffda] to-[#38bdf8] px-6 py-3 text-sm font-bold text-[#0A0F1A]! transition-transform duration-300 hover:scale-[1.03]"
+              >
+                Let&apos;s build together
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            <div className="lg:col-span-5">
+              <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-[#64ffda]/70">
+                <Target className="h-3.5 w-3.5" />
+                Focus areas
               </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {focusAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="rounded-xl border border-white/[0.1] bg-[#0A0F1A]/40 px-3.5 py-2 text-xs font-medium text-[#cbd5e1] backdrop-blur-sm transition-colors hover:border-[#64ffda]/35"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
