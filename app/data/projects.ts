@@ -95,7 +95,7 @@ export const projects: Project[] = [
     category: "Admin Dashboard",
     duration: "1 month",
     teamSize: "Solo",
-    completedDate: "2026",
+    completedDate: "2025",
     highlights: [
       "Designed the admin settings UI end-to-end and built it in React + Tailwind",
       "Integrated REST APIs for every settings screen with full read/update flows",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     category: "Landing Page",
     duration: "2 weeks",
     teamSize: "Solo",
-    completedDate: "2026",
+    completedDate: "2025",
     highlights: [
       "Designed and built the landing page end-to-end on WordPress",
       "Developed custom Elementor widgets for brand-specific ERP-consulting sections",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     category: "Landing Page",
     duration: "2 weeks",
     teamSize: "Solo",
-    completedDate: "2026",
+    completedDate: "2025",
     highlights: [
       "Designed and built the Bengali landing page end-to-end on WordPress",
       "Developed custom Elementor widgets for feature, pricing, and industry sections",
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     category: "E-commerce",
     duration: "1 month",
     teamSize: "Solo",
-    completedDate: "2026",
+    completedDate: "2025",
     highlights: [
       "Built product listing, filtering, and detail pages",
       "Implemented cart management with persistent state",
@@ -531,7 +531,7 @@ export const projects: Project[] = [
     category: "CRM Platform",
     duration: "3 months",
     teamSize: "6 developers",
-    completedDate: "2025",
+    completedDate: "2026",
     highlights: [
       "Built comprehensive analytics dashboard",
       "Implemented real-time chat UI",
@@ -609,7 +609,7 @@ export const projects: Project[] = [
     category: "Web Application",
     duration: "Ongoing",
     teamSize: "14 developers",
-    completedDate: "2023 - 2024",
+    completedDate: "2023",
     highlights: [
       "Built responsive interfaces for multiple clients",
       "Created reusable component libraries",
@@ -775,7 +775,7 @@ export const projects: Project[] = [
     category: "Landing Page",
     duration: "2 weeks",
     teamSize: "Solo",
-    completedDate: "2026",
+    completedDate: "2024",
     highlights: [
       "Designed and built the landing page end-to-end on WordPress",
       "Developed custom Elementor widgets for brand-specific sections",

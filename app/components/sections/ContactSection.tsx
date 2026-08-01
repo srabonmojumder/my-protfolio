@@ -57,7 +57,7 @@ export default function ContactSection() {
                 </div>
 
                 <p className="text-[#a0aec0] mb-8 leading-relaxed">
-                  Whether you're building a new product or need frontend help on an existing one, feel free to reach out. I typically respond within 24 hours.
+                  Whether you're building a new product or need frontend help on an existing one, feel free to reach out.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">

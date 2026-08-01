@@ -145,7 +145,7 @@ export default function AboutSection() {
                 <motion.div style={{ y: photoY }} className="absolute inset-x-0 -inset-y-[14%]">
                   <Image
                     src="/images/new.png"
-                    alt="Srabon Mojumder - Design to Code Specialist"
+                    alt="Srabon Mozumder - Design to Code Specialist"
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"
                     className="object-cover object-top"
@@ -165,7 +165,7 @@ export default function AboutSection() {
 
                 {/* Name overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-xl font-bold text-[#e6f1ff]">Srabon Mojumder</p>
+                  <p className="text-xl font-bold text-[#e6f1ff]">Srabon Mozumder</p>
                   <p className="text-sm text-[#64ffda]">Design → Code Specialist</p>
                 </div>
               </div>

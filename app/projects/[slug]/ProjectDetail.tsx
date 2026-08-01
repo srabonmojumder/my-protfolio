@@ -488,7 +488,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <span className="text-sm">All Projects</span>
           </Link>
           <p className="text-sm text-[#a0aec0]/40">
-            &copy; {new Date().getFullYear()} Srabon Mojumder
+            &copy; {new Date().getFullYear()} Srabon Mozumder
           </p>
         </div>
       </div>

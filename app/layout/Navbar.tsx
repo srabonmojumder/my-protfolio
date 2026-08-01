@@ -70,13 +70,13 @@ export default function Navbar() {
               href="#"
               whileHover={{ scale: 1.05 }}
               className="flex items-center"
-              aria-label="Srabon Mojumder — home"
+              aria-label="Srabon Mozumder — home"
             >
               <Image
-                src="/images/logo.png"
-                alt="Srabon Mojumder"
-                width={760}
-                height={328}
+                src="/images/Srabon_Mozumder_logo.png"
+                alt="Srabon Mozumder"
+                width={800}
+                height={312}
                 priority
                 className="h-9 sm:h-14 w-auto brightness-0 invert"
               />
@@ -196,10 +196,10 @@ export default function Navbar() {
                   className="flex items-center"
                 >
                   <Image
-                    src="/images/logo.png"
-                    alt="Srabon Mojumder"
-                    width={760}
-                    height={328}
+                    src="/images/Srabon_Mozumder_logo.png"
+                    alt="Srabon Mozumder"
+                    width={800}
+                    height={312}
                     className="h-11 w-auto brightness-0 invert"
                   />
                 </motion.div>

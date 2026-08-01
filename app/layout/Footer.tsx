@@ -98,10 +98,10 @@ export default function Footer() {
           >
             <div className="flex items-center">
               <Image
-                src="/images/logo.png"
-                alt="Srabon Mojumder"
-                width={760}
-                height={328}
+                src="/images/Srabon_Mozumder_logo.png"
+                alt="Srabon Mozumder"
+                width={800}
+                height={312}
                 className="h-14 w-auto brightness-0 invert"
               />
             </div>
@@ -197,7 +197,7 @@ export default function Footer() {
       </div>
         {/* Copyright */}
         <div className=" flex flex-col items-center justify-between gap-3 border-t border-white/5 py-6 sm:flex-row">
-          <p className="text-sm text-[#8892b0]">© {year} Srabon Mojumder. All rights reserved.</p>
+          <p className="text-sm text-[#8892b0]">© {year} Srabon Mozumder. All rights reserved.</p>
           <p className="text-sm text-[#5a6b85]">Built with React, Next.js &amp; Tailwind CSS</p>
         </div>
       </div>

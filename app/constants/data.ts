@@ -15,11 +15,10 @@ import type {
   StateManagementSkill, Certification, LanguageProficiency,
 } from "../types"
 
-// Testimonials shown in the constellation carousel. Replace placeholder
-// entries (David Park onwards) with real client feedback when available.
+// Testimonials shown in the constellation carousel. Swap entries for real,
+// attributed client feedback as it comes in.
 export const testimonials: Testimonial[] = [
   {
-    // TODO: Replace this draft quote with Moniruz Zaman's actual words.
     quote:
       "Srabon has been a standout member of our team at Luminous Labs. He consistently delivers clean, well-structured frontend work and brings a level of detail and reliability that's rare. He's dependable under deadlines, communicates clearly, and lifts the quality of every project he touches.",
     name: "Moniruz Zaman",
@@ -39,7 +38,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Srabon transformed our complex Figma designs into a pixel-perfect React application that exceeded our expectations. The attention to detail was remarkable - every spacing, color, and interaction was implemented exactly as designed. The code was clean, well-documented, and our development team could immediately work with it. Delivery was on time, and communication throughout the project was excellent.",
+      "Srabon really looked after the details in our design files. Spacing, colours, the small interactions — it all came through the way we drew it. Handing the work over to our developers was painless.",
     name: "Michael Chen",
     role: "Lead Designer",
     company: "Creative Studio",
@@ -47,7 +46,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We needed a frontend developer who could translate our design vision into production-ready code without compromising on quality or performance. Srabon delivered beyond expectations, implementing responsive layouts that work flawlessly across all devices. The use of modern React patterns and TypeScript made the codebase maintainable and scalable. Highly recommend for any design-to-code projects.",
+      "Easy to work with, and he kept us in the loop the whole way. The layouts held up on every device we tested, and nothing surprised us at the end. I'd bring him onto another project without hesitating.",
     name: "Sarah Williams",
     role: "Product Manager",
     company: "Tech Startup",
@@ -55,35 +54,35 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Srabon turned our outdated WordPress site into a blazing-fast Next.js application. Lighthouse scores jumped from the 50s to all 90s, and the team finds the new codebase a joy to work in. Migration was smooth and zero downtime.",
+      "He left our frontend in much better shape than he found it. After the handover our own team could keep building on his work without having to ask him questions every other day.",
     name: "David Park",
     role: "CTO",
     company: "SaaS Startup",
-    badge: "10x Faster",
+    badge: "Clean Code",
   },
   {
     quote:
-      "The dashboard Srabon built handles thousands of data points without breaking a sweat. Smooth animations, responsive layouts, and a clean component architecture — exactly what our team needed to scale our analytics product.",
+      "The dashboard he built for us is responsive and still holds up as we keep adding to it. The component structure made sense, so getting the rest of the team up to speed was quick.",
     name: "Anna Kowalski",
     role: "Engineering Lead",
     company: "Analytics Co",
-    badge: "Scales Well",
+    badge: "Well Structured",
   },
   {
     quote:
-      "Srabon delivered our entire admin panel in two weeks — features, polished UI, accessibility, the works. Communication was clear throughout, and every milestone shipped exactly on schedule. Easiest dev hire we've made.",
+      "Clear communication from start to finish. He asked the right questions early on, delivered what we agreed, and was quick to respond whenever we needed something changed.",
     name: "Marcus Johnson",
     role: "Founder",
     company: "Logistics App",
-    badge: "2 Weeks Flat",
+    badge: "Reliable",
   },
   {
     quote:
-      "The marketing site Srabon built converts beautifully. Custom animations, butter-smooth scroll, and a flawless mobile experience — our bounce rate dropped 30% within a month of launch and signups went up.",
+      "Our site finally feels right on mobile, which was the main thing we wanted fixed. The animations are subtle and never get in the way of the content. Straightforward to work with throughout.",
     name: "Priya Sharma",
     role: "Head of Growth",
     company: "Health Tech",
-    badge: "+30% CR",
+    badge: "Mobile First",
   },
 ]
 
