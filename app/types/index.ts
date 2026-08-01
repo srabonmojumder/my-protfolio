@@ -51,6 +51,8 @@ export interface StateManagementSkill {
   level: string
   tagline: string
   highlights: string[]
+  /** Idiomatic snippet shown in the code window beside the highlights. */
+  code: { file: string; source: string }
 }
 
 export interface ContactInfo {

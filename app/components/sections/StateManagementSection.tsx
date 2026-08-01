@@ -1,8 +1,8 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, type ReactNode } from "react"
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
-import { Boxes, Check } from "lucide-react"
+import { Boxes } from "lucide-react"
 import { stateManagement } from "../../constants/data"
 
 const accents = [
@@ -10,6 +10,43 @@ const accents = [
   { from: "#38bdf8", to: "#0ea5e9" }, // Context — sky
   { from: "#34d399", to: "#10b981" }, // Zustand — emerald
 ]
+
+// Minimal tokenizer for the snippet window: comments, strings, keywords,
+// PascalCase identifiers, then call expressions — matched in that order.
+const TOKEN_RE =
+  /(\/\/[^\n]*)|('[^']*'|"[^"]*"|`[^`]*`)|\b(const|let|export|import|from|return|function|new|async|await|type|interface|default)\b|\b([A-Z][\w$]*)\b|\b([a-z_$][\w$]*)(?=\s*\()/g
+
+function highlight(source: string): ReactNode[] {
+  const nodes: ReactNode[] = []
+  let last = 0
+  let key = 0
+  let match: RegExpExecArray | null
+
+  TOKEN_RE.lastIndex = 0
+  while ((match = TOKEN_RE.exec(source)) !== null) {
+    if (match.index > last) nodes.push(source.slice(last, match.index))
+
+    const cls = match[1]
+      ? "text-[#4d5f7a] italic"
+      : match[2]
+        ? "text-[#fbbf24]"
+        : match[3]
+          ? "text-[#c084fc]"
+          : match[4]
+            ? "text-[#64ffda]"
+            : "text-[#38bdf8]"
+
+    nodes.push(
+      <span key={key++} className={cls}>
+        {match[0]}
+      </span>
+    )
+    last = match.index + match[0].length
+  }
+
+  nodes.push(source.slice(last))
+  return nodes
+}
 
 export default function StateManagementSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -41,8 +78,8 @@ export default function StateManagementSection() {
           className="absolute -inset-y-24 inset-x-0 bg-[radial-gradient(circle_at_center,#64ffda_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.03]"
         />
         <motion.div
-          style={{ y: glow1Y }}
-          className="absolute left-1/4 top-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-[#8b5cf6]/10 blur-[120px]"
+          style={{ y: glow1Y, backgroundColor: `${accent.from}1a` }}
+          className="absolute left-1/4 top-1/3 h-80 w-80 -translate-x-1/2 rounded-full blur-[120px] transition-colors duration-700"
         />
         <motion.div
           style={{ y: glow2Y }}
@@ -51,7 +88,8 @@ export default function StateManagementSection() {
       </div>
 
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <motion.div style={{ y: headingY }} className="mb-12 flex flex-col items-center text-center sm:mb-14">
+        {/* Header */}
+        <motion.div style={{ y: headingY }} className="mb-10 flex flex-col items-center text-center sm:mb-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -87,114 +125,138 @@ export default function StateManagementSection() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
-          {/* Tab list */}
-          <div className="flex flex-col gap-3 lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
-            {stateManagement.map((tab, i) => {
-              const TabIcon = tab.icon
-              const a = accents[i % accents.length]
-              const isActive = i === active
-              return (
-                <button
-                  key={tab.name}
-                  onClick={() => setActive(i)}
-                  className={`group relative flex items-center gap-4 overflow-hidden rounded-2xl border p-4 text-left transition-all duration-300 ${
-                    isActive
-                      ? "border-white/15 bg-white/[0.04]"
-                      : "border-white/[0.06] bg-white/[0.015] hover:border-white/10 hover:bg-white/[0.03]"
-                  }`}
-                  style={isActive ? { ["--tw-shadow-color" as string]: a.from } : undefined}
-                >
-                  {/* active left bar */}
-                  <span
-                    className="absolute left-0 top-1/2 h-0 w-[3px] -translate-y-1/2 rounded-r transition-all duration-300"
-                    style={{ height: isActive ? "60%" : "0%", background: `linear-gradient(${a.from}, ${a.to})` }}
-                  />
-                  <div
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ring-1 ring-inset transition-transform duration-300 group-hover:scale-105"
+        {/* Segmented switcher */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-8 flex max-w-2xl gap-1.5 overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur-xl sm:mb-10"
+        >
+          {stateManagement.map((tab, i) => {
+            const TabIcon = tab.icon
+            const a = accents[i % accents.length]
+            const isActive = i === active
+            return (
+              <button
+                key={tab.name}
+                onClick={() => setActive(i)}
+                aria-pressed={isActive}
+                className="relative flex-1 whitespace-nowrap rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-300"
+                style={{ color: isActive ? a.from : "#8892b0" }}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="state-tab-pill"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    className="absolute inset-0 rounded-xl"
                     style={{
-                      background: isActive ? `linear-gradient(135deg, ${a.from}26, ${a.to}12)` : "rgba(255,255,255,0.03)",
-                      color: isActive ? a.from : "#64748b",
-                      ["--tw-ring-color" as string]: isActive ? `${a.from}40` : "rgba(255,255,255,0.06)",
+                      background: `linear-gradient(135deg, ${a.from}2e, ${a.to}14)`,
+                      border: `1px solid ${a.from}40`,
+                    }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <TabIcon className="h-4 w-4" />
+                  {tab.name}
+                </span>
+              </button>
+            )
+          })}
+        </motion.div>
+
+        {/* Active panel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6"
+          >
+            {/* Left — identity + numbered highlights */}
+            <div className="lg:col-span-7">
+              <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.025] p-6 backdrop-blur-xl sm:p-8">
+                <div
+                  className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full blur-3xl"
+                  style={{ background: `radial-gradient(circle, ${accent.from}2e, transparent 70%)` }}
+                />
+
+                <div className="relative flex flex-wrap items-center gap-4">
+                  <div
+                    className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl ring-1 ring-inset"
+                    style={{
+                      background: `linear-gradient(135deg, ${accent.from}2e, ${accent.to}14)`,
+                      color: accent.from,
+                      ["--tw-ring-color" as string]: `${accent.from}40`,
                     }}
                   >
-                    <TabIcon className="h-6 w-6" />
+                    <ActiveIcon className="h-8 w-8" />
                   </div>
-                  <div className="min-w-0">
-                    <h3 className={`truncate text-base font-bold !m-0 transition-colors ${isActive ? "text-[#e6f1ff]" : "text-[#8892b0]"}`}>
-                      {tab.name}
-                    </h3>
+                  <div>
+                    <h3 className="!mb-0 text-2xl font-bold text-[#e6f1ff] sm:text-3xl">{item.name}</h3>
                     <span
-                      className="text-[11px] font-semibold uppercase tracking-[0.14em]"
-                      style={{ color: isActive ? a.from : "#5a6b85" }}
+                      className="mt-2 inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em]"
+                      style={{
+                        color: accent.from,
+                        backgroundColor: `${accent.from}14`,
+                        border: `1px solid ${accent.from}33`,
+                      }}
                     >
-                      {tab.level}
+                      {item.level}
                     </span>
                   </div>
-                </button>
-              )
-            })}
-          </div>
+                </div>
 
-          {/* Active panel */}
-          <div className="lg:col-span-8">
-            <div className="relative h-full overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0c1322]/80 p-7 backdrop-blur-xl sm:p-9">
-              <div
-                className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full blur-3xl transition-colors duration-500"
-                style={{ background: `radial-gradient(circle, ${accent.from}26, transparent 70%)` }}
-              />
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35 }}
-                  className="relative"
-                >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="flex h-16 w-16 items-center justify-center rounded-2xl ring-1 ring-inset"
-                      style={{ background: `linear-gradient(135deg, ${accent.from}26, ${accent.to}12)`, color: accent.from, ["--tw-ring-color" as string]: `${accent.from}40` }}
+                <p className="relative mt-5 text-base leading-relaxed text-[#9fb3c8]">{item.tagline}</p>
+
+                <ol className="relative mt-6 space-y-3">
+                  {item.highlights.map((line, j) => (
+                    <motion.li
+                      key={j}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.35, delay: 0.08 + j * 0.07 }}
+                      className="flex gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/[0.14] hover:bg-white/[0.045]"
                     >
-                      <ActiveIcon className="h-8 w-8" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-[#e6f1ff] sm:text-3xl">{item.name}</h3>
                       <span
-                        className="mt-1.5 inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em]"
-                        style={{ color: accent.from, backgroundColor: `${accent.from}14`, border: `1px solid ${accent.from}33` }}
+                        className="grid h-7 w-7 shrink-0 place-items-center rounded-lg font-mono text-[11px] font-bold"
+                        style={{
+                          backgroundColor: `${accent.from}1f`,
+                          color: accent.from,
+                          border: `1px solid ${accent.from}33`,
+                        }}
                       >
-                        {item.level}
+                        {String(j + 1).padStart(2, "0")}
                       </span>
-                    </div>
-                  </div>
-
-                  <p className="mt-5 text-base leading-relaxed text-[#9fb3c8]">{item.tagline}</p>
-
-                  <div
-                    className="my-6 h-px w-full opacity-50"
-                    style={{ background: `linear-gradient(to right, ${accent.from}55, transparent)` }}
-                  />
-
-                  <ul className="grid grid-cols-1 gap-4">
-                    {item.highlights.map((line, j) => (
-                      <li key={j} className="flex items-start gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] p-3.5 text-sm leading-relaxed text-[#8892b0]">
-                        <span
-                          className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md"
-                          style={{ backgroundColor: `${accent.from}1a`, color: accent.from }}
-                        >
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        <span>{line}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </AnimatePresence>
+                      <p className="text-sm leading-relaxed text-[#9fb3c8]">{line}</p>
+                    </motion.li>
+                  ))}
+                </ol>
+              </div>
             </div>
-          </div>
-        </div>
+
+            {/* Right — code window */}
+            <div className="lg:col-span-5">
+              <div className="lg:sticky lg:top-24">
+                <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#070d18]">
+                  <div className="flex items-center gap-2 border-b border-white/[0.06] bg-white/[0.02] px-4 py-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                    <span className="ml-auto truncate font-mono text-[11px] text-[#5a6b85]">
+                      {item.code.file}
+                    </span>
+                  </div>
+                  <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-[1.75] text-[#9fb3c8] sm:text-[12.5px]">
+                    <code>{highlight(item.code.source)}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         <motion.p
           initial={{ opacity: 0 }}

@@ -166,6 +166,25 @@ export const stateManagement: StateManagementSkill[] = [
       "Wrote createAsyncThunk flows for IELTSMocker timed tests covering pending / fulfilled / rejected across every test endpoint",
       "Tuned Text CRM chat list re-renders with memoized createSelector — dropped full-list updates to single-row on new messages",
     ],
+    code: {
+      file: "features/auth/authSlice.ts",
+      source: `const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    signedOut: () => initialState,
+  },
+  extraReducers: (builder) => {
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.user = action.payload.user
+      state.token = action.payload.token
+    })
+  },
+})
+
+// persisted so deep links survive a refresh
+export const { signedOut } = authSlice.actions`,
+    },
   },
   {
     name: "Context API",
@@ -178,6 +197,22 @@ export const stateManagement: StateManagementSkill[] = [
       "Default for app-shell state on Next.js App Router projects (Meridian Africa, AI Avatar) — no extra state-lib added to the bundle",
       "Paired Context with REST API hooks instead of caching server data inside it — kept the Context surface to pure UI concerns",
     ],
+    code: {
+      file: "app/providers/AppProviders.tsx",
+      source: `// one provider per concern — re-renders stay
+// scoped to the subtree that consumes them
+export function AppProviders({ children }: Props) {
+  return (
+    <AuthProvider>
+      <ThemeProvider>
+        <ModalProvider>
+          <ToastProvider>{children}</ToastProvider>
+        </ModalProvider>
+      </ThemeProvider>
+    </AuthProvider>
+  )
+}`,
+    },
   },
   {
     name: "Zustand",
@@ -190,6 +225,23 @@ export const stateManagement: StateManagementSkill[] = [
       "Layered persist + immer middleware on the Beige multi-step booking wizard so drafts survive refresh and route changes",
       "Drove IELTSMocker timed-test state (timer, current question, answers) through one store — eliminated prop drilling across nested test components",
     ],
+    code: {
+      file: "stores/useBookingStore.ts",
+      source: `export const useBookingStore = create<BookingState>()(
+  persist(
+    immer((set) => ({
+      step: 0,
+      draft: {},
+      next: () => set((s) => { s.step += 1 }),
+      reset: () => set(initialState),
+    })),
+    { name: 'booking-draft' },
+  ),
+)
+
+// shallow selector — only this slice re-renders
+const step = useBookingStore((s) => s.step)`,
+    },
   },
 ]
 
