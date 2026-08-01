@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { BadgeCheck, ArrowUpRight } from "lucide-react"
 import { workExperiences } from "../../constants/data"
 
 export default function ExperienceSection() {
@@ -79,6 +80,19 @@ export default function ExperienceSection() {
                       ))}
                     </ul>
                   </div>
+
+                  {job.certificateUrl && (
+                    <a
+                      href={job.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#64ffda]/30 bg-[#64ffda]/10 px-5 py-2.5 text-sm font-semibold text-[#64ffda]! transition-all duration-300 hover:-translate-y-0.5 hover:border-[#64ffda]/60 hover:bg-[#64ffda]/20"
+                    >
+                      <BadgeCheck className="h-4 w-4" />
+                      View Certificate
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}

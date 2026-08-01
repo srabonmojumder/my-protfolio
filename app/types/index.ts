@@ -69,6 +69,8 @@ export interface WorkExperience {
   description: string
   responsibilities: string[]
   color: string
+  /** Optional experience/training certificate shown as a link on the card. */
+  certificateUrl?: string
 }
 
 export interface Education {

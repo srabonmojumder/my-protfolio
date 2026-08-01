@@ -248,6 +248,7 @@ export const workExperiences: WorkExperience[] = [
       "Followed the full delivery workflow — analysis, design, development, testing and release",
     ],
     color: "from-[#38bdf8] to-[#64ffda]",
+    certificateUrl: "/cv/Certificate_Professional.pdf",
   },
 ]
 
@@ -322,6 +323,12 @@ export const softSkills = [
   "Fast Learner",
   "Thrives Under Pressure",
 ]
+
+export const reference = {
+  name: "Moniruz Zaman",
+  role: "CEO",
+  company: "Luminous Labs",
+}
 
 export const interests = [
   "Programming & exploring tech",

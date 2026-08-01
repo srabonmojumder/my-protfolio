@@ -104,7 +104,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-[#0A0F1A] hover:text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
               >
                 Hire Me
                 <ArrowUpRight className="w-4 h-4" />
@@ -312,7 +312,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0A0F1A] bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
+                    className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#0A0F1A]! bg-gradient-to-r from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-shadow"
                   >
                     Hire Me
                     <ArrowUpRight className="w-4 h-4" />
