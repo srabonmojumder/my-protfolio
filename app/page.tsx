@@ -39,18 +39,20 @@ export default function Home() {
         }}
       />
       <Navbar />
+      {/* Order: intro → capability → proof of work → career history →
+          credentials → what I offer → social proof → contact */}
       <HeroSection />
       <AboutSection />
-      <ProcessSection />
       <SkillsSection />
       <StateManagementSection />
+      <ProjectsSection />
+      <StatsSection />
       <ExperienceSection />
       <EducationSection />
       <CredentialsSection />
-      <ProjectsSection />
       <ServicesSection />
+      <ProcessSection />
       <TestimonialsSection />
-      <StatsSection />
       <ContactSection />
       <Footer />
     </div>
