@@ -1,8 +1,15 @@
-# State Management Section — Data Document
+# State Architecture — Data Document
 
-This document describes the content rendered by `StateManagementSection.tsx`
-and how to edit it. It covers the data shape, the current entries, and
-guidance on rewriting the placeholders with real project work.
+This document describes the state-management content and how to edit it. It
+covers the data shape, the current entries, and guidance on writing the
+highlights from real project work.
+
+> **History:** this used to be a standalone `StateManagementSection` between
+> Skills and Projects. It was cut in favour of a compact block inside the
+> Skills section — Redux / Zustand / Context already appear in the Hero
+> paragraph, an About bullet, the Skills marquee, an Experience bullet, and the
+> VoiceNimble project detail, so a sixth appearance at section scale was out of
+> proportion. The old component is recoverable from git history.
 
 ---
 
@@ -12,10 +19,10 @@ guidance on rewriting the placeholders with real project work.
 | ---- | ------- |
 | `app/types/index.ts` | `StateManagementSkill` interface |
 | `app/constants/data.ts` | `stateManagement` array — the actual content |
-| `app/components/sections/StateManagementSection.tsx` | Renders the cards |
-| `app/components/sections/index.ts` | Re-exports the section |
-| `app/page.tsx` | Mounts the section between Skills and Experience |
-| `app/layout/Navbar.tsx` | "State" link → `#state-management` |
+| `app/components/sections/SkillsSection.tsx` | Renders the block (below the marquee, above the stat pills) |
+
+The block keeps `id="state-management"` so old links still land on it. There
+is no longer a Navbar entry for it.
 
 ---
 
@@ -30,8 +37,20 @@ export interface StateManagementSkill {
   level: string        // Short proficiency label (1-2 words, uppercased in UI)
   tagline: string      // One-sentence positioning, ~6-12 words
   highlights: string[] // 3-5 bullet points with concrete implementation details
+  code: {              // Idiomatic snippet — kept in the data, not currently rendered
+    file: string
+    source: string
+  }
 }
 ```
+
+Every word rendered comes from this array — the cards carry no invented copy.
+Only the accent colours (`stateAccents` in `SkillsSection.tsx`) live outside
+the data, index-aligned with `stateManagement`.
+
+The block renders `name`, `icon`, `level`, `tagline`, and the **first two**
+`highlights`. The remaining highlights and the `code` snippets stay in the
+data as the content store — reorder `highlights` to change which two show.
 
 ### Field rules
 
@@ -157,16 +176,18 @@ For each bullet in `highlights`:
 
 ## 5. Adding or removing tools
 
-To add a fourth tool (e.g. Jotai, Recoil, MobX, TanStack Query) — append a
-new object to the `stateManagement` array. The grid in
-`StateManagementSection.tsx` is `grid-cols-1 md:grid-cols-3`; with 4 entries
-the layout will wrap to 2 rows on desktop. Either:
+1. Append the object to `stateManagement` in `data.ts`.
+2. Add an accent to `stateAccents` in `SkillsSection.tsx`.
+3. The grid is `grid-cols-1 md:grid-cols-3` — a fourth entry wraps to a second
+   row with an empty cell. Switch to `md:grid-cols-2 lg:grid-cols-4` for an
+   even row, or `md:grid-cols-2` for a 2x2.
 
-- accept the wrap and the empty 5th cell, or
-- change the grid to `md:grid-cols-2 lg:grid-cols-4` for an even row, or
-- restructure into a 2x2 grid by changing to `md:grid-cols-2`.
+Also add the tool to the `skills` array if it should appear as a marquee chip
+— the two lists are independent, and today Redux / Zustand / Context appear in
+both.
 
-To remove a tool — delete its object from the array. Nothing else needs to change.
+To remove a tool — delete its object from the array and its `stateAccents`
+entry.
 
 ---
 
@@ -188,16 +209,27 @@ If two cards both say `Expert`, the signal collapses — vary the labels.
 
 ## 7. Visual / layout reference
 
+The block sits inside `SkillsSection`, between the marquee and the stat pills.
+
 | Element | Source |
 | ------- | ------ |
-| Section background | `bg-gradient` blurs in cyan/blue, matches `SkillsSection` |
-| Card surface | `from-[#112240] to-[#0a192f]`, `border-[#64ffda]/10` |
-| Icon tile | 48-56px, gradient border, dark inner |
-| Level pill | `text-[#64ffda]/80`, uppercase, mono, tracked |
-| Highlight bullet | `CheckCircle2` from `lucide-react`, cyan |
-| Footer line | Architectural reasoning, dimmed `text-[#a0aec0]/60` |
+| Header | Pill badge ("State Architecture") + one line of positioning copy |
+| Card | `rounded-2xl`, glass gradient, inset top highlight, accent hairline on the top edge; hover lifts it |
+| Card content | Icon tile + tool name + `level`, `tagline`, hairline divider, then two `highlights` as dotted rows |
+| Accents | Violet / sky / teal (`stateAccents`), index-aligned with the tools |
 
-The section ID is `state-management` (used by the Navbar anchor).
+### Animation
+
+The block animates with **GSAP + ScrollTrigger** (the rest of `SkillsSection`
+stays on framer-motion). Everything is registered inside a
+`gsap.matchMedia(blockEl)` guarded by `(prefers-reduced-motion: no-preference)`,
+so reduced-motion visitors get the static layout and `mm.revert()` cleans up
+on unmount.
+
+One timeline (`start: "top 80%"`, `once`): header → cards → accent hairlines
+(`scaleX`) → highlight rows. Targets are data attributes —
+`data-state-reveal`, `data-state-card`, `data-state-edge`, `data-state-line` —
+so keep those when editing markup.
 
 ---
 
@@ -206,17 +238,17 @@ The section ID is `state-management` (used by the Navbar anchor).
 ```
 HeroSection
 AboutSection
-ProcessSection
-SkillsSection            ← icon grid (tools you know)
-StateManagementSection   ← THIS section (how you architect with state)
+SkillsSection      ← marquee + THIS block + stat pills
+ProjectsSection
+StatsSection
 ExperienceSection
 EducationSection
-ProjectsSection
+CredentialsSection
 ServicesSection
+ProcessSection
 TestimonialsSection
-StatsSection
 ContactSection
 ```
 
-The section is positioned to read as a natural follow-up to Skills:
-"Here are my tools" → "Here's how I think with them."
+It reads as the depth behind the marquee chips directly above it:
+"here are my tools" → "here's how I choose between three of them."

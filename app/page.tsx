@@ -8,7 +8,6 @@ import {
   AboutSection,
   ProcessSection,
   SkillsSection,
-  StateManagementSection,
   ExperienceSection,
   EducationSection,
   CredentialsSection,
@@ -44,7 +43,6 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <StateManagementSection />
       <ProjectsSection />
       <StatsSection />
       <ExperienceSection />

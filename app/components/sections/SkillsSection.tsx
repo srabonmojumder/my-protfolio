@@ -1,14 +1,24 @@
 "use client"
 
+import { useEffect, useLayoutEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { Zap } from "lucide-react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Boxes, Zap } from "lucide-react"
 import type { Skill } from "../../types"
-import { skills, skillStats } from "../../constants/data"
+import { skills, skillStats, stateManagement } from "../../constants/data"
 
 // Split the stack into two marquee rows that scroll in opposite directions
 const half = Math.ceil(skills.length / 2)
 const rowOne = skills.slice(0, half)
 const rowTwo = skills.slice(half)
+
+// One accent per state library, index-aligned with `stateManagement`.
+const stateAccents = ["#a78bfa", "#38bdf8", "#5eead4"]
+
+// `useLayoutEffect` would warn during SSR; this is a client component so the
+// layout pass only matters once we're in the browser.
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect
 
 const edgeFade = {
   maskImage:
@@ -35,6 +45,37 @@ function SkillChip({ skill, index }: { skill: Skill; index: number }) {
 }
 
 export default function SkillsSection() {
+  const stateRef = useRef<HTMLDivElement>(null)
+
+  // The state-architecture block animates with GSAP + ScrollTrigger; the rest of
+  // this section stays on framer-motion.
+  useIsoLayoutEffect(() => {
+    const el = stateRef.current
+    if (!el) return
+
+    gsap.registerPlugin(ScrollTrigger)
+    const mm = gsap.matchMedia(el)
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.set("[data-state-reveal]", { opacity: 0, y: 18 })
+      gsap.set("[data-state-card]", { opacity: 0, y: 28 })
+      gsap.set("[data-state-edge]", { scaleX: 0 })
+      gsap.set("[data-state-line]", { opacity: 0, x: -10 })
+
+      gsap
+        .timeline({
+          defaults: { ease: "power3.out" },
+          scrollTrigger: { trigger: el, start: "top 80%", once: true },
+        })
+        .to("[data-state-reveal]", { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 })
+        .to("[data-state-card]", { opacity: 1, y: 0, duration: 0.6, stagger: 0.12 }, "-=0.3")
+        .to("[data-state-edge]", { scaleX: 1, duration: 0.7, stagger: 0.12 }, "-=0.5")
+        .to("[data-state-line]", { opacity: 1, x: 0, duration: 0.45, stagger: 0.06 }, "-=0.45")
+    })
+
+    return () => mm.revert()
+  }, [])
+
   return (
     <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0">
@@ -110,6 +151,82 @@ export default function SkillsSection() {
             </div>
           </div>
         </motion.div>
+
+        {/* State architecture — the depth behind the Redux / Context / Zustand
+            chips in the marquee above. */}
+        <div ref={stateRef} id="state-management" className="mt-14 scroll-mt-24 sm:mt-16">
+          <div className="mb-8 flex flex-col items-center text-center">
+            <span
+              data-state-reveal
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#64ffda]/90 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl"
+            >
+              <Boxes className="h-3 w-3" />
+              State Architecture
+            </span>
+            <p
+              data-state-reveal
+              className="mt-4 max-w-xl text-[13.5px] leading-[1.75] text-[#8296ae]"
+            >
+              Which of the three I reach for is an architectural decision, not a
+              habit — here&apos;s how each one earns its place.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {stateManagement.map((tool, i) => {
+              const accent = stateAccents[i % stateAccents.length]
+              const ToolIcon = tool.icon
+
+              return (
+                <div
+                  key={tool.name}
+                  data-state-card
+                  className="group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.045] to-white/[0.012] p-6 shadow-[0_24px_60px_-50px_rgba(0,0,0,1),inset_0_1px_0_0_rgba(255,255,255,0.05)] transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.12]"
+                >
+                  <span
+                    data-state-edge
+                    className="pointer-events-none absolute inset-x-6 top-0 h-px opacity-50 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
+                  />
+
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03]"
+                      style={{ color: accent }}
+                    >
+                      <ToolIcon className="h-[18px] w-[18px]" />
+                    </span>
+                    <div>
+                      <h3 className="!mb-0 text-[17px] font-bold leading-tight tracking-[-0.01em] text-[#eef5ff]">
+                        {tool.name}
+                      </h3>
+                      <span
+                        className="text-[10px] font-semibold uppercase tracking-[0.22em]"
+                        style={{ color: accent }}
+                      >
+                        {tool.level}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-[13px] leading-[1.7] text-[#7f93ab]">{tool.tagline}</p>
+
+                  <ul className="mt-4 space-y-2.5 border-t border-white/[0.05] pt-4">
+                    {tool.highlights.slice(0, 2).map((line, j) => (
+                      <li key={j} data-state-line className="flex gap-2.5">
+                        <span
+                          className="mt-[7px] h-1 w-1 shrink-0 rounded-full"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <p className="text-[12.5px] leading-[1.65] text-[#93a7be]">{line}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
