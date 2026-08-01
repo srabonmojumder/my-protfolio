@@ -29,6 +29,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "firebase-tools": "^15.25.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
