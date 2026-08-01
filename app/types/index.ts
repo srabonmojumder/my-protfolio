@@ -37,13 +37,13 @@ export interface Stat {
   bgColor: string
 }
 
+export type AnyIcon = LucideIcon | IconType
+
 export interface Skill {
   name: string
-  icon: IconType
+  icon: AnyIcon
   level: string
 }
-
-export type AnyIcon = LucideIcon | IconType
 
 export interface StateManagementSkill {
   name: string
@@ -76,6 +76,24 @@ export interface Education {
   institution: string
   period: string
   description: string
+}
+
+export interface Certification {
+  title: string
+  issuer: string
+  issued: string
+  period: string
+  supervisor?: string
+  description: string
+  skills: string[]
+  file?: string
+}
+
+export interface LanguageProficiency {
+  name: string
+  level: string
+  /** Filled dots out of 5, matching the proficiency scale on the CV. */
+  score: number
 }
 
 export interface ProcessStep {

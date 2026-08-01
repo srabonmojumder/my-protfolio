@@ -6,41 +6,42 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { User, Code2, Zap, Briefcase, Target, Sparkles, ArrowUpRight } from "lucide-react"
 
 const whatIDo = [
-  "Convert Figma and Adobe XD designs into pixel-perfect React/Next.js code",
-  "Build responsive layouts that work on every screen size",
+  "Convert Figma designs into pixel-perfect React/Next.js code — 100+ screens shipped",
+  "Build responsive, cross-device layouts with Tailwind CSS and SCSS architecture",
   "Manage application state with Redux, Zustand, and Context API",
-  "Integrate REST and GraphQL APIs and AI services (including Gemini) for real-time data",
+  "Integrate REST APIs and Gemini AI services for real-time data rendering",
+  "Run manual and cross-browser testing with Jest and React Testing Library",
   "Build WordPress sites and custom Elementor widgets for client work",
-  "Deliver clean, maintainable, production-ready code",
 ]
 
 const myApproach = [
   "Review the design file and understand every detail before writing code",
   "Build mobile-first, then scale up for tablets and desktops",
-  "Write reusable React components that your team can build on",
+  "Write reusable TypeScript components that your team can build on",
   "Test across real devices and browsers before delivery",
 ]
 
 const experience = [
   "Frontend Developer at Luminous Labs",
-  "3 Years Professional Experience",
-  "20+ Projects Delivered",
+  "3.5 Years Professional Experience",
+  "25+ Web Applications Delivered",
+  "Clients Across 5 Countries",
 ]
 
 const coreFocus = [
-  "React & Next.js Development",
-  "CSS Grid & Flexbox Masterclass",
-  "Figma/XD to Code Conversion",
-  "Responsive Web Development",
+  "React, Next.js & TypeScript Development",
+  "Component Architecture & Design Systems",
+  "Figma to Pixel-Perfect Code",
+  "Performance Optimisation (20–40% faster loads)",
 ]
 
 const highlights = [
-  { value: "3+", label: "Years Experience" },
-  { value: "20+", label: "Projects Delivered" },
-  { value: "100%", label: "Pixel-Perfect" },
+  { value: "3.5", label: "Years Experience" },
+  { value: "25+", label: "Projects Delivered" },
+  { value: "5", label: "Countries Served" },
 ]
 
-const techPills = ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "GraphQL"]
+const techPills = ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "SCSS", "Redux", "Zustand", "Framer Motion"]
 
 type IconType = typeof User
 
@@ -194,10 +195,10 @@ export default function AboutSection() {
           <GlassCard className="md:col-span-7">
             <CardHead icon={User} title="Who I Am" />
             <p className="mb-4 text-base leading-relaxed text-[#a0aec0] sm:text-lg">
-              I&apos;m a <span className="font-semibold text-[#64ffda]">Frontend Developer</span> at Luminous Labs with <span className="font-semibold text-[#64ffda]">3+ years</span> of experience building responsive, high-performance web applications using <span className="font-semibold text-[#38bdf8]">React.js, Next.js, and modern JavaScript</span>.
+              I&apos;m an outcome-focused <span className="font-semibold text-[#64ffda]">Frontend Developer</span> at Luminous Labs with <span className="font-semibold text-[#64ffda]">3.5 years</span> of experience delivering <span className="font-semibold text-[#64ffda]">25+ production web applications</span> across 5 countries — US, UK, France, Colombia and Bangladesh — using <span className="font-semibold text-[#38bdf8]">React.js, TypeScript, and Next.js</span>.
             </p>
             <p className="text-base leading-relaxed text-[#a0aec0] sm:text-lg">
-              I translate UI/UX designs into clean, scalable code, manage state with <span className="font-semibold text-[#64ffda]">Redux, Zustand, and Context API</span>, and integrate REST, GraphQL, and AI APIs (including Gemini) to deliver dynamic, data-driven interfaces. Strong collaborator across design, backend, and QA, with a focus on pixel-perfect UI and cross-device performance.
+              I translate Figma designs into pixel-perfect, scalable interfaces with <span className="font-semibold text-[#38bdf8]">Tailwind CSS and SCSS</span>, manage state with <span className="font-semibold text-[#64ffda]">Redux, Zustand, and Context API</span>, and integrate REST and Gemini AI APIs for real-time data. I handle manual and cross-browser testing (Jest, React Testing Library) and motion design with Framer Motion and GSAP — collaborating closely with design, backend, and QA on every release.
             </p>
             <div className="mt-auto flex flex-wrap gap-2 pt-6">
               {techPills.map((tech) => (
@@ -285,7 +286,7 @@ export default function AboutSection() {
               </div>
               <h3 className="mb-2 text-lg font-bold text-[#e6f1ff]">Best Fit</h3>
               <p className="text-sm leading-relaxed text-[#cbd5e1]">
-                Give me a Figma or XD file with clear specs, and I&apos;ll deliver <span className="font-semibold text-[#64ffda]">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
+                Give me a Figma file with clear specs, and I&apos;ll deliver <span className="font-semibold text-[#64ffda]">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
               </p>
               <span className="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-semibold text-[#64ffda]">
                 Let&apos;s build together <ArrowUpRight className="h-4 w-4" />

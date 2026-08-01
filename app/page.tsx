@@ -11,6 +11,7 @@ import {
   StateManagementSection,
   ExperienceSection,
   EducationSection,
+  CredentialsSection,
   ProjectsSection,
   ServicesSection,
   TestimonialsSection,
@@ -45,6 +46,7 @@ export default function Home() {
       <StateManagementSection />
       <ExperienceSection />
       <EducationSection />
+      <CredentialsSection />
       <ProjectsSection />
       <ServicesSection />
       <TestimonialsSection />

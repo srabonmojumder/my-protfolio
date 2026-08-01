@@ -55,10 +55,13 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl mb-4 text-[#e0e0e0] leading-relaxed">
-            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3+ Years of Experience
+            Frontend Developer at <span className="text-[#64ffda] font-semibold">Luminous Labs</span> | 3.5 Years of Experience
           </p>
           <p className="text-base sm:text-lg text-[#a0aec0] leading-relaxed">
-            I turn <span className="text-[#64ffda] font-semibold">Figma and XD designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, TypeScript, and Tailwind CSS</span> — leveraging <span className="text-[#64ffda] font-semibold">SSR, CSR, SSG, and ISR</span> rendering strategies, with state managed by Redux, Zustand, and Context API, and REST, GraphQL, and AI APIs powering the data layer.
+            I turn <span className="text-[#64ffda] font-semibold">Figma designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, TypeScript, Tailwind CSS, and SCSS</span> — leveraging <span className="text-[#64ffda] font-semibold">SSR, SSG, and CSR</span> rendering strategies, with state managed by Redux, Zustand, and Context API, and REST plus Gemini AI APIs powering the data layer.
+          </p>
+          <p className="text-sm sm:text-base text-[#8892b0] leading-relaxed">
+            25+ production web applications delivered across 5 countries — US, UK, France, Colombia and Bangladesh.
           </p>
         </motion.div>
 

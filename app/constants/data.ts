@@ -1,13 +1,18 @@
-import { FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaWordpress, FaSass, FaGitAlt, FaBootstrap } from "react-icons/fa"
-import { SiTailwindcss, SiNextdotjs, SiJavascript, SiTypescript, SiRedux, SiReact, SiElementor, SiJquery, SiVuedotjs } from "react-icons/si"
+import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaSass, FaGitAlt, FaBootstrap } from "react-icons/fa"
 import {
-  Award, Code, Heart, Users, Mail, MapPin, Phone,
-  FileText, Search, CheckCircle, Rocket, Sparkles, Zap, Smartphone, Layers,
+  SiTailwindcss, SiNextdotjs, SiJavascript, SiTypescript, SiRedux, SiReact,
+  SiElementor, SiJquery, SiVuedotjs, SiFramer, SiGreensock, SiJest,
+  SiTestinglibrary, SiShadcnui, SiMui, SiGooglegemini, SiFigma,
+} from "react-icons/si"
+import {
+  Award, Code, Heart, Globe, Mail, MapPin, Phone,
+  FileText, Search, CheckCircle, Rocket, Sparkles, Smartphone, Layers,
+  Server, Bug, Users,
 } from "lucide-react"
 import type {
   Testimonial, Stat, Skill, ContactInfo,
   WorkExperience, Education, ProcessStep, Service,
-  StateManagementSkill,
+  StateManagementSkill, Certification, LanguageProficiency,
 } from "../types"
 
 // Testimonials shown in the constellation carousel. Replace placeholder
@@ -84,23 +89,23 @@ export const testimonials: Testimonial[] = [
 
 export const stats: Stat[] = [
   {
-    number: "3+",
+    number: "3.5",
     label: "Years of Professional Frontend Development Experience",
     icon: Award,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
   },
   {
-    number: "20+",
-    label: "Production-Ready Projects Delivered Across Industries",
+    number: "25+",
+    label: "Production Web Applications Delivered Across Industries",
     icon: Code,
     color: "from-[#38bdf8] to-[#64ffda]",
     bgColor: "bg-[#38bdf8]/10",
   },
   {
-    number: "8+",
-    label: "Long-Term Clients with Continued Trust and Partnership",
-    icon: Users,
+    number: "5",
+    label: "Countries Served — US, UK, France, Colombia and Bangladesh",
+    icon: Globe,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
   },
@@ -113,24 +118,37 @@ export const stats: Stat[] = [
   },
 ]
 
+// Mirrors the Technical Skills block on the CV, grouped the same way:
+// languages → frameworks → state → styling → animation → testing → APIs → CMS → tools.
 export const skills: Skill[] = [
+  { name: "JavaScript (ES6+)", icon: SiJavascript, level: "Advanced" },
+  { name: "TypeScript", icon: SiTypescript, level: "Advanced" },
+  { name: "HTML5", icon: FaHtml5, level: "Expert" },
+  { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
   { name: "React.js", icon: FaReact, level: "Advanced" },
   { name: "Next.js", icon: SiNextdotjs, level: "Advanced" },
   { name: "Vue.js", icon: SiVuedotjs, level: "Intermediate" },
-  { name: "JavaScript (ES6+)", icon: SiJavascript, level: "Advanced" },
-  { name: "TypeScript", icon: SiTypescript, level: "Advanced" },
+  { name: "jQuery", icon: SiJquery, level: "Advanced" },
+  { name: "Redux", icon: SiRedux, level: "Advanced" },
+  { name: "Zustand", icon: Layers, level: "Advanced" },
+  { name: "Context API", icon: SiReact, level: "Advanced" },
   { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
   { name: "Bootstrap", icon: FaBootstrap, level: "Advanced" },
-  { name: "SASS", icon: FaSass, level: "Advanced" },
-  { name: "HTML5", icon: FaHtml5, level: "Expert" },
-  { name: "CSS3", icon: FaCss3Alt, level: "Expert" },
+  { name: "SASS / SCSS", icon: FaSass, level: "Advanced" },
+  { name: "shadcn/ui", icon: SiShadcnui, level: "Advanced" },
+  { name: "Material UI", icon: SiMui, level: "Intermediate" },
   { name: "Responsive Design", icon: Smartphone, level: "Expert" },
+  { name: "Framer Motion", icon: SiFramer, level: "Advanced" },
+  { name: "GSAP", icon: SiGreensock, level: "Intermediate" },
+  { name: "Jest", icon: SiJest, level: "Intermediate" },
+  { name: "React Testing Library", icon: SiTestinglibrary, level: "Intermediate" },
+  { name: "Manual Testing", icon: Bug, level: "Advanced" },
+  { name: "REST API", icon: Server, level: "Advanced" },
+  { name: "Gemini AI API", icon: SiGooglegemini, level: "Advanced" },
   { name: "WordPress", icon: FaWordpress, level: "Advanced" },
   { name: "Elementor", icon: SiElementor, level: "Advanced" },
-  { name: "jQuery", icon: SiJquery, level: "Advanced" },
   { name: "Git & GitHub", icon: FaGitAlt, level: "Advanced" },
-  { name: "Redux", icon: SiRedux, level: "Advanced" },
-  { name: "Context API", icon: SiReact, level: "Advanced" },
+  { name: "Figma", icon: SiFigma, level: "Advanced" },
 ]
 
 // State management specialization shown in the dedicated section.
@@ -185,7 +203,7 @@ export const contactInfo: ContactInfo[] = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Dhaka, Bangladesh",
+    value: "Mirpur 12, Dhaka, Bangladesh",
     color: "from-[#38bdf8] to-[#64ffda]",
   },
   {
@@ -200,33 +218,34 @@ export const workExperiences: WorkExperience[] = [
   {
     title: "Frontend Developer",
     company: "Luminous Labs",
-    period: "Sep 2023 – Present",
+    period: "Mar 2022 – Present",
     location: "Dhaka, Bangladesh",
     type: "Full-time",
     description:
-      "Build production frontends for SaaS, AI, and marketplace platforms across multiple regions.",
+      "Build production frontends for SaaS, AI, POS, CRM and marketplace platforms for clients across 5 countries.",
     responsibilities: [
-      "Build responsive, cross-device UIs with React.js, Next.js, and Tailwind CSS — managing state via Redux, Zustand, and Context API",
-      "Translate Figma designs into pixel-perfect, production-ready code using reusable component libraries",
-      "Integrate REST and GraphQL APIs and AI services (including Gemini) for real-time, dynamic data across dashboards and platforms",
-      "Build WordPress sites and develop custom Elementor widgets and landing-page components for client projects",
-      "Leverage AI tools (Claude, ChatGPT, Copilot) to accelerate development, debugging, and code quality",
-      "Collaborate with designers, backend, and QA across the full delivery cycle — resolving UI bugs, API issues, and performance bottlenecks",
+      "Delivered 20+ responsive, cross-device UIs with React.js, TypeScript, Next.js and SCSS for clients across 5 countries — cutting design-to-code cycle time ~30% through reusable TypeScript component libraries",
+      "Converted 100+ Figma screens into pixel-perfect production code; built and maintained 50+ reusable components using Redux, Zustand and Context API across multiple live products",
+      "Integrated 10+ REST APIs and Gemini AI services for real-time data rendering across 4 SaaS platforms",
+      "Ran manual and cross-browser testing on 8+ projects with Jest and React Testing Library, resolving 100+ pre-release UI bugs alongside QA",
+      "Improved page load performance 20–40% via lazy loading, code splitting and image optimisation",
+      "Built 3+ WordPress sites with custom Elementor widgets and landing-page components",
     ],
     color: "from-[#64ffda] to-[#38bdf8]",
   },
   {
-    title: "Frontend Developer Intern",
+    title: "Frontend Developer Trainee",
     company: "Luminous Labs",
-    period: "Mar 2022 – Sep 2022",
+    period: "Oct 2021 – Mar 2022",
     location: "Dhaka, Bangladesh",
-    type: "Internship",
+    type: "Traineeship",
     description:
-      "Learned modern frontend development through hands-on work on real client projects.",
+      "Completed a supervised frontend traineeship under Ahsanul Haider Tanha (Software Engineer) — certified April 2022.",
     responsibilities: [
-      "Contributed to web app, e-commerce, and WordPress projects across UI implementation and QA",
-      "Translated mockups into responsive HTML, CSS, and JavaScript components under senior developer mentorship",
-      "Picked up React, Next.js, and Tailwind CSS through hands-on production work",
+      "Contributed to 4+ web app, e-commerce and WordPress projects; translated 30+ mockups into responsive HTML, CSS/SCSS and JavaScript components under senior mentorship",
+      "Built subscription and content-generation UI for 2 SaaS platforms; integrated REST APIs for real-time data",
+      "Gained hands-on practice in HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap, Tailwind CSS, REST API integration and Git/GitHub, plus a working understanding of MERN stack concepts",
+      "Followed the full delivery workflow — analysis, design, development, testing and release",
     ],
     color: "from-[#38bdf8] to-[#64ffda]",
   },
@@ -256,14 +275,68 @@ export const educationItems: Education[] = [
   },
 ]
 
+export const certifications: Certification[] = [
+  {
+    title: "Trainee Experience Certificate",
+    issuer: "Luminous Labs",
+    issued: "Apr 2022",
+    period: "Oct 2021 – Mar 2022",
+    supervisor: "Ahsanul Haider Tanha · Software Engineer",
+    description:
+      "Certifies successful completion of a supervised Frontend Engineer traineeship — practical experience in modern frontend development, REST API integration and version control, along with a working understanding of MERN stack concepts, while building responsive, interactive and user-friendly web applications.",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "React.js",
+      "Bootstrap",
+      "Tailwind CSS",
+      "REST API",
+      "Git / GitHub",
+      "MERN Concepts",
+    ],
+    file: "/cv/Certificate_Professional.pdf",
+  },
+]
+
+export const languageProficiency: LanguageProficiency[] = [
+  { name: "English", level: "Professional", score: 4 },
+  { name: "Bangla", level: "Native", score: 5 },
+]
+
+export const keyStrengths = [
+  "Problem solving & debugging",
+  "Component architecture & design systems",
+  "SCSS architecture (mixins, partials, vars)",
+  "Cross-browser & cross-device compatibility",
+  "Performance optimisation",
+  "API integration & dynamic rendering",
+  "Manual & functional testing",
+]
+
+export const softSkills = [
+  "Problem-Solving",
+  "Team Collaboration",
+  "Clear Communication",
+  "Attention to Detail",
+  "Fast Learner",
+  "Thrives Under Pressure",
+]
+
+export const interests = [
+  "Programming & exploring tech",
+  "Traveling",
+  "Cricket, Badminton, Football",
+]
+
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
     title: "Receive Design",
-    description: "You provide Figma/XD files with design specs",
+    description: "You provide Figma files with design specs",
     icon: FileText,
     color: "from-[#64ffda] to-[#38bdf8]",
-    tag: "Figma · XD",
+    tag: "Figma · Design Specs",
   },
   {
     step: "02",
@@ -284,10 +357,10 @@ export const processSteps: ProcessStep[] = [
   {
     step: "04",
     title: "Quality Check",
-    description: "Pixel-perfect review, responsive testing",
+    description: "Pixel-perfect review, manual and cross-browser testing",
     icon: CheckCircle,
     color: "from-[#38bdf8] to-[#64ffda]",
-    tag: "Pixel-Perfect · Responsive",
+    tag: "Cross-Browser · Responsive",
   },
   {
     step: "05",
@@ -304,7 +377,7 @@ export const services: Service[] = [
     icon: Code,
     title: "Design to Code",
     description:
-      "I take your Figma or Adobe XD designs and build them in React or Next.js. Every spacing, color, and interaction — implemented exactly as designed with reusable, maintainable components.",
+      "I take your Figma designs and build them in React or Next.js with TypeScript. Every spacing, color, and interaction — implemented exactly as designed with reusable, maintainable components.",
     color: "from-[#64ffda] to-[#38bdf8]",
     borderColor: "border-[#64ffda]/20",
     hoverShadow: "hover:shadow-[#64ffda]/20",
@@ -322,7 +395,7 @@ export const services: Service[] = [
     icon: Heart,
     title: "API Integration & Interactivity",
     description:
-      "I connect your frontend to REST and GraphQL APIs and bring interfaces to life with smooth animations, transitions, and interactive elements using Framer Motion and CSS.",
+      "I connect your frontend to REST and AI APIs (including Gemini) for real-time data, and bring interfaces to life with smooth animations and transitions using Framer Motion and GSAP.",
     color: "from-[#64ffda] to-[#38bdf8]",
     borderColor: "border-[#64ffda]/20",
     hoverShadow: "hover:shadow-[#64ffda]/20",
@@ -337,7 +410,8 @@ export const serviceIncludes = [
 ]
 
 export const skillStats = [
-  { label: "Years Experience", value: "3+", icon: Award },
-  { label: "Core Technologies", value: "11", icon: Code },
-  { label: "Projects Delivered", value: "20+", icon: Rocket },
+  { label: "Years Experience", value: "3.5", icon: Award },
+  { label: "Core Technologies", value: String(skills.length), icon: Code },
+  { label: "Projects Delivered", value: "25+", icon: Rocket },
+  { label: "Countries Served", value: "5", icon: Users },
 ]

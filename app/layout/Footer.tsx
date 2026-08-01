@@ -15,6 +15,7 @@ const exploreLinks = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
+  { name: "Credentials", href: "#credentials" },
   { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
@@ -23,7 +24,7 @@ const exploreLinks = [
 const contactItems = [
   { icon: Mail, value: "srabonmozumder29@gmail.com", href: "mailto:srabonmozumder29@gmail.com" },
   { icon: Phone, value: "+880 1827-621312", href: "tel:+8801827621312" },
-  { icon: MapPin, value: "Dhaka, Bangladesh", href: null },
+  { icon: MapPin, value: "Mirpur 12, Dhaka, Bangladesh", href: null },
 ]
 
 export default function Footer() {
@@ -106,8 +107,9 @@ export default function Footer() {
             </div>
 
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-[#8892b0]">
-              Frontend Developer specializing in React, Next.js, and responsive web development.
-              I turn designs into clean, production-ready interfaces.
+              Frontend Developer with 3.5 years of experience in React, Next.js, and TypeScript —
+              25+ production web applications delivered across 5 countries. I turn Figma designs
+              into clean, production-ready interfaces.
             </p>
 
             {/* Socials */}
