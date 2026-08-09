@@ -27,7 +27,7 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] text-xs font-mono mb-4"
+            className="flex w-max mx-auto items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] text-xs font-mono mb-4"
           >
             <BookOpen className="w-3.5 h-3.5" />
             <span>Academic Qualification</span>
@@ -38,7 +38,7 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+            className="block text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight relative !mb-0"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda]">
               Education
@@ -91,7 +91,7 @@ export default function EducationSection() {
                           </span>
                         </div>
                       )}
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[#e0e0e0] group-hover:text-[#64ffda] transition-colors">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-[#e0e0e0] group-hover:text-[#64ffda] transition-colors !mb-0">
                         {item.title}
                       </h3>
                     </div>
@@ -134,7 +134,7 @@ export default function EducationSection() {
                 {/* Key Focus & Accomplishments */}
                 {item.highlights && item.highlights.length > 0 && (
                   <div className="mt-6 pt-6 border-t border-[#64ffda]/10">
-                    <h4 className="text-xs font-mono tracking-wider uppercase text-[#64ffda] mb-3">
+                    <h4 className="text-xs font-mono tracking-wider uppercase text-[#64ffda] !mb-3">
                       Key Academic Focus & Accomplishments
                     </h4>
                     <div className="grid grid-cols-1 gap-2.5">
@@ -151,7 +151,7 @@ export default function EducationSection() {
                 {/* Core Subjects & Competencies Badges */}
                 {item.skills && item.skills.length > 0 && (
                   <div className="mt-6 pt-6 border-t border-[#64ffda]/10">
-                    <h4 className="text-xs font-mono tracking-wider uppercase text-[#a0aec0] mb-3">
+                    <h4 className="text-xs font-mono tracking-wider uppercase text-[#a0aec0] !mb-3">
                       Core Subjects & Competencies
                     </h4>
                     <div className="flex flex-wrap gap-2">

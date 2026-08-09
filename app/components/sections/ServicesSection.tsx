@@ -105,7 +105,7 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] text-xs font-mono mb-2"
+            className="flex w-max mx-auto items-center gap-2 px-4 py-1.5 rounded-full bg-[#64ffda]/10 border border-[#64ffda]/20 text-[#64ffda] text-xs font-mono mb-2"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Frontend Solutions & Technical Expertise</span>

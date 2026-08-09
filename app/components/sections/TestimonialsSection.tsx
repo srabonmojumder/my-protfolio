@@ -166,7 +166,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold relative inline-block !mb-0"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] to-[#38bdf8]">
               What Clients Say

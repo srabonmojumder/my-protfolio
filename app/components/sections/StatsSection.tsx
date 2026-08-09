@@ -27,7 +27,7 @@ export default function StatsSection() {
           <span className="text-[#64ffda] text-xs sm:text-sm font-medium tracking-[0.4em] uppercase">
             Track Record
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 !mb-0">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda]">
               By The Numbers
             </span>
