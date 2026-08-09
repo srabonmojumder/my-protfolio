@@ -38,17 +38,28 @@ export default function Home() {
         }}
       />
       <Navbar />
-      {/* Order: intro → capability → proof of work → career history →
-          credentials → what I offer → social proof → contact */}
+      {/* Professional Portfolio Flow:
+          1. Hero (First Impression & CTA)
+          2. About (Bio, Identity & Approach)
+          3. Skills (Tech Stack Marquee)
+          4. Services (State Architecture Showcase)
+          5. Projects (Featured Works)
+          6. Stats (Track Record)
+          7. Experience (Work History)
+          8. Education (Academic Background)
+          9. Credentials (Certifications & Strengths)
+          10. Process (Workflow)
+          11. Testimonials (Social Proof)
+          12. Contact (Call to Action) */}
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <ServicesSection />
       <ProjectsSection />
       <StatsSection />
       <ExperienceSection />
       <EducationSection />
       <CredentialsSection />
-      <ServicesSection />
       <ProcessSection />
       <TestimonialsSection />
       <ContactSection />
