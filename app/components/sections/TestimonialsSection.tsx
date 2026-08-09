@@ -112,10 +112,38 @@ export default function TestimonialsSection() {
   }, [active, autoplay, hovered, total])
 
   const t = testimonials[active]
-  const activeSlot = slots[active]
+
+  const activeSlots = useMemo(() => {
+    if (total === 2) {
+      return [{ x: 12, y: 38 }, { x: 88, y: 38 }]
+    }
+    if (total === 3) {
+      return [{ x: 12, y: 25 }, { x: 12, y: 75 }, { x: 88, y: 50 }]
+    }
+    if (total === 4) {
+      return [
+        { x: 12, y: 25 },
+        { x: 12, y: 75 },
+        { x: 88, y: 25 },
+        { x: 88, y: 75 },
+      ]
+    }
+    if (total === 5) {
+      return [
+        { x: 12, y: 30 },
+        { x: 12, y: 70 },
+        { x: 88, y: 20 },
+        { x: 88, y: 50 },
+        { x: 88, y: 80 },
+      ]
+    }
+    return slots.slice(0, total)
+  }, [total])
+
+  const activeSlot = activeSlots[active] || slots[0]
 
   const curve = useMemo(() => {
-    if (!size.w || !size.h)
+    if (!size.w || !size.h || !activeSlot)
       return { path: "", endX: 0, endY: 0, trailX: 0, trailY: 0 }
     const ax = (activeSlot.x / 100) * size.w
     const ay = (activeSlot.y / 100) * size.h
@@ -124,7 +152,7 @@ export default function TestimonialsSection() {
     const hh = size.w < 640 ? 175 : 210
     const gap = size.w < 640 ? 22 : 32
     return buildCurve(ax, ay, size.w / 2, size.h / 2, hw, hh, gap)
-  }, [activeSlot.x, activeSlot.y, size.w, size.h])
+  }, [activeSlot, size.w, size.h])
 
   return (
     <section
@@ -197,7 +225,7 @@ export default function TestimonialsSection() {
             </svg>
           )}
 
-          {slots.slice(0, total).map((slot, i) => {
+          {activeSlots.map((slot, i) => {
             if (i === active) return null
             return (
               <button

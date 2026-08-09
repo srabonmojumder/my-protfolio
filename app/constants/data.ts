@@ -38,51 +38,30 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Srabon really looked after the details in our design files. Spacing, colours, the small interactions — it all came through the way we drew it. Handing the work over to our developers was painless.",
-    name: "Michael Chen",
-    role: "Lead Designer",
-    company: "Creative Studio",
-    badge: "Pixel Perfect",
+      "Working with Srabon on our core product frontend was a brilliant experience. He understands product vision quickly and translates growth requirements into clean, high-converting React interfaces. His execution speed and dedication to user experience are outstanding.",
+    name: "Ahad",
+    role: "CEO & Co-Founder",
+    company: "Product & Growth Strategy",
+    image: "/images/f1.webp",
+    badge: "Growth Strategy",
   },
   {
     quote:
-      "Easy to work with, and he kept us in the loop the whole way. The layouts held up on every device we tested, and nothing surprised us at the end. I'd bring him onto another project without hesitating.",
-    name: "Sarah Williams",
-    role: "Product Manager",
-    company: "Tech Startup",
-    badge: "On Time",
+      "Srabon has an exceptional eye for design fidelity and brand presentation. He brought our brand landing page and web application designs to life with smooth animations, responsive layouts, and pixel-perfect accuracy. A highly reliable frontend partner.",
+    name: "Kawsar",
+    role: "CMO & Co-Founder",
+    company: "Brand & Partnerships",
+    image: "/images/f2.webp",
+    badge: "Brand & UI",
   },
   {
     quote:
-      "He left our frontend in much better shape than he found it. After the handover our own team could keep building on his work without having to ask him questions every other day.",
-    name: "David Park",
-    role: "CTO",
-    company: "SaaS Startup",
-    badge: "Clean Code",
-  },
-  {
-    quote:
-      "The dashboard he built for us is responsive and still holds up as we keep adding to it. The component structure made sense, so getting the rest of the team up to speed was quick.",
-    name: "Anna Kowalski",
-    role: "Engineering Lead",
-    company: "Analytics Co",
-    badge: "Well Structured",
-  },
-  {
-    quote:
-      "Clear communication from start to finish. He asked the right questions early on, delivered what we agreed, and was quick to respond whenever we needed something changed.",
-    name: "Marcus Johnson",
-    role: "Founder",
-    company: "Logistics App",
-    badge: "Reliable",
-  },
-  {
-    quote:
-      "Our site finally feels right on mobile, which was the main thing we wanted fixed. The animations are subtle and never get in the way of the content. Straightforward to work with throughout.",
-    name: "Priya Sharma",
-    role: "Head of Growth",
-    company: "Health Tech",
-    badge: "Mobile First",
+      "As CTO, I value clean architecture, maintainable state management, and seamless API integration — and Srabon delivered on all fronts. His TypeScript components are robust, well-structured, and made connecting our infrastructure endpoints effortless.",
+    name: "Alamin",
+    role: "CTO & Co-Founder",
+    company: "Platform & Infrastructure",
+    image: "/images/f3.webp",
+    badge: "Platform & Infra",
   },
 ]
 
