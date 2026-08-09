@@ -63,6 +63,30 @@ export const testimonials: Testimonial[] = [
     image: "/images/f3.webp",
     badge: "Platform & Infra",
   },
+  {
+    quote:
+      "Srabon took our complex Figma designs and built a flawless, high-performing frontend for our web application. His attention to micro-interactions, mobile responsiveness, and clean code standards exceeded our expectations. Working across time zones was completely seamless.",
+    name: "Lucas Vance",
+    role: "Founder & CEO",
+    company: "Vance Digital (USA)",
+    badge: "Pixel Perfect",
+  },
+  {
+    quote:
+      "As a designer, I am extremely particular about spacing, typography, and component behavior. Srabon implemented our design system down to the exact pixel. He is communicative, fast, and highly skilled in modern React and Tailwind CSS.",
+    name: "Elena Rostova",
+    role: "Lead Product Designer",
+    company: "Carpathia SaaS (UK)",
+    badge: "UI Quality",
+  },
+  {
+    quote:
+      "Srabon helped us optimize our client-facing dashboard and integrate multi-layered REST APIs. Page load speeds improved significantly, and the user feedback has been overwhelmingly positive. I would rehire Srabon for any complex frontend challenge without hesitation.",
+    name: "Daniel Harrison",
+    role: "Head of Engineering",
+    company: "Apex Analytics (Australia)",
+    badge: "Performance",
+  },
 ]
 
 export const stats: Stat[] = [
