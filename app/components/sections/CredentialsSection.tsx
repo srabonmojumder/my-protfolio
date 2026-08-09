@@ -93,7 +93,6 @@ export default function CredentialsSection() {
             className="lg:col-span-7"
           >
             {certifications.map((cert) => {
-              const [supervisorName, supervisorRole] = (cert.supervisor ?? "").split(" · ")
               const meta = [
                 { icon: CalendarDays, label: "Issued", value: cert.issued },
                 { icon: Clock3, label: "Training period", value: cert.period },
@@ -142,7 +141,7 @@ export default function CredentialsSection() {
                       </div>
 
                       {/* Meta tiles */}
-                      <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {meta.map((item) => (
                           <div
                             key={item.label}
@@ -155,19 +154,6 @@ export default function CredentialsSection() {
                             <p className="mt-1.5 text-sm font-semibold text-[#e6f1ff]">{item.value}</p>
                           </div>
                         ))}
-
-                        {cert.supervisor && (
-                          <div className="rounded-2xl border border-white/[0.07] bg-white/[0.025] px-4 py-3">
-                            <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-[#64ffda]/70">
-                              <UserCheck className="h-3.5 w-3.5" />
-                              Supervised by
-                            </span>
-                            <p className="mt-1.5 text-sm font-semibold text-[#e6f1ff]">{supervisorName}</p>
-                            {supervisorRole && (
-                              <p className="text-[11px] text-[#8892b0]">{supervisorRole}</p>
-                            )}
-                          </div>
-                        )}
                       </div>
 
                       <p className="text-sm leading-relaxed text-[#a0aec0] sm:text-[15px]">

@@ -294,7 +294,7 @@ export const workExperiences: WorkExperience[] = [
     location: "Dhaka, Bangladesh",
     type: "Traineeship",
     description:
-      "Completed a supervised frontend traineeship under Ahsanul Haider Tanha (Software Engineer) — certified April 2022.",
+      "Completed a frontend traineeship — certified April 2022.",
     responsibilities: [
       "Contributed to 4+ web app, e-commerce and WordPress projects; translated 30+ mockups into responsive HTML, CSS/SCSS and JavaScript components under senior mentorship",
       "Built subscription and content-generation UI for 2 SaaS platforms; integrated REST APIs for real-time data",
@@ -338,7 +338,6 @@ export const certifications: Certification[] = [
     issuer: "Luminous Labs",
     issued: "Apr 2022",
     period: "Oct 2021 – Mar 2022",
-    supervisor: "Ahsanul Haider Tanha · Software Engineer",
     description:
       "Certifies successful completion of a supervised Frontend Engineer traineeship — practical experience in modern frontend development, REST API integration and version control, along with a working understanding of MERN stack concepts, while building responsive, interactive and user-friendly web applications.",
     skills: [
