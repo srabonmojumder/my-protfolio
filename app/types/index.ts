@@ -121,4 +121,8 @@ export interface Service {
   color: string
   borderColor: string
   hoverShadow: string
+  subtitle?: string
+  tags?: string[]
+  highlights?: string[]
+  quote?: string
 }
