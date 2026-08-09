@@ -80,6 +80,11 @@ export interface Education {
   institution: string
   period: string
   description: string
+  location?: string
+  status?: string
+  fieldOfStudy?: string
+  highlights?: string[]
+  skills?: string[]
 }
 
 export interface Certification {

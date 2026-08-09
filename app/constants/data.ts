@@ -306,24 +306,26 @@ export const workExperiences: WorkExperience[] = [
 export const educationItems: Education[] = [
   {
     title: "Diploma in Computer Technology",
-    institution: "Dash Polytechnic Institute, Dhaka",
+    institution: "Dash Polytechnic Institute",
+    location: "Dhaka, Bangladesh",
     period: "Feb 2023 – Present",
+    status: "Currently Pursuing",
+    fieldOfStudy: "Computer Science & Engineering Technology",
     description:
-      "Focusing on practical applications of web technologies, software development, database management, and modern programming principles.",
-  },
-  {
-    title: "Higher Secondary Certificate (HSC)",
-    institution: "Commerce Group",
-    period: "2021",
-    description:
-      "Completed higher secondary education with focus on business studies, accounting, and economics.",
-  },
-  {
-    title: "Secondary School Certificate (SSC)",
-    institution: "Commerce Group",
-    period: "2019",
-    description:
-      "Completed secondary education with specialization in commerce subjects.",
+      "Pursuing a comprehensive technical diploma focused on computer science fundamentals, web development engineering, database management systems, and modern software principles.",
+    highlights: [
+      "Specialized in modern Web Engineering, Software Architecture & Database Management Systems",
+      "Building production-ready frontend applications with React, Next.js, TypeScript & Tailwind CSS",
+      "Applying theoretical Computer Science concepts directly to real-world software projects",
+    ],
+    skills: [
+      "Computer Technology",
+      "Web Engineering",
+      "Software Development",
+      "Database Systems",
+      "Data Structures",
+      "OOP Principles",
+    ],
   },
 ]
 
