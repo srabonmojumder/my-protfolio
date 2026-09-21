@@ -473,7 +473,7 @@ export default function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="py-12 sm:py-16 lg:py-24 relative overflow-hidden w-full max-w-full">
+    <section id="skills" className="py-12 sm:py-16 lg:py-24 !px-0 relative overflow-hidden w-full max-w-full">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 rounded-full blur-3xl animate-pulse" />
@@ -538,7 +538,7 @@ export default function SkillsSection() {
       <div className="w-full relative overflow-hidden select-none">
         {/* Full-Width Canvas Wrapper - Compact & responsive height */}
         <div className="relative w-full h-[440px] sm:h-[520px] md:h-[620px] lg:h-[720px] xl:h-[760px] flex items-center justify-center overflow-hidden">
-          
+
           {/* Full-Width SVG Optical Conduit Rays (Edge-to-Edge) */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
@@ -748,16 +748,16 @@ export default function SkillsSection() {
 
             {/* Responsive Main Cyber Core Disk */}
             <div className="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-42 lg:h-42 rounded-full bg-gradient-to-br from-[#112240] via-[#0c1a2f] to-[#0A0F1A] shadow-[0_0_40px_rgba(100,255,218,0.3),inset_0_0_25px_rgba(100,255,218,0.15)] border-2 border-[#64ffda]/60 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:border-[#64ffda] group-hover:shadow-[0_0_65px_rgba(100,255,218,0.5)] backdrop-blur-xl">
-              
+
               {/* Rotating Technical Dashed Bezel */}
               <div className="absolute inset-1.5 sm:inset-2.5 rounded-full border border-dashed border-[#38bdf8]/40 animate-[spin_30s_linear_infinite]" />
-              
+
               {/* Inner Counter-Rotating Dotted Ring */}
               <div className="absolute inset-3 sm:inset-4.5 rounded-full border border-dotted border-[#64ffda]/30 animate-[spin_20s_linear_infinite_reverse]" />
 
               {/* Inner Monogram Cavity */}
               <div className="w-13 h-13 sm:w-18 sm:h-18 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border border-[#64ffda]/40 flex flex-col items-center justify-center relative overflow-hidden bg-[#0A0F1A]/95 shadow-[inset_0_0_20px_rgba(100,255,218,0.25)]">
-                
+
                 {/* Radar Sweep Effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#64ffda]/15 to-transparent animate-[spin_7s_linear_infinite] pointer-events-none" />
 
@@ -770,7 +770,7 @@ export default function SkillsSection() {
                     </span>
                     <span className="text-[#38bdf8] font-mono text-xs sm:text-sm md:text-base font-bold opacity-80">/&gt;</span>
                   </div>
-                  
+
                   {/* High-Tech Technical Tag */}
                   <span className="text-[7px] sm:text-[8px] md:text-[9px] font-mono tracking-widest text-[#64ffda] uppercase font-bold -mt-0.5 sm:mt-0 opacity-90 hidden sm:inline-block">
                     DEV CORE
@@ -828,11 +828,10 @@ export default function SkillsSection() {
                         ease: "easeInOut",
                       }}
                       whileHover={{ scale: 1.15, y: -4 }}
-                      className={`relative w-14 h-14 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 rounded-full bg-white shadow-[0_8px_25px_rgba(0,0,0,0.5),0_0_15px_rgba(100,255,218,0.2)] border-2 flex flex-col items-center justify-center p-1 sm:p-2 cursor-pointer transition-all duration-300 hover:shadow-[0_0_35px_rgba(100,255,218,0.65)] hover:border-[#64ffda] group ${
-                        isRecentlyUpdated
-                          ? "border-[#64ffda] shadow-[0_0_30px_rgba(100,255,218,0.55)]"
-                          : "border-white/90"
-                      }`}
+                      className={`relative w-14 h-14 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 rounded-full bg-white shadow-[0_8px_25px_rgba(0,0,0,0.5),0_0_15px_rgba(100,255,218,0.2)] border-2 flex flex-col items-center justify-center p-1 sm:p-2 cursor-pointer transition-all duration-300 hover:shadow-[0_0_35px_rgba(100,255,218,0.65)] hover:border-[#64ffda] group ${isRecentlyUpdated
+                        ? "border-[#64ffda] shadow-[0_0_30px_rgba(100,255,218,0.55)]"
+                        : "border-white/90"
+                        }`}
                     >
                       {/* Top-lit highlight */}
                       <div className="absolute inset-0 rounded-full bg-gradient-to-b from-slate-100 to-white pointer-events-none" />
@@ -840,9 +839,8 @@ export default function SkillsSection() {
                       {/* Skill Icon */}
                       <div className="flex items-center justify-center z-10">
                         <Icon
-                          className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl ${
-                            node.spinIcon ? "animate-[spin_12s_linear_infinite]" : ""
-                          }`}
+                          className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl ${node.spinIcon ? "animate-[spin_12s_linear_infinite]" : ""
+                            }`}
                           style={{ color: node.iconColor }}
                         />
                       </div>
@@ -927,11 +925,10 @@ export default function SkillsSection() {
                         ease: "easeInOut",
                       }}
                       whileHover={{ scale: 1.15, y: -4 }}
-                      className={`relative w-14 h-14 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 rounded-full bg-white shadow-[0_8px_25px_rgba(0,0,0,0.5),0_0_15px_rgba(100,255,218,0.2)] border-2 flex flex-col items-center justify-center p-1 sm:p-2 cursor-pointer transition-all duration-300 hover:shadow-[0_0_35px_rgba(100,255,218,0.65)] hover:border-[#64ffda] group ${
-                        isRecentlyUpdated
-                          ? "border-[#64ffda] shadow-[0_0_30px_rgba(100,255,218,0.55)]"
-                          : "border-white/90"
-                      }`}
+                      className={`relative w-14 h-14 sm:w-18 sm:h-18 md:w-22 md:h-22 lg:w-26 lg:h-26 rounded-full bg-white shadow-[0_8px_25px_rgba(0,0,0,0.5),0_0_15px_rgba(100,255,218,0.2)] border-2 flex flex-col items-center justify-center p-1 sm:p-2 cursor-pointer transition-all duration-300 hover:shadow-[0_0_35px_rgba(100,255,218,0.65)] hover:border-[#64ffda] group ${isRecentlyUpdated
+                        ? "border-[#64ffda] shadow-[0_0_30px_rgba(100,255,218,0.55)]"
+                        : "border-white/90"
+                        }`}
                     >
                       {/* Top-lit highlight */}
                       <div className="absolute inset-0 rounded-full bg-gradient-to-b from-slate-100 to-white pointer-events-none" />
@@ -939,9 +936,8 @@ export default function SkillsSection() {
                       {/* Skill Icon */}
                       <div className="flex items-center justify-center z-10">
                         <Icon
-                          className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl ${
-                            node.spinIcon ? "animate-[spin_12s_linear_infinite]" : ""
-                          }`}
+                          className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl ${node.spinIcon ? "animate-[spin_12s_linear_infinite]" : ""
+                            }`}
                           style={{ color: node.iconColor }}
                         />
                       </div>
@@ -1039,11 +1035,10 @@ export default function SkillsSection() {
                     <button
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
-                      className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all cursor-pointer ${
-                        activeCategory === cat
-                          ? "bg-[#64ffda] text-[#0A0F1A]"
-                          : "bg-[#112240] text-[#a0aec0] border border-slate-700/50 hover:text-white hover:border-[#64ffda]/40"
-                      }`}
+                      className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all cursor-pointer ${activeCategory === cat
+                        ? "bg-[#64ffda] text-[#0A0F1A]"
+                        : "bg-[#112240] text-[#a0aec0] border border-slate-700/50 hover:text-white hover:border-[#64ffda]/40"
+                        }`}
                     >
                       {cat}
                     </button>
