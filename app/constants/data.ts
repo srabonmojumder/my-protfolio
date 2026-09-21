@@ -2,7 +2,7 @@ import { FaHtml5, FaCss3Alt, FaReact, FaWordpress, FaSass, FaGitAlt, FaBootstrap
 import {
   SiTailwindcss, SiNextdotjs, SiJavascript, SiTypescript, SiRedux, SiReact,
   SiElementor, SiJquery, SiVuedotjs, SiFramer, SiGreensock, SiJest,
-  SiTestinglibrary, SiShadcnui, SiMui, SiGooglegemini, SiFigma,
+  SiTestinglibrary, SiShadcnui, SiMui, SiGooglegemini, SiFigma, SiGraphql,
 } from "react-icons/si"
 import {
   Award, Code, Heart, Globe, Mail, MapPin, Phone,
@@ -146,6 +146,7 @@ export const skills: Skill[] = [
   { name: "React Testing Library", icon: SiTestinglibrary, level: "Intermediate" },
   { name: "Manual Testing", icon: Bug, level: "Advanced" },
   { name: "REST API", icon: Server, level: "Advanced" },
+  { name: "GraphQL", icon: SiGraphql, level: "Advanced" },
   { name: "Gemini AI API", icon: SiGooglegemini, level: "Advanced" },
   { name: "WordPress", icon: FaWordpress, level: "Advanced" },
   { name: "Elementor", icon: SiElementor, level: "Advanced" },
