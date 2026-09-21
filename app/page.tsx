@@ -18,6 +18,7 @@ import {
   ContactSection,
 } from "./components/sections"
 
+// Main Home Page Component
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0A0F1A] text-[#e0e0e0]">
