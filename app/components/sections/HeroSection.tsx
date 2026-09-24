@@ -71,7 +71,7 @@ export default function HeroSection() {
             I turn <span className="text-[#64ffda] font-semibold">Figma designs</span> into responsive, production-ready web applications using <span className="text-[#38bdf8] font-semibold">React, Next.js, TypeScript, Tailwind CSS, and SCSS</span> — leveraging <span className="text-[#64ffda] font-semibold">SSR, SSG, and CSR</span> rendering strategies, with state managed by Redux, Zustand, and Context API, and REST plus Gemini AI APIs powering the data layer.
           </p>
           <p className="text-sm sm:text-base text-[#8892b0] leading-relaxed">
-            25+ production web applications delivered across 5 countries — US, UK, France, Colombia and Bangladesh.
+            25+ production web applications delivered across 8+ countries — US, UK, Canada, Australia, Germany, France, and Bangladesh.
           </p>
         </motion.div>
 

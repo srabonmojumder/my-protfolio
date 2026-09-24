@@ -1,315 +1,423 @@
 "use client"
 
 import Image from "next/image"
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import {
-  User, Code2, Zap, Target, Sparkles, ArrowUpRight, Smartphone,
-  Layers, Server, Bug, LayoutTemplate, MapPin, Briefcase, Languages,
+  Sparkles,
+  Code2,
+  Layers,
+  Zap,
+  MapPin,
+  Briefcase,
+  CheckCircle2,
+  ArrowUpRight,
+  Download,
+  Globe2,
 } from "lucide-react"
 
-type IconType = typeof User
-
-const whatIDo: { icon: IconType; text: string }[] = [
-  { icon: Code2, text: "Convert Figma designs into pixel-perfect React/Next.js code — 100+ screens shipped" },
-  { icon: Smartphone, text: "Build responsive, cross-device layouts with Tailwind CSS and SCSS architecture" },
-  { icon: Layers, text: "Manage application state with Redux, Zustand, and Context API" },
-  { icon: Server, text: "Integrate REST APIs and Gemini AI services for real-time data rendering" },
-  { icon: Bug, text: "Run manual and cross-browser testing with Jest and React Testing Library" },
-  { icon: LayoutTemplate, text: "Build WordPress sites and custom Elementor widgets for client work" },
+// Core impact metrics
+const impactStats = [
+  {
+    num: "3.5+",
+    label: "Years Experience",
+    sub: "Frontend Engineering",
+    gradient: "from-[#64ffda] via-[#38bdf8] to-[#64ffda]",
+  },
+  {
+    num: "25+",
+    label: "Apps Shipped",
+    sub: "Production Deployed",
+    gradient: "from-[#38bdf8] via-[#818cf8] to-[#38bdf8]",
+  },
+  {
+    num: "100+",
+    label: "Figma Screens",
+    sub: "1:1 Pixel-Perfect Code",
+    gradient: "from-[#c084fc] via-[#64ffda] to-[#38bdf8]",
+  },
+  {
+    num: "8+",
+    label: "Global Countries",
+    sub: "US, UK, CA, AU, DE, FR, BD +",
+    gradient: "from-[#34d399] via-[#38bdf8] to-[#64ffda]",
+  },
 ]
 
-const howIBuild = [
-  "Review the design file and understand every detail before writing code",
-  "Build mobile-first, then scale up for tablets and desktops",
-  "Write reusable TypeScript components that your team can build on",
-  "Test across real devices and browsers before delivery",
+// Core engineering disciplines
+const disciplines = [
+  {
+    icon: Code2,
+    badge: "Design to Code",
+    title: "Pixel-Perfect Figma Conversion",
+    description:
+      "Transforming complex Figma components, auto-layouts, and design tokens into clean, fluid React/Next.js code with 100% design fidelity across all devices.",
+    tags: ["Figma Specs", "Fluid Breakpoints", "Micro-Interactions"],
+    accent: "#64ffda",
+  },
+  {
+    icon: Layers,
+    badge: "State & Data",
+    title: "Modern State & API Integration",
+    description:
+      "Structuring predictable application architecture using Redux Toolkit, Zustand atomic stores, and Context API, synced with real-time REST and Gemini AI endpoints.",
+    tags: ["Redux / Zustand", "REST & AI APIs", "Cache Sync"],
+    accent: "#38bdf8",
+  },
+  {
+    icon: Zap,
+    badge: "Engineering Quality",
+    title: "Performance & Responsive Polish",
+    description:
+      "Optimizing Core Web Vitals, accessible semantic HTML, and 60fps animations with Framer Motion and GSAP — backed by manual QA and automated testing.",
+    tags: ["Web Vitals", "Framer Motion", "Cross-Browser QA"],
+    accent: "#a855f7",
+  },
 ]
-
-const quickFacts: { icon: IconType; label: string; value: string; live?: boolean }[] = [
-  { icon: MapPin, label: "Based in", value: "Mirpur 12, Dhaka, Bangladesh" },
-  { icon: Briefcase, label: "Most recently", value: "Frontend Developer · Luminous Labs" },
-  { icon: Zap, label: "Availability", value: "Open to new projects", live: true },
-  { icon: Languages, label: "Languages", value: "English (Professional) · Bangla (Native)" },
-]
-
-const focusAreas = [
-  "React, Next.js & TypeScript",
-  "Component Architecture & Design Systems",
-  "Figma → Pixel-Perfect Code",
-  "Performance Optimisation (20–40% faster loads)",
-]
-
-const techPills = ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "SCSS", "Redux", "Zustand", "Framer Motion"]
-
-function GlassCard({
-  className = "",
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return (
-    <div
-      className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025] backdrop-blur-xl transition-all duration-500 hover:border-[#64ffda]/30 hover:bg-white/[0.04] ${className}`}
-    >
-      <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-      <div className="relative z-10 flex h-full flex-col p-6 sm:p-7">{children}</div>
-    </div>
-  )
-}
-
-function CardHead({ icon: Icon, title, accent = "#64ffda" }: { icon: IconType; title: string; accent?: string }) {
-  return (
-    <div className="mb-5 flex items-center gap-3">
-      <div
-        className="flex h-10 w-10 items-center justify-center rounded-xl border"
-        style={{ backgroundColor: `${accent}1f`, borderColor: `${accent}33` }}
-      >
-        <Icon className="h-5 w-5" style={{ color: accent }} />
-      </div>
-      <h3 className="!mb-0 text-lg font-bold text-[#e6f1ff]">{title}</h3>
-    </div>
-  )
-}
 
 export default function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-
-  // Parallax — layers move at different speeds as the section scrolls through view
-  const gridY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"])
-  const glow1Y = useTransform(scrollYProgress, [0, 1], [-90, 90])
-  const glow2Y = useTransform(scrollYProgress, [0, 1], [70, -70])
-  const photoY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"])
-
   return (
     <section
-      ref={sectionRef}
       id="about"
-      className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24"
+      className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28 bg-[#0A0F1A]"
     >
-      {/* Background (parallax) */}
-      <motion.div
-        style={{ y: gridY }}
-        className="absolute -inset-y-24 inset-x-0 bg-[radial-gradient(circle_at_center,#64ffda_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.035]"
-      />
-      <motion.div
-        style={{ y: glow1Y }}
-        className="absolute left-1/4 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[#64ffda]/10 blur-[120px]"
-      />
-      <motion.div
-        style={{ y: glow2Y }}
-        className="absolute bottom-1/4 right-0 h-80 w-80 rounded-full bg-[#38bdf8]/10 blur-[120px]"
-      />
+      {/* High-Tech Cyber Ambient Lighting */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#112240]/50 rounded-full blur-[140px]" />
+        <div className="absolute top-1/3 left-10 w-96 h-96 bg-[#64ffda]/10 rounded-full blur-[130px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#38bdf8]/10 rounded-full blur-[130px] animate-pulse animation-delay-2000" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#64ffda_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
+      </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl">
-        {/* Header */}
-        <motion.div
-          className="mb-12 text-center sm:mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#64ffda]/20 bg-[#64ffda]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#64ffda]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#64ffda]" />
-            About Me
-          </span>
-          <h2 className="!mb-0 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="bg-gradient-to-r from-[#64ffda] to-[#38bdf8] bg-clip-text text-transparent">
-              About Me
+      <div className="container relative z-10 mx-auto max-w-7xl">
+        {/* ================= SECTION HEADER ================= */}
+        <div className="text-center mb-14 sm:mb-18 flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/30 bg-gradient-to-r from-[#64ffda]/15 via-[#38bdf8]/10 to-[#64ffda]/15 px-5 py-2 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(100,255,218,0.15)]"
+          >
+            <Sparkles className="w-4 h-4 text-[#64ffda]" />
+            <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#64ffda]">
+              Engineering Mindset & Profile
             </span>
-          </h2>
-          <p className="mt-3 text-base text-[#a0aec0] sm:text-lg">
-            Frontend Developer. Design to Code. Detail-Oriented.
-          </p>
-        </motion.div>
+          </motion.div>
 
-        {/* Row 1 — identity: photo + narrative + quick facts */}
-        <motion.div
-          className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {/* Photo */}
-          <div className="md:col-span-5 md:row-span-2">
-            <div className="relative h-full">
-              <div className="absolute -inset-2 rounded-[1.75rem] bg-gradient-to-br from-[#64ffda]/25 to-[#38bdf8]/25 opacity-60 blur-2xl" />
-              <div className="relative h-full min-h-[440px] overflow-hidden rounded-[1.5rem] border border-white/10">
-                <motion.div style={{ y: photoY }} className="absolute inset-x-0 -inset-y-[14%]">
-                  <Image
-                    src="/images/new.png"
-                    alt="Srabon Mozumder - Design to Code Specialist"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover object-top"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1A] via-[#0A0F1A]/20 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#64ffda]/10 via-transparent to-[#38bdf8]/10 mix-blend-overlay" />
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-3xl leading-tight !mb-4"
+          >
+            <span className="text-white">I Build </span>
+            <span className="bg-gradient-to-r from-[#64ffda] via-[#38bdf8] to-[#64ffda] bg-clip-text text-transparent">
+              High-Converting Code
+            </span>
+            <br className="hidden sm:inline" />
+            <span className="text-white"> For Modern Web Products.</span>
+          </motion.h2>
 
-                {/* Role chip */}
-                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-[#0A0F1A]/60 px-4 py-2 backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#64ffda] opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#64ffda]" />
-                  </span>
-                  <span className="text-xs font-semibold tracking-wide text-[#e6f1ff]">Frontend Developer</span>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-sm sm:text-base md:text-lg text-[#a0aec0] max-w-2xl px-2"
+          >
+            Frontend Developer specializing in bridging Figma design systems and production-grade React/Next.js architecture with clean code and uncompromising visual fidelity.
+          </motion.p>
+        </div>
+
+        {/* ================= BENTO GRID ROW 1: Hero Identity + Interactive IDE Box ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-6">
+          {/* Card 1: Futuristic Portrait & Identity (5 Cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5 flex flex-col gap-4 rounded-3xl border border-white/10 bg-[#112240]/40 backdrop-blur-xl p-5 sm:p-6 shadow-2xl relative overflow-hidden group hover:border-[#64ffda]/40 transition-all duration-500"
+          >
+            {/* Top ambient glow */}
+            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#64ffda]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#64ffda]/25 transition-all duration-500" />
+
+            {/* Portrait Frame with Cyber HUD Elements (Flex-1 dynamically fills card height) */}
+            <div className="relative flex-1 min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#0A0F1A] shadow-inner">
+              <Image
+                src="/images/new.png"
+                alt="Srabon Mozumder"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1A] via-[#0A0F1A]/20 to-transparent" />
+
+              {/* Status Beacon Pill */}
+              <div className="absolute top-3.5 left-3.5 flex items-center gap-2 rounded-full border border-emerald-400/30 bg-[#0A0F1A]/85 px-3.5 py-1.5 backdrop-blur-md shadow-lg">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                </span>
+                <span className="text-xs font-semibold text-emerald-300 tracking-wide">
+                  Available for Work
+                </span>
+              </div>
+
+              {/* Verified Frontend Developer Chip */}
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-xl bg-[#0A0F1A]/85 border border-white/10 backdrop-blur-md flex items-center justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-[#e6f1ff] leading-none mb-1">
+                    Srabon Mozumder
+                  </h3>
+                  <p className="text-xs font-medium text-[#64ffda]">Design → Code Specialist</p>
                 </div>
-
-                {/* Name overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-xl font-bold text-[#e6f1ff]">Srabon Mozumder</p>
-                  <p className="text-sm text-[#64ffda]">Design → Code Specialist</p>
+                <div className="flex items-center gap-1 text-[11px] font-mono text-[#a0aec0] bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#64ffda]" />
+                  <span>3.5+ Yrs</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Who I Am */}
-          <GlassCard className="md:col-span-7">
-            <CardHead icon={User} title="Who I Am" />
-            <p className="mb-4 text-base leading-relaxed text-[#a0aec0] sm:text-lg">
-              I&apos;m an outcome-focused <span className="font-semibold text-[#64ffda]">Frontend Developer</span> with <span className="font-semibold text-[#64ffda]">3.5 years</span> of experience delivering <span className="font-semibold text-[#64ffda]">25+ production web applications</span> across 5 countries — US, UK, France, Colombia and Bangladesh — using <span className="font-semibold text-[#38bdf8]">React.js, TypeScript, and Next.js</span>.
-            </p>
-            <p className="text-base leading-relaxed text-[#a0aec0] sm:text-lg">
-              I translate Figma designs into pixel-perfect, scalable interfaces with <span className="font-semibold text-[#38bdf8]">Tailwind CSS and SCSS</span>, manage state with <span className="font-semibold text-[#64ffda]">Redux, Zustand, and Context API</span>, and integrate REST and Gemini AI APIs for real-time data. I handle manual and cross-browser testing (Jest, React Testing Library) and motion design with Framer Motion and GSAP — collaborating closely with design, backend, and QA on every release.
-            </p>
-            <div className="mt-auto flex flex-wrap gap-2 pt-6">
-              {techPills.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-lg border border-[#64ffda]/15 bg-[#64ffda]/[0.06] px-3 py-1.5 text-xs font-medium text-[#9fb3c8]"
-                >
-                  {tech}
-                </span>
-              ))}
+            {/* Quick Profile Meta Grid */}
+            <div className="grid grid-cols-2 gap-3 shrink-0">
+              <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-3 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-[#64ffda]/10 text-[#64ffda] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase font-mono text-[#a0aec0] tracking-wider">Base</p>
+                  <p className="text-xs font-semibold text-[#e6f1ff] truncate">Dhaka, Bangladesh</p>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-3 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] flex items-center justify-center shrink-0">
+                  <Briefcase className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] uppercase font-mono text-[#a0aec0] tracking-wider">Recent</p>
+                  <p className="text-xs font-semibold text-[#e6f1ff] truncate">Ex-Luminous Labs</p>
+                </div>
+              </div>
             </div>
-          </GlassCard>
+          </motion.div>
 
-          {/* Quick facts */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:col-span-7">
-            {quickFacts.map((fact) => (
-              <div
-                key={fact.label}
-                className="group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.025] p-5 backdrop-blur-xl transition-colors hover:border-[#64ffda]/30"
-              >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#64ffda]/50 to-transparent" />
-                <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-[#64ffda]/70">
-                  <fact.icon className="h-3.5 w-3.5" />
-                  {fact.label}
-                </span>
-                <p className="mt-2 flex items-center gap-2 text-sm font-semibold leading-snug text-[#e6f1ff]">
-                  {fact.live && (
-                    <span className="relative flex h-2 w-2 shrink-0">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ade80] opacity-75" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#4ade80]" />
-                    </span>
-                  )}
-                  {fact.value}
+          {/* Card 2: Who I Am & What I Do (7 Cols) */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-white/10 bg-[#112240]/40 backdrop-blur-xl p-6 sm:p-8 lg:p-9 shadow-2xl relative overflow-hidden group hover:border-[#38bdf8]/40 transition-all duration-500"
+          >
+            {/* Top ambient glow */}
+            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 bg-[#38bdf8]/15 rounded-full blur-3xl pointer-events-none group-hover:bg-[#38bdf8]/25 transition-all duration-500" />
+
+            <div className="space-y-6">
+              {/* Header with Title and Availability Status */}
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20 border border-[#64ffda]/30 flex items-center justify-center text-[#64ffda] shadow-md shadow-[#64ffda]/10">
+                    <Code2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#e6f1ff] tracking-tight !mb-0">
+                      Who I Am &amp; What I Do
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#a0aec0] mt-0.5">
+                      Frontend Specialist · Design to Code
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 bg-[#0A0F1A]/80 border border-emerald-500/20 px-3.5 py-1.5 rounded-full text-xs text-emerald-300 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Open for Opportunities</span>
+                </div>
+              </div>
+
+              {/* Narrative Story (User-Friendly, Readable, Spacious) */}
+              <div className="space-y-4 text-sm sm:text-base text-[#cbd5e1] leading-relaxed">
+                <p>
+                  I&apos;m a dedicated <strong className="text-[#64ffda] font-semibold">Frontend Developer</strong> with <strong className="text-white font-semibold">3.5+ years of experience</strong> crafting modern, responsive web applications for startups, founders, and companies across <strong className="text-[#38bdf8] font-semibold">8+ countries</strong> — including the US, UK, Canada, Australia, Germany, France, and Bangladesh.
+                </p>
+                <p>
+                  My core focus is taking complex <strong className="text-[#38bdf8] font-semibold">Figma design systems</strong> and engineering them into fluid, pixel-perfect, and accessible code using <strong className="text-[#64ffda] font-semibold">React, Next.js, TypeScript, and Tailwind CSS</strong>. From scalable component architecture to state management (Redux, Zustand) and real-time REST / Gemini AI API integrations, I build interfaces that convert and scale.
                 </p>
               </div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Row 2 — what I do + how I build */}
-        <motion.div
-          className="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:gap-5 md:grid-cols-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <GlassCard className="md:col-span-7">
-            <CardHead icon={Code2} title="What I Do" />
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {whatIDo.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#64ffda]/25 hover:bg-white/[0.045]"
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#64ffda]/20 to-[#38bdf8]/20">
-                    <item.icon className="h-4 w-4 text-[#64ffda]" />
-                  </span>
-                  <span className="text-sm leading-relaxed text-[#a0aec0]">{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </GlassCard>
-
-          <GlassCard className="md:col-span-5">
-            <CardHead icon={Zap} title="How I Build" accent="#38bdf8" />
-            <ol className="space-y-4">
-              {howIBuild.map((step, i) => (
-                <li key={i} className="relative flex gap-4">
-                  {i < howIBuild.length - 1 && (
-                    <span className="pointer-events-none absolute -bottom-4 left-4 top-9 w-px -translate-x-1/2 bg-gradient-to-b from-[#38bdf8]/40 to-transparent" />
-                  )}
-                  <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-[#38bdf8]/30 bg-[#38bdf8]/10 font-mono text-xs font-bold text-[#38bdf8]">
-                    {i + 1}
-                  </span>
-                  <p className="pt-1 text-sm leading-relaxed text-[#a0aec0]">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </GlassCard>
-        </motion.div>
-
-        {/* Row 3 — best fit banner + focus areas */}
-        <motion.div
-          className="group relative mt-4 overflow-hidden rounded-[1.5rem] border border-[#64ffda]/25 bg-gradient-to-br from-[#64ffda]/[0.12] via-white/[0.02] to-[#38bdf8]/[0.12] p-6 sm:mt-5 sm:p-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[#64ffda]/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
-
-          <div className="relative z-10 grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-10">
-            <div className="lg:col-span-7">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#64ffda]/30 bg-[#0A0F1A]/40">
-                  <Sparkles className="h-5 w-5 text-[#64ffda]" />
+              {/* 3 User-Friendly Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 transition-all duration-300 hover:border-[#64ffda]/30 hover:bg-white/[0.04]">
+                  <div className="w-8 h-8 rounded-lg bg-[#64ffda]/10 text-[#64ffda] flex items-center justify-center mb-3">
+                    <Code2 className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#e6f1ff] mb-1">Pixel-Perfect</h4>
+                  <p className="text-xs text-[#a0aec0] leading-relaxed">
+                    1:1 Figma translation with fluid responsive breakpoints on all devices.
+                  </p>
                 </div>
-                <h3 className="!mb-0 text-lg font-bold text-[#e6f1ff]">Best Fit</h3>
-              </div>
-              <p className="text-base leading-relaxed text-[#cbd5e1]">
-                Give me a Figma file with clear specs, and I&apos;ll deliver <span className="font-semibold text-[#64ffda]">responsive React/Next.js code</span> your team can build on. Accurate, clean, and ready for production.
-              </p>
-              <a
-                href="#contact"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#64ffda] to-[#38bdf8] px-6 py-3 text-sm font-bold text-[#0A0F1A]! transition-transform duration-300 hover:scale-[1.03]"
-              >
-                Let&apos;s build together
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </div>
 
-            <div className="lg:col-span-5">
-              <span className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-[#64ffda]/70">
-                <Target className="h-3.5 w-3.5" />
-                Focus areas
-              </span>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {focusAreas.map((area) => (
+                <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 transition-all duration-300 hover:border-[#38bdf8]/30 hover:bg-white/[0.04]">
+                  <div className="w-8 h-8 rounded-lg bg-[#38bdf8]/10 text-[#38bdf8] flex items-center justify-center mb-3">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#e6f1ff] mb-1">State &amp; APIs</h4>
+                  <p className="text-xs text-[#a0aec0] leading-relaxed">
+                    Clean Redux/Zustand state management and seamless REST/AI data pipelines.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 transition-all duration-300 hover:border-[#a855f7]/30 hover:bg-white/[0.04]">
+                  <div className="w-8 h-8 rounded-lg bg-[#a855f7]/10 text-[#c084fc] flex items-center justify-center mb-3">
+                    <Zap className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#e6f1ff] mb-1">Fast &amp; Reliable</h4>
+                  <p className="text-xs text-[#a0aec0] leading-relaxed">
+                    60fps smooth animations, optimized Web Vitals, and thorough cross-browser QA.
+                  </p>
+                </div>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {[
+                  "Clean TypeScript Architecture",
+                  "Mobile-First Responsive",
+                  "SEO & Performance Optimized",
+                  "Cross-Browser Tested",
+                ].map((badge, bIdx) => (
                   <span
-                    key={area}
-                    className="rounded-xl border border-white/[0.1] bg-[#0A0F1A]/40 px-3.5 py-2 text-xs font-medium text-[#cbd5e1] backdrop-blur-sm transition-colors hover:border-[#64ffda]/35"
+                    key={bIdx}
+                    className="inline-flex items-center gap-1.5 text-xs text-[#a0aec0] bg-[#0A0F1A]/60 border border-white/[0.08] px-3 py-1.5 rounded-lg"
                   >
-                    {area}
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#64ffda]" />
+                    <span>{badge}</span>
                   </span>
                 ))}
               </div>
             </div>
-          </div>
-        </motion.div>
+
+            {/* Bottom Actions Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-6 mt-8 border-t border-white/10">
+              <div className="flex items-center gap-2 text-xs text-[#a0aec0]">
+                <Globe2 className="w-4 h-4 text-[#38bdf8]" />
+                <span>Available for Global Remote Roles &amp; Contracts</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="/cv/Srabon_Mozumder.pdf"
+                  download
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#64ffda]/30 bg-[#64ffda]/10 px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#64ffda] hover:bg-[#64ffda] hover:text-[#0A0F1A] transition-all duration-300 shadow-sm"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Resume (PDF)</span>
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#64ffda] to-[#38bdf8] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#0A0F1A]! hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#64ffda]/15"
+                >
+                  <span>Let&apos;s Connect</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ================= BENTO GRID ROW 2: 4 Modern Glow Stats ================= */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
+          {impactStats.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-white/10 bg-[#112240]/40 backdrop-blur-xl p-5 sm:p-6 relative overflow-hidden group hover:border-[#64ffda]/40 transition-all duration-300 hover:-translate-y-1 shadow-lg"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.03] rounded-bl-full pointer-events-none group-hover:bg-[#64ffda]/10 transition-colors" />
+              <p
+                className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}
+              >
+                {item.num}
+              </p>
+              <h4 className="text-sm sm:text-base font-bold text-[#e6f1ff] mt-2">{item.label}</h4>
+              <p className="text-xs text-[#a0aec0] mt-0.5">{item.sub}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ================= BENTO GRID ROW 3: 3 Core Engineering Disciplines ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {disciplines.map((card, i) => {
+            const Icon = card.icon
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                viewport={{ once: true }}
+                className="rounded-3xl border border-white/10 bg-[#112240]/40 backdrop-blur-xl p-6 sm:p-7 relative overflow-hidden group hover:border-[#64ffda]/40 transition-all duration-500 hover:-translate-y-1 flex flex-col justify-between shadow-xl"
+              >
+                {/* Accent top gradient line */}
+                <span
+                  className="pointer-events-none absolute inset-x-8 top-0 h-px opacity-50 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${card.accent}, transparent)`,
+                  }}
+                />
+
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center border transition-transform duration-300 group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${card.accent}15`,
+                        borderColor: `${card.accent}35`,
+                      }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: card.accent }} />
+                    </div>
+                    <span
+                      className="text-[11px] font-mono font-semibold uppercase tracking-wider px-3 py-1 rounded-full border"
+                      style={{
+                        color: card.accent,
+                        backgroundColor: `${card.accent}10`,
+                        borderColor: `${card.accent}30`,
+                      }}
+                    >
+                      {card.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#e6f1ff] mb-2.5 group-hover:text-white transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#a0aec0] leading-relaxed mb-6">
+                    {card.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.07]">
+                  {card.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="text-[11px] font-medium text-[#cbd5e1] bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-lg"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
