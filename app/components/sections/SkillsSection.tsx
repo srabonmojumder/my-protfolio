@@ -678,56 +678,6 @@ export default function SkillsSection() {
               </path>
             </g>
 
-            {/* Orbit Tracks & Orbiting Satellite Dot */}
-            <circle
-              cx="720"
-              cy="280"
-              r="105"
-              stroke="#38bdf8"
-              strokeWidth="1.2"
-              strokeOpacity="0.45"
-              fill="none"
-            />
-            <circle
-              cx="720"
-              cy="280"
-              r="86"
-              stroke="#64ffda"
-              strokeWidth="1.5"
-              strokeOpacity="0.75"
-              filter="url(#neon-cyan)"
-              fill="none"
-            />
-
-            <g transform="translate(720, 280)">
-              <g>
-                <circle cx="105" cy="0" r="5" fill="#38bdf8" filter="url(#neon-sky)" />
-                <circle cx="105" cy="0" r="2.5" fill="#ffffff" />
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0"
-                  to="360"
-                  dur="12s"
-                  repeatCount="indefinite"
-                />
-              </g>
-            </g>
-
-            <g transform="translate(720, 280)">
-              <g>
-                <circle cx="-86" cy="0" r="3.5" fill="#64ffda" filter="url(#neon-cyan)" />
-                <circle cx="-86" cy="0" r="1.5" fill="#ffffff" />
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="360"
-                  to="0"
-                  dur="8s"
-                  repeatCount="indefinite"
-                />
-              </g>
-            </g>
           </svg>
 
           {/* ======================================================== */}
