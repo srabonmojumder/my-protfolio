@@ -105,8 +105,8 @@ export const stats: Stat[] = [
     bgColor: "bg-[#38bdf8]/10",
   },
   {
-    number: "5",
-    label: "Countries Served — US, UK, France, Colombia and Bangladesh",
+    number: "8+",
+    label: "Countries Served — US, UK, Canada, Australia, Germany, France, and Bangladesh",
     icon: Globe,
     color: "from-[#64ffda] to-[#38bdf8]",
     bgColor: "bg-[#64ffda]/10",
@@ -277,9 +277,9 @@ export const workExperiences: WorkExperience[] = [
     location: "Dhaka, Bangladesh",
     type: "Full-time",
     description:
-      "Built production frontends for SaaS, AI, POS, CRM and marketplace platforms for clients across 5 countries.",
+      "Built production frontends for SaaS, AI, POS, CRM and marketplace platforms for clients across 8+ countries.",
     responsibilities: [
-      "Delivered 20+ responsive, cross-device UIs with React.js, TypeScript, Next.js and SCSS for clients across 5 countries — cutting design-to-code cycle time ~30% through reusable TypeScript component libraries",
+      "Delivered 20+ responsive, cross-device UIs with React.js, TypeScript, Next.js and SCSS for clients across 8+ countries — cutting design-to-code cycle time ~30% through reusable TypeScript component libraries",
       "Converted 100+ Figma screens into pixel-perfect production code; built and maintained 50+ reusable components using Redux, Zustand and Context API across multiple live products",
       "Integrated 10+ REST APIs and Gemini AI services for real-time data rendering across 4 SaaS platforms",
       "Ran manual and cross-browser testing on 8+ projects with Jest and React Testing Library, resolving 100+ pre-release UI bugs alongside QA",
@@ -509,5 +509,5 @@ export const skillStats = [
   { label: "Years Experience", value: "3.5", icon: Award },
   { label: "Core Technologies", value: String(skills.length), icon: Code },
   { label: "Projects Delivered", value: "25+", icon: Rocket },
-  { label: "Countries Served", value: "5", icon: Users },
+  { label: "Countries Served", value: "8+", icon: Users },
 ]

@@ -108,7 +108,7 @@ export default function Footer() {
 
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-[#8892b0]">
               Frontend Developer with 3.5 years of experience in React, Next.js, and TypeScript —
-              25+ production web applications delivered across 5 countries. I turn Figma designs
+              25+ production web applications delivered across 8+ countries. I turn Figma designs
               into clean, production-ready interfaces.
             </p>
 

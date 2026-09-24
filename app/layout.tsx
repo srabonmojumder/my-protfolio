@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Srabon Mozumder",
   },
   description:
-    "Outcome-focused Frontend Developer with 3.5 years of experience delivering 25+ production web applications across 5 countries. Expert in React.js, TypeScript, and Next.js — turning Figma designs into pixel-perfect, scalable interfaces with Tailwind CSS and SCSS, powered by REST and Gemini AI API integration.",
+    "Outcome-focused Frontend Developer with 3.5 years of experience delivering 25+ production web applications across 8+ countries. Expert in React.js, TypeScript, and Next.js — turning Figma designs into pixel-perfect, scalable interfaces with Tailwind CSS and SCSS, powered by REST and Gemini AI API integration.",
   keywords: [
     "Srabon Mozumder",
     "Frontend Developer",
