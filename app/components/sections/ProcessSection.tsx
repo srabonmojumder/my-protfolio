@@ -1,9 +1,6 @@
 "use client"
 
-import { useEffect, useLayoutEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { CheckCircle } from "lucide-react"
 import { processSteps } from "../../constants/data"
 
@@ -15,85 +12,20 @@ const accents = [
   { from: "#38bdf8", to: "#0ea5e9" }, // sky
 ]
 
-const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect
-
 export default function ProcessSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const lineRef = useRef<HTMLDivElement>(null)
-
-  useIsoLayoutEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    gsap.registerPlugin(ScrollTrigger)
-    const mm = gsap.matchMedia(container)
-
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      if (lineRef.current) {
-        gsap.fromTo(
-          lineRef.current,
-          { scaleY: 0, transformOrigin: "top center" },
-          {
-            scaleY: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: container,
-              start: "top 75%",
-              end: "bottom 85%",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-
-      const steps = container.querySelectorAll("[data-process-step]")
-      steps.forEach((step) => {
-        const node = step.querySelector("[data-step-node]")
-        const card = step.querySelector("[data-step-card]")
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: step,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        })
-
-        if (node) {
-          tl.fromTo(
-            node,
-            { scale: 0.6, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.8)" }
-          )
-        }
-
-        if (card) {
-          tl.fromTo(
-            card,
-            { opacity: 0, y: 30, scale: 0.96 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out" },
-            "-=0.25"
-          )
-        }
-      })
-    })
-
-    return () => mm.revert()
-  }, [])
-
   return (
     <section
-      ref={containerRef}
+      id="process"
       className="py-16 sm:py-20 lg:py-24 relative overflow-hidden px-4 sm:px-6 lg:px-8 bg-[#0A0F1A]"
     >
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Header */}
         <motion.div
           className="text-center mb-14 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/20 bg-[#64ffda]/5 px-4 py-1.5 mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#64ffda]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#64ffda]" />
@@ -112,9 +44,13 @@ export default function ProcessSection() {
           {/* Track line background */}
           <div className="pointer-events-none absolute top-2 bottom-2 w-0.5 left-[27px] md:left-1/2 md:-translate-x-1/2 bg-white/[0.08]" />
 
-          {/* GSAP Scroll-driven line */}
-          <div
-            ref={lineRef}
+          {/* Animated line */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            style={{ originY: 0 }}
             className="pointer-events-none absolute top-2 bottom-2 w-0.5 left-[27px] md:left-1/2 md:-translate-x-1/2 bg-gradient-to-b from-[#64ffda] via-[#38bdf8] to-[#64ffda] shadow-[0_0_12px_rgba(100,255,218,0.4)] z-10"
           />
 
@@ -130,22 +66,31 @@ export default function ProcessSection() {
             return (
               <div
                 key={index}
-                data-process-step
                 className={`relative md:w-1/2 ${index > 0 ? "mt-8 md:mt-6" : ""} ${isLeft ? "" : "md:ml-auto"}`}
               >
                 {/* Horizontal connector from line to card */}
-                <div
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.35, delay: 0.05, ease: "easeOut" }}
+                  style={{
+                    background: `${accent.from}aa`,
+                    originX: isLeft ? 1 : 0,
+                  }}
                   className={`absolute z-[15] h-0.5 rounded-full top-[59px] md:top-1/2 md:-translate-y-1/2 ${
                     isLeft
                       ? "left-[27px] w-9 md:left-auto md:right-[9px] md:w-10"
                       : "left-[27px] w-9 md:left-[9px] md:w-10"
                   }`}
-                  style={{ background: `${accent.from}aa` }}
                 />
 
-                {/* Node on the line (GSAP animated) */}
-                <div
-                  data-step-node
+                {/* Node on the line */}
+                <motion.div
+                  initial={{ scale: 0.7, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   className={`absolute z-20 left-[27px] top-8 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2 ${nodePos}`}
                 >
                   <div className="relative">
@@ -173,12 +118,17 @@ export default function ProcessSection() {
                       {process.step}
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Card (GSAP animated) */}
-                <div className={`pl-16 ${isLeft ? "md:pl-0 md:pr-12" : "md:pl-12"}`}>
+                {/* Card */}
+                <motion.div
+                  initial={{ opacity: 0, x: isLeft ? -25 : 25, y: 15 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: 0.05, ease: "easeOut" }}
+                  className={`pl-16 ${isLeft ? "md:pl-0 md:pr-12" : "md:pl-12"}`}
+                >
                   <div
-                    data-step-card
                     className="group relative overflow-hidden rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 shadow-xl"
                     style={{
                       borderColor: `${accent.from}44`,
@@ -213,8 +163,12 @@ export default function ProcessSection() {
                       Step {index + 1}
                     </span>
 
-                    <h3 className="relative mt-4 text-xl font-bold text-[#e6f1ff] group-hover:text-white transition-colors">{process.title}</h3>
-                    <p className="relative mt-2 text-sm leading-relaxed text-[#a0aec0]">{process.description}</p>
+                    <h3 className="relative mt-4 text-xl font-bold text-[#e6f1ff] group-hover:text-white transition-colors">
+                      {process.title}
+                    </h3>
+                    <p className="relative mt-2 text-sm leading-relaxed text-[#a0aec0]">
+                      {process.description}
+                    </p>
 
                     {process.tag && (
                       <span
@@ -229,22 +183,24 @@ export default function ProcessSection() {
                       </span>
                     )}
                   </div>
-                </div>
+                </motion.div>
               </div>
             )
           })}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#64ffda]/15 to-[#38bdf8]/15 backdrop-blur-sm border border-[#64ffda]/20 rounded-full px-6 py-3">
             <CheckCircle className="w-5 h-5 text-[#64ffda]" />
-            <span className="text-[#a0aec0]">Average turnaround: <span className="text-[#64ffda] font-semibold">3-7 days</span></span>
+            <span className="text-[#a0aec0]">
+              Average turnaround: <span className="text-[#64ffda] font-semibold">3-7 days</span>
+            </span>
           </div>
         </motion.div>
       </div>
